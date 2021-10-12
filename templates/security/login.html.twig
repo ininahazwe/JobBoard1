@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-login.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+{#<form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -35,5 +35,144 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
-</form>
+    <a href="{{ path('connect_google') }}" class="btn btn-lg btn-primary" type="submit">Se connecter avec google</a>
+</form>#}
+    <div class="page-wrapper">
+
+        {#<!-- Preloader -->
+        <div class="preloader"></div>#}
+
+        <!-- Main Header-->
+        <header class="main-header">
+            <div class="container-fluid">
+                <!-- Main box -->
+                <div class="main-box">
+                    <!--Nav Outer -->
+                    <div class="nav-outer">
+                        <div class="logo-box">
+                            <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+                        </div>
+                    </div>
+
+                    <div class="outer-box">
+                        <!-- Login/Register -->
+                        <div class="btn-box">
+                            <a href="{{ path('app_login') }}" class="theme-btn btn-style-three call-modal">Login / Register</a>
+                            <a href="{{ path('dashboard') }}" class="theme-btn btn-style-one"><span class="btn-title">Job Post</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+            </div>
+
+            <!-- Mobile Nav -->
+            <div id="nav-mobile"></div>
+        </header>
+        <!--End Main Header -->
+
+        <!-- Info Section -->
+        <div class="login-section">
+            <div class="image-layer" style="background-image: url('images/background/12.jpg');"></div>
+            <div class="outer-box">
+                <!-- Login Form -->
+                <div class="login-form default-form">
+                    <div class="form-inner">
+                        <h3>Connectez-vous à Talents Handicap</h3>
+                        <!--Login Form-->
+                        <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                </div>
+                            {% endif %}
+
+                            <div class="form-group">
+                                <label for="inputEmail">Email</label>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                            </div>
+
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+
+                            <div class="form-group">
+                                <div class="field-outer">
+                                    <div class="input-group checkboxes square">
+                                        <input type="checkbox" name="_remember_me" id="remember">
+                                        <label for="remember" class="remember"><span class="custom-checkbox"></span> Se souvenir de moi</label>
+                                    </div>
+                                    <a href="{{ path('app_forgot_password_request') }}" class="pwd">Mot de passe oublié?</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="theme-btn btn-style-one" type="submit" name="log-in">Se connecter</button>
+                            </div>
+                        </form>
+
+                        <div class="bottom-box">
+                            <div class="text">Vous n'avez pas de compte? <a href="{{ path('app_register') }}">Inscrivez-vous</a></div>
+                            <div class="divider"><span>ou</span></div>
+                            <div class="btn-box row">
+                                <div class="col-lg-6 col-md-12">
+                                    <a href="#" class="theme-btn social-btn-two facebook-btn"><i class="fab fa-facebook-f"></i> Log In via Facebook</a>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <a href="#" class="theme-btn social-btn-two google-btn"><i class="fab fa-google"></i> Log In via Gmail</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Login Form -->
+            </div>
+        </div>
+        <!-- End Info Section -->
+    </div><!-- End Page Wrapper -->
 {% endblock %}
+
+{#<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+
+   <div class="checkbox mb-3">
+       <label>
+           <input type="checkbox" name="_remember_me">Se souvenir de moi
+       </label>
+   </div>
+
+    <div>
+        <a href="{{ path('app_forgot_password_request') }}">Réinitialiser le mot de passe</a>
+    </div>
+
+    <button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+    </button>
+    <a href="{{ path('connect_google') }}" class="btn btn-lg btn-primary" type="submit">Se connecter avec google</a>
+</form>#}
