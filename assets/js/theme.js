@@ -3,7 +3,6 @@ import './popper.min';
 import './chosen.min';
 /*import './bootstrap';*/
 import './jquery.fancybox';
-import './jquery.countdown';
 import './jquery.modal.min';
 import './jquery-ui.min';
 import './mmenu.polyfills';
@@ -11,6 +10,8 @@ import './mmenu';
 import './appear';
 import './anm.min';
 import './owl';
+import './wow';
+import './script';
 
 
 import './chart.min';
@@ -22,6 +23,5 @@ import './markerclusterer';
 import './respond';
 import './select2.min';
 import './validate';
-import './wow';
-import './script';
+
 

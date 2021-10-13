@@ -1,11 +1,69 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-login.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}Lien de réinitialisation du mot de passe envoyé{% endblock %}
 
 {% block body %}
-    <p>
-        i un compte correspondant à votre adresse e-mail existe, alors un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
-        Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Si vous ne recevez pas d'e-mail, vérifiez votre dossier de courrier indésirable (spam) ou <a href="{{ path('app_forgot_password_request') }}">réessayez</a>.</p>
+    <div class="page-wrapper">
+        {#<!-- Preloader -->
+        <div class="preloader"></div>#}
+        {% for flashError in app.flashes('reset_password_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <!-- Main Header-->
+        <header class="main-header">
+            <div class="container-fluid">
+                <!-- Main box -->
+                <div class="main-box">
+                    <!--Nav Outer -->
+                    <div class="nav-outer">
+                        <div class="logo-box">
+                            <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+                        </div>
+                    </div>
+
+                    <div class="outer-box">
+                        <!-- Login/Register -->
+                        <div class="btn-box">
+                            {% if app.user %}
+                                <a href="{{ path('dashboard') }}" class="theme-btn btn-style-one"><span class="btn-title">Job Post</span></a>
+                            {% else %}
+                                <a href="{{ path('app_login') }}" class="theme-btn btn-style-three call-modal">Login / Register</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+            </div>
+
+            <!-- Mobile Nav -->
+            <div id="nav-mobile"></div>
+        </header>
+        <!--End Main Header -->
+
+        <!-- Info Section -->
+        <div class="login-section">
+            <div class="image-layer" style="background-image: url('images/background/12.jpg');"></div>
+            <div class="outer-box">
+                <!-- reset Form -->
+                <div class="login-form default-form">
+                    <div class="form-inner">
+                        <!--reset Form-->
+                        <blockquote class="blockquote-style-one mb-5 mt-5">
+                            <p>Un compte correspondant à votre adresse e-mail existe, alors un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe.
+                                Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+                            <cite>Si vous ne recevez pas d'e-mail, vérifiez votre dossier de courrier indésirable (spam) ou <a href="{{ path('app_forgot_password_request') }}">réessayez</a>.</cite>
+                        </blockquote>
+                    </div>
+                </div>
+                <!--End Login Form -->
+            </div>
+        </div>
+        <!-- End Info Section -->
+    </div><!-- End Page Wrapper -->
 {% endblock %}
+
+

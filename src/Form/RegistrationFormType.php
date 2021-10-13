@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,7 +21,14 @@ class RegistrationFormType extends AbstractType {
         $builder
                 ->add('nom', TextType::class)
                 ->add('prenom', TextType::class)
-                ->add('email', TextType::class)
+                ->add('email', EmailType::class, [
+                        'required'      => true,
+                        'attr' => [
+                                'autofocus' => true,
+                                'placeholder' => 'Email',
+                                'autocomplete' => 'disabled'
+                        ]
+                ])
                 ->add('civilite',  ChoiceType::class, [
                         'choices' => User::getGenreName()
                 ])

@@ -1,12 +1,71 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-login.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}Réinitialisation du mot de passe{% endblock %}
 
 {% block body %}
-    <h1>Réinitialisation du mot de passe</h1>
+    <div class="page-wrapper">
+        {#<!-- Preloader -->
+        <div class="preloader"></div>#}
+        {% for flashError in app.flashes('reset_password_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <!-- Main Header-->
+        <header class="main-header">
+            <div class="container-fluid">
+                <!-- Main box -->
+                <div class="main-box">
+                    <!--Nav Outer -->
+                    <div class="nav-outer">
+                        <div class="logo-box">
+                            <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+                        </div>
+                    </div>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.password) }}
-        <button class="btn btn-primary">Réinitialiser le mot de passe</button>
-    {{ form_end(resetForm) }}
+                    <div class="outer-box">
+                        <!-- Login/Register -->
+                        <div class="btn-box">
+                            {% if app.user %}
+                                <a href="{{ path('dashboard') }}" class="theme-btn btn-style-one"><span class="btn-title">Job Post</span></a>
+                            {% else %}
+                                <a href="{{ path('app_login') }}" class="theme-btn btn-style-three call-modal">Login / Register</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+            </div>
+
+            <!-- Mobile Nav -->
+            <div id="nav-mobile"></div>
+        </header>
+        <!--End Main Header -->
+
+        <!-- Info Section -->
+        <div class="login-section">
+            <div class="image-layer" style="background-image: url('images/background/12.jpg');"></div>
+            <div class="outer-box">
+                <!-- reset Form -->
+                <div class="login-form default-form">
+                    <div class="form-inner">
+                        <!--reset Form-->
+                        {{ form_start(resetForm) }}
+                        <div class="form-group">{{ form_row(resetForm.password) }}</div>
+
+                        <div class="form-group">
+                            <button class="theme-btn btn-style-one " type="submit" name="Register">Valider</button>
+                        </div>
+                        {{ form_end(resetForm) }}
+                    </div>
+                </div>
+                <!--End Login Form -->
+            </div>
+        </div>
+        <!-- End Info Section -->
+    </div><!-- End Page Wrapper -->
 {% endblock %}
+
+

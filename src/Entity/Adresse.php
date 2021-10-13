@@ -38,6 +38,11 @@ class Adresse
      */
     private ?string $complement;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Profile::class, inversedBy="adresse")
+     */
+    private $profile;
+
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable('now');
     }
@@ -98,6 +103,18 @@ class Adresse
     public function setComplement(?string $complement): self
     {
         $this->complement = $complement;
+
+        return $this;
+    }
+
+    public function getProfile(): ?Profile
+    {
+        return $this->profile;
+    }
+
+    public function setProfile(?Profile $profile): self
+    {
+        $this->profile = $profile;
 
         return $this;
     }

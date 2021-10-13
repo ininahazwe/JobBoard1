@@ -55,7 +55,7 @@ class RegistrationController extends AbstractController
 
             $this->addFlash('success', "Veuillez consulter votre messagerie pour vous connecter !");
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -84,7 +84,7 @@ class RegistrationController extends AbstractController
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('dashboard');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates

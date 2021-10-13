@@ -9,10 +9,10 @@
 
     </head>
     <body data-anm=".anm">
-    <div class="page-wrapper">
+    <div class="page-wrapper dashboard">
         <!-- Preloader -->
         {#<div class="preloader"></div>#}
-        {{ include('layouts/header.html.twig') }}
+        {{ include('dashboard/header-dashboard.html.twig') }}
         {{ include('partials/flashbag.html.twig') }}
         {% block body %}{% endblock %}
         {{ include('layouts/footer.html.twig') }}

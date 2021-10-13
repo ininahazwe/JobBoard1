@@ -1,22 +1,87 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-login.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <div class="page-wrapper">
+        {#<!-- Preloader -->
+        <div class="preloader"></div>#}
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <!-- Main Header-->
+        <header class="main-header">
+            <div class="container-fluid">
+                <!-- Main box -->
+                <div class="main-box">
+                    <!--Nav Outer -->
+                    <div class="nav-outer">
+                        <div class="logo-box">
+                            <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+                        </div>
+                    </div>
 
-    <h1>Register</h1>
+                    <div class="outer-box">
+                        <!-- Login/Register -->
+                        <div class="btn-box">
+                            {% if app.user %}
+                                <a href="{{ path('dashboard') }}" class="theme-btn btn-style-one"><span class="btn-title">Job Post</span></a>
+                            {% else %}
+                                <a href="{{ path('app_login') }}" class="theme-btn btn-style-three call-modal">Login / Register</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.civilite) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.password) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
+            </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            <!-- Mobile Nav -->
+            <div id="nav-mobile"></div>
+        </header>
+        <!--End Main Header -->
+
+        <!-- Info Section -->
+        <div class="login-section">
+            <div class="image-layer" style="background-image: url('images/background/12.jpg');"></div>
+            <div class="outer-box">
+                <!-- Login Form -->
+                <div class="login-form default-form">
+                    <div class="form-inner">
+                        <h3>Créez votre compte Talents Handicap</h3>
+                        <!--Login Form-->
+                        {{ form_start(registrationForm) }}
+                            <div class="form-group">{{ form_row(registrationForm.civilite) }}</div>
+                            <div class="form-group">{{ form_row(registrationForm.nom) }}</div>
+                            <div class="form-group">{{ form_row(registrationForm.prenom) }}</div>
+                            <div class="form-group">{{ form_row(registrationForm.email) }}</div>
+                            <div class="form-group">{{ form_row(registrationForm.password) }}</div>
+                            <div class="form-group">{{ form_row(registrationForm.agreeTerms) }}</div>
+                            <div class="form-group">
+                                <button class="theme-btn btn-style-one " type="submit" name="Register">Valider</button>
+                            </div>
+                        {{ form_end(registrationForm) }}
+
+                        <div class="bottom-box">
+                            <div class="divider"><span>ou</span></div>
+                            <div class="btn-box row">
+                                <div class="col-lg-6 col-md-12">
+                                    <a href="#" class="theme-btn social-btn-two facebook-btn"><i class="fab fa-facebook-f"></i> via Facebook</a>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <a href="#" class="theme-btn social-btn-two google-btn"><i class="fab fa-google"></i> via Gmail</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Login Form -->
+            </div>
+        </div>
+        <!-- End Info Section -->
+    </div><!-- End Page Wrapper -->
 {% endblock %}
+
