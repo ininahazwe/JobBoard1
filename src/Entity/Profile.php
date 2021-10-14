@@ -46,7 +46,7 @@ class Profile
     private ?string $portfolio;
 
     /**
-     * @ORM\OneToMany(targetEntity=File::class, mappedBy="profile")
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="profile", cascade={"persist"})
      */
     private Collection $photo;
 

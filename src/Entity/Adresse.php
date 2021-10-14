@@ -41,7 +41,7 @@ class Adresse
     /**
      * @ORM\ManyToOne(targetEntity=Profile::class, inversedBy="adresse")
      */
-    private $profile;
+    private ?Profile $profile;
 
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable('now');

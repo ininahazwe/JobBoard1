@@ -1,10 +1,12 @@
+<!-- Sidebar Backdrop -->
+<div class="sidebar-backdrop"></div>
 <!-- User Sidebar -->
 <div class="user-sidebar">
 
     <div class="sidebar-inner">
         <ul class="navigation">
             <li class="active"><a href="{{ path('dashboard') }}"> <i class="la la-home"></i> Dashboard</a></li>
-            <li><a href="candidate-dashboard-profile.html"><i class="la la-user-tie"></i>My Profile</a></li>
+            <li><a href="{{ path('user_profile_edit', {'id': app.user.profile.id}) }}"><i class="la la-user-tie"></i>My Profile</a></li>
             <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i>My Resume</a></li>
             <li><a href="candidate-dashboard-applied-job.html"><i class="la la-briefcase"></i> Applied Jobs </a></li>
             <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Job Alerts</a></li>

@@ -14,7 +14,10 @@
         {#<div class="preloader"></div>#}
         {{ include('dashboard/header-dashboard.html.twig') }}
         {{ include('partials/flashbag.html.twig') }}
-        {% block body %}{% endblock %}
+        {{ include('dashboard/sidebar-candidat.html.twig') }}
+        {% block body %}
+
+        {% endblock %}
         {{ include('layouts/footer.html.twig') }}
     </div>
 

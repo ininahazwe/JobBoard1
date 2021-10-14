@@ -62,6 +62,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private ?Profile $profile;
 
+    /**
+     * @ORM\OneToOne(targetEntity=CV::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $cV;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -299,6 +304,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->profile = $profile;
+
+        return $this;
+    }
+
+    public function getCV(): ?CV
+    {
+        return $this->cV;
+    }
+
+    public function setCV(?CV $cV): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($cV === null && $this->cV !== null) {
+            $this->cV->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($cV !== null && $cV->getUser() !== $this) {
+            $cV->setUser($this);
+        }
+
+        $this->cV = $cV;
 
         return $this;
     }
