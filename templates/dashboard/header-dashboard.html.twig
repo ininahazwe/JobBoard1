@@ -198,10 +198,12 @@
                 <!-- Dashboard Option -->
                 <div class="dropdown dashboard-option">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
-                        {% if app.user.profile.photo %}
-                            {% for avatar in app.user.profile.photo %}
+                        {% if user.profile.photo %}
+                            {% for avatar in user.profile.photo %}
                                 {% if loop.last %}
                                     <img src="{{ asset('uploads/' ~ avatar.nom) }}" alt="avatar" class="thumb">
+                                {% else %}
+                                    <img src="{{ asset('uploads/avatar.png') }}" alt="avatar" class="thumb">
                                 {% endif %}
                             {% endfor %}
                         {% endif %}
