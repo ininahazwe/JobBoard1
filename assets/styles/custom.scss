@@ -1,3 +1,21 @@
 #profile_dateNaissance_time_hour {
   display: none;
 }
+
+.table.custom > thead {
+  vertical-align: bottom;
+  background: #F5F7FC;
+  border-radius: 8px;
+  color: #1967D2;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 30px;
+  white-space: nowrap;
+  padding: 20px 30px;
+  border: none;
+}
+
+.table.custom td {
+  border-top: 1px solid #ECEDF2;
+  color: #696969;
+}

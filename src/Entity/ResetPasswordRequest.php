@@ -15,7 +15,6 @@ class ResetPasswordRequest implements ResetPasswordRequestInterface
     use ResetPasswordRequestTrait;
 
     use ResourceId;
-    use Timestapable;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)

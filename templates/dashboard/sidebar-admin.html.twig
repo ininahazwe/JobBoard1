@@ -6,11 +6,11 @@
     <div class="sidebar-inner">
         <ul class="navigation">
             <li class="active"><a href="{{ path('dashboard') }}"> <i class="la la-home"></i> Dashboard</a></li>
-            <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i>Entreprises</a></li>
+            <li><a href="{{ path('user_index') }}"><i class="la la-user-tie"></i>Utilisateurs</a></li>
             <li><a href="{{ path('dictionnaire_index') }}"><i class="la la-paper-plane"></i>Dictionnaire</a></li>
             <li><a href="dashboard-manage-job.html"><i class="la la-briefcase"></i> Offres d'emploi </a></li>
             <li><a href="dashboard-applicants.html"><i class="la la-file-invoice"></i> Candidatures</a></li>
-            <li><a href="dashboard-resumes.html"><i class="la la-bookmark-o"></i>Shortlisted Resumes</a></li>
+            <li><a href="{{ path('cv_index') }}"><i class="la la-bookmark-o"></i>CVthèque</a></li>
             <li><a href="dashboard-packages.html"><i class="la la-box"></i>Offres commerciales</a></li>
             <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>
             <li><a href="dashboard-resume-alerts.html"><i class="la la-bell"></i>Resume Alerts</a></li>

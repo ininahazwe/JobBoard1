@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form.cV) }}
+    {{ form_widget(form.NomLibre) }}
+    <button class="theme-btn btn-style-one small">{{ button_label|default('Save') }}</button>
+{{ form_end(form, {'render_rest': false}) }}

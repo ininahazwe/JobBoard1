@@ -15,13 +15,12 @@ import './knob';
 import './script';
 
 import './chart.min';
-import './infobox.min';
+/*import './infobox.min';*/
 
-import './maps';
-import './map-script';
+/*import './maps';*/
+/*import './map-script';*/
 import './markerclusterer';
-import './respond';
+/*import './respond';*/
 import './select2.min';
 import './validate';
-
 

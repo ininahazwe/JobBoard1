@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\File;
 use App\Entity\Profile;
-use App\Entity\User;
 use App\Form\ProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,20 +27,36 @@ class AccountController extends AbstractController
     public function edit(Request $request, Profile $profile): Response
     {
         $user = $this->getUser();
-
         $form = $this->createForm(ProfileType::class, $profile);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('profile_index', [], Response::HTTP_SEE_OTHER);
+            $images = $form->get('photo')->getData();
+            foreach($images as $image){
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $nomFichier = $image->getClientOriginalName();
+                $image->move($this->getParameter('files_directory'), $fichier);
+                $img = new File();
+                $img->setUser($user);
+                $img->setNom($fichier);
+                $img->setNomFichier($nomFichier);
+                $img->setType(File::TYPE_AVATAR);
+                $profile->addPhoto($img);
+            }
+
+            $profile->updateTimestamps();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($profile);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Mise à jour réussie');
         }
 
         return $this->renderForm('profile/edit.html.twig', [
                 'profile' => $profile,
                 'form' => $form,
-                'user' => $user
         ]);
     }
 }
