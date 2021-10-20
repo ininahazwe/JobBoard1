@@ -65,11 +65,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?Profile $profile;
 
     /**
-     * @ORM\OneToOne(targetEntity=CV::class, mappedBy="user", cascade={"persist", "remove"})
-     */
-    private ?CV $cV;
-
-    /**
      * @ORM\OneToMany(targetEntity=File::class, mappedBy="user", cascade={"persist"})
      */
     private Collection $files;
@@ -316,30 +311,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCV(): ?CV
-    {
-        return $this->cV;
-    }
-
-    public function setCV(?CV $cV): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($cV === null && $this->cV !== null) {
-            $this->cV->setUser(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($cV !== null && $cV->getUser() !== $this) {
-            $cV->setUser($this);
-        }
-
-        $this->cV = $cV;
-
-        return $this;
-    }
-
     /**
-     * @return Collection|File[]
+     * @return Collection
      */
     public function getFiles(): Collection
     {
