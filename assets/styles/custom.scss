@@ -19,3 +19,22 @@
   border-top: 1px solid #ECEDF2;
   color: #696969;
 }
+
+.image-container{
+  width: 150px;
+  height: 150px;
+  background-size: 150px;
+  background-position: center;
+  font-size: 16px;
+  position: relative;
+}
+
+.supprimer-image {
+  position: absolute;
+  background: #fff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

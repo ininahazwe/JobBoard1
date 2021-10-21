@@ -6,7 +6,7 @@
             <!--Nav Outer -->
             <div class="nav-outer">
                 <div class="logo-box">
-                    <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/logoTH.svg') }}" alt="" title=""></a></div>
+                    <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('images/new-logoth.png') }}" alt="" title=""></a></div>
                 </div>
 
                 <nav class="nav main-menu">
@@ -184,7 +184,7 @@
             <div class="outer-box">
                 <!-- Add Listing -->
                 {% if app.user and app.user.isCandidat() %}
-                <a href="{{ path('file_new_cv') }}" class="upload-cv"> Upload your CV</a>
+                <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="upload-cv"> Upload your CV</a>
                 {% endif %}
                 <!-- Login/Register -->
                 <div class="btn-box">

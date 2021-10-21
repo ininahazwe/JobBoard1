@@ -19,6 +19,17 @@ class ProfileRepository extends ServiceEntityRepository
         parent::__construct($registry, Profile::class);
     }
 
+    /**
+     * @return mixed
+     */
+    public function findAllCandidates(): mixed
+    {
+        return $this->createQueryBuilder('p')
+                ->orderBy('p.user.role', 'ASC')
+                ->andWhere('p.user.role IN (:roles)')
+                ->setParameter('role', 'ROLE_CANDIDAT')
+                ->getQuery()->getResult();
+    }
     // /**
     //  * @return Profile[] Returns an array of Profile objects
     //  */

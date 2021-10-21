@@ -1,0 +1,29 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Gestionnaire de cv{% endblock %}
+
+{% block body %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="upper-title-box">
+                <h3>Cv Manager</h3>
+                <div class="text">Ready to jump back in?</div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <!-- CV Manager Widget -->
+                    <div class="cv-manager-widget ls-widget">
+                        <div class="widget-title"><h4>Cv Manager</h4></div>
+                        <div class="widget-content">
+                            <div class="mb-3">
+                            {{ include('profile/_cv_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}

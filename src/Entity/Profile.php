@@ -67,17 +67,17 @@ class Profile
     private ?User $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profiles")
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesContrat")
      */
     private ?Dictionnaire $typeContrat;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profiles")
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesSecteur")
      */
     private ?Dictionnaire $secteurActivite;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profiles")
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesEntretien")
      */
     private ?Dictionnaire $typeEntretien;
 
@@ -101,11 +101,22 @@ class Profile
      */
     private ?bool $isConditionsUtilisation;
 
+    /**
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="cv_candidat", cascade={"persist"})
+     */
+    private Collection $cv;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesDiplome")
+     */
+    private ?Dictionnaire $typeDiplome;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
         $this->photo = new ArrayCollection();
         $this->adresse = new ArrayCollection();
+        $this->cv = new ArrayCollection();
     }
 
     public function getDescription(): ?string
@@ -356,4 +367,45 @@ class Profile
         return $this->getUser();
     }
 
+    /**
+     * @return Collection
+     */
+    public function getCv(): Collection
+    {
+        return $this->cv;
+    }
+
+    public function addCv(File $cv): self
+    {
+        if (!$this->cv->contains($cv)) {
+            $this->cv[] = $cv;
+            $cv->setCvCandidat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCv(File $cv): self
+    {
+        if ($this->cv->removeElement($cv)) {
+            // set the owning side to null (unless already changed)
+            if ($cv->getCvCandidat() === $this) {
+                $cv->setCvCandidat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTypeDiplome(): ?Dictionnaire
+    {
+        return $this->typeDiplome;
+    }
+
+    public function setTypeDiplome(?Dictionnaire $typeDiplome): self
+    {
+        $this->typeDiplome = $typeDiplome;
+
+        return $this;
+    }
 }

@@ -1,0 +1,21 @@
+{{ form_start(form, { 'attr': {'class': 'default-form'} }) }}
+<div class="row">
+    {{ form_row(form.cv) }}
+    {% if app.request.attributes.get('_route') == 'profile_my_cv' %}
+    <div class="files-outer">
+        {% for cv in profile.getCv() %}
+            <div class="file-edit-box">
+                <span class="title">{{ cv.nom|slice(1, 10) }}</span>
+                <span class="la la-file-pdf"></span>
+                <div class="edit-btns">
+                    <a href="{{ path('profile_delete_files', {id: cv.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ cv.id) }}"><span class="la la-trash"></span></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="form-group col-lg-6 col-md-12">
+        <button class="theme-btn btn-style-one" type="submit">Enregistrer</button>
+    </div>
+</div>
+{{ form_end(form, {'render_rest': false}) }}
