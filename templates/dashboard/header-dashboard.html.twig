@@ -203,7 +203,6 @@
                             {% for avatar in app.user.profile.photo %}
                                 {% if loop.last %}
                                     <img src="{{ asset('uploads/' ~ avatar.nom) }}" alt="avatar" class="thumb">
-
                                 {% endif %}
                             {% endfor %}
                         {% else %}

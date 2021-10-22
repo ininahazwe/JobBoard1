@@ -3,9 +3,9 @@
     {{ form_row(form.cv) }}
     {% if app.request.attributes.get('_route') == 'profile_my_cv' %}
     <div class="files-outer">
-        {% for cv in profile.getCv() %}
+        {% for cv in app.user.profile.getCv() %}
             <div class="file-edit-box">
-                <span class="title">{{ cv.nom|slice(1, 10) }}</span>
+                <span class="title">{{ cv.nomFichier }}</span>
                 <span class="la la-file-pdf"></span>
                 <div class="edit-btns">
                     <a href="{{ path('profile_delete_files', {id: cv.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ cv.id) }}"><span class="la la-trash"></span></a>

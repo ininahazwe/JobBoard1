@@ -124,7 +124,7 @@ class Profile
     /**
      * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesLangues")
      */
-    private ?Dictionnaire $Langues;
+    private ?Dictionnaire $langues;
 
     /**
      * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesNiveau")
@@ -460,12 +460,12 @@ class Profile
 
     public function getLangues(): ?Dictionnaire
     {
-        return $this->Langues;
+        return $this->langues;
     }
 
-    public function setLangues(?Dictionnaire $Langues): self
+    public function setLangues(?Dictionnaire $langues): self
     {
-        $this->Langues = $Langues;
+        $this->langues = $langues;
 
         return $this;
     }
