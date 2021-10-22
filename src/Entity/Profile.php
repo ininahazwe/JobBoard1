@@ -111,6 +111,31 @@ class Profile
      */
     private ?Dictionnaire $typeDiplome;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $ville;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $code_postal;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesLangues")
+     */
+    private ?Dictionnaire $Langues;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesNiveau")
+     */
+    private ?Dictionnaire $niveau;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="profilesZoneGeographique")
+     */
+    private ?Dictionnaire $zonegeographique;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
@@ -405,6 +430,66 @@ class Profile
     public function setTypeDiplome(?Dictionnaire $typeDiplome): self
     {
         $this->typeDiplome = $typeDiplome;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->code_postal;
+    }
+
+    public function setCodePostal(?string $code_postal): self
+    {
+        $this->code_postal = $code_postal;
+
+        return $this;
+    }
+
+    public function getLangues(): ?Dictionnaire
+    {
+        return $this->Langues;
+    }
+
+    public function setLangues(?Dictionnaire $Langues): self
+    {
+        $this->Langues = $Langues;
+
+        return $this;
+    }
+
+    public function getNiveau(): ?Dictionnaire
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(?Dictionnaire $niveau): self
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    public function getZonegeographique(): ?Dictionnaire
+    {
+        return $this->zonegeographique;
+    }
+
+    public function setZonegeographique(?Dictionnaire $zonegeographique): self
+    {
+        $this->zonegeographique = $zonegeographique;
 
         return $this;
     }

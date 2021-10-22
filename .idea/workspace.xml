@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/src/Form/CvType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile/_cv_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/footer-dashboard.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/custom.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/header-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/header-dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file/_cv_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file/new_cv.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/new_cv.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/footer.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +201,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/file" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/layouts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -213,17 +209,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\layouts" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\file" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\cv" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\dashboard" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\uploads" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\dashboard" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images\background" />
     </key>
   </component>
@@ -252,7 +248,8 @@
       <workItem from="1634658718520" duration="43000" />
       <workItem from="1634711644473" duration="20205000" />
       <workItem from="1634740209054" duration="4776000" />
-      <workItem from="1634798150558" duration="13917000" />
+      <workItem from="1634798150558" duration="13941000" />
+      <workItem from="1634884450668" duration="7058000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -317,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634723182739</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="readme">
+      <created>1634829831536</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634829831536</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

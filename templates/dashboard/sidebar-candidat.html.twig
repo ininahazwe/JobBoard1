@@ -6,7 +6,7 @@
     <div class="sidebar-inner">
         <ul class="navigation">
             <li class="active"><a href="{{ path('dashboard') }}"> <i class="la la-home"></i> Dashboard</a></li>
-            <li>{% if app.user.profile %}<a href="{{ path('user_profile_edit', {'id': app.user.profile.id}) }}"><i class="la la-user-tie"></i>My Profile</a>
+            <li>{% if app.user.profile %}<a href="{{ path('user_profile_edit', {'id': app.user.profile.id}) }}"><i class="la la-user-tie"></i>Mon profile</a>
                 {% else %}<a href="{{ path('profile_new') }}"><i class="la la-user-tie"></i>Créer mon profile</a>{% endif %}
             </li>
             <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i>My Resume</a></li>
