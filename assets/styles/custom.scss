@@ -38,3 +38,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+#forum_dateOuverture_time_hour,
+#profile_dateNaissance_time_hour,
+#forum_dateFermeture_time_hour,
+#forum_date_fermeture_candidature_time_hour{
+  display: none;
+}

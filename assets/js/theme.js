@@ -24,3 +24,4 @@ import './markerclusterer';
 import './select2.min';
 import './validate';
 
+import './multi-step-form'
