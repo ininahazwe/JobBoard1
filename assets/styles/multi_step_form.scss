@@ -1,4 +1,4 @@
-stepwizard-step p {
+.stepwizard-step p {
   margin-top: 10px;
 }
 
@@ -36,11 +36,11 @@ stepwizard-step p {
 }
 
 .btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
+  width: 30px !important;
+  height: 30px !important;
+  text-align: center !important;
+  padding: 6px 0 !important;
+  font-size: 12px !important;
+  line-height: 1.428571429 !important;
+  border-radius: 15px !important;
 }

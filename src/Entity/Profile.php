@@ -136,6 +136,11 @@ class Profile
      */
     private ?Dictionnaire $zonegeographique;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="dureeExperiences")
+     */
+    private ?Dictionnaire $experiences;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
@@ -490,6 +495,18 @@ class Profile
     public function setZonegeographique(?Dictionnaire $zonegeographique): self
     {
         $this->zonegeographique = $zonegeographique;
+
+        return $this;
+    }
+
+    public function getExperiences(): ?Dictionnaire
+    {
+        return $this->experiences;
+    }
+
+    public function setExperiences(?Dictionnaire $experiences): self
+    {
+        $this->experiences = $experiences;
 
         return $this;
     }

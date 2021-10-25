@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/assets/js/multi-step-form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/AppExtension.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/multi-step-form.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/multi-step-form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +248,7 @@
       <workItem from="1634740209054" duration="4776000" />
       <workItem from="1634798150558" duration="13941000" />
       <workItem from="1634884450668" duration="21561000" />
-      <workItem from="1635145237407" duration="10407000" />
+      <workItem from="1635145237407" duration="20581000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -336,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634917501080</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="readme">
+      <created>1635165558558</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1635165558558</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
