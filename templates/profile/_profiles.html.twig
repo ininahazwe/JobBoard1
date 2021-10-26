@@ -1,0 +1,3 @@
+{% for profile in profiles %}
+    {% include 'profile/_card.html.twig' with {profile: profile} only %}
+{% endfor %}

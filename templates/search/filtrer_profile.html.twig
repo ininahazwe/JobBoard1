@@ -1,0 +1,27 @@
+{{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+
+<div class="spinner-border js-loading" role="status" aria-hidden="true" style="display: none">
+    <span class="sr-only">Loading...</span>
+</div>
+
+{{ form_row(form.q) }}
+<div class="checkbox-outer margin-top-10">
+    <ul class="checkboxes square">
+        <li>
+            {{ form_row(form.zonegeographique) }}
+        </li>
+    </ul>
+</div>
+<div class="checkbox-outer margin-top-10">
+    <ul class="checkboxes square">
+        <li>
+            {{ form_row(form.typeDiplome) }}
+        </li>
+    </ul>
+</div>
+
+
+
+<button type="submit" class="btn btn-primary w-100">Filtrer</button>
+
+{{ form_end(form) }}

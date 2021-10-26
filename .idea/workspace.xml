@@ -2,11 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
+      <change afterPath="$PROJECT_DIR$/assets/js/Filter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/paginator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/SearchDataProfile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Search/SearchProfileForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/bulma_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/filtration.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/foundation_v5_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/foundation_v6_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/materialize_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/semantic_ui_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/semantic_ui_sortable_link.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/sliding.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/sortable_link.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/tailwindcss_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_v3_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_v3_sortable_link.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_v4_filtration.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_v4_font_awesome_sortable_link.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_v4_material_design_icons_sortable_link.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/twitter_bootstrap_v4_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/uikit_v3_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination/uikit_v3_sortable.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/_card.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/_pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/_profiles.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/filtrer_agenda.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/filtrer_annuaire.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/filtrer_blog.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/filtrer_entreprise.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/multi-step-form.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/multi-step-form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +225,8 @@
       <path value="$PROJECT_DIR$/vendor/league/oauth2-google" />
       <path value="$PROJECT_DIR$/vendor/symfony/ux-dropzone" />
       <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="ProjectId" id="1zDLJIHESMMoxQyaeW8RsGMFHtw" />
@@ -199,7 +240,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/layouts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -207,15 +248,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\pagination" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\layouts" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\file" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\dashboard" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\dashboard" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\uploads" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images\background" />
@@ -248,7 +289,8 @@
       <workItem from="1634740209054" duration="4776000" />
       <workItem from="1634798150558" duration="13941000" />
       <workItem from="1634884450668" duration="21561000" />
-      <workItem from="1635145237407" duration="20581000" />
+      <workItem from="1635145237407" duration="20630000" />
+      <workItem from="1635230461555" duration="21970000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -341,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635165558558</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="readme">
+      <created>1635176878754</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1635176878754</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

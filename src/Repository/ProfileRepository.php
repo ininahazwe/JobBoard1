@@ -2,9 +2,13 @@
 
 namespace App\Repository;
 
+use App\Data\SearchDataProfile;
 use App\Entity\Profile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method Profile|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +18,11 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProfileRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
+    private PaginatorInterface $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator) {
         parent::__construct($registry, Profile::class);
+        $this->paginator = $paginator;
     }
 
     /**
@@ -30,32 +36,41 @@ class ProfileRepository extends ServiceEntityRepository
                 ->setParameter('role', 'ROLE_CANDIDAT')
                 ->getQuery()->getResult();
     }
-    // /**
-    //  * @return Profile[] Returns an array of Profile objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    /**
+     * @param SearchDataProfile $search
+     * @return PaginationInterface
+     */
+    public function findSearch(SearchDataProfile $search): PaginationInterface {
+        $query = $this->getSearchQuery($search)->getQuery();
+        return $this->paginator->paginate(
+                $query,
+                $search->page,
+                1
+        );
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Profile
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+    public function getSearchQuery(SearchDataProfile $search): QueryBuilder {
+        $query = $this
+                ->createQueryBuilder('p');
         ;
+
+        if (!empty($search->q)) {
+            $query
+                    ->andWhere('p.description LIKE :q')
+                    ->setParameter('q', "%" . $search->q . "%");
+        }
+        if(!empty($search->typeDiplome)){
+            $query = $query
+                    ->innerJoin('p.typeDiplome', 'd')
+                    ->andWhere('d.id IN (:typeDiplome)')
+                    ->setParameter('typeDiplome', $search->typeDiplome);
+        }
+        if(!empty($search->zonegeographique)){
+            $query = $query
+                    ->innerJoin('p.zonegeographique', 'd')
+                    ->andWhere('d.id IN (:zonegeographique)')
+                    ->setParameter('zonegeographique', $search->zonegeographique);
+        }
+        return $query;
     }
-    */
 }

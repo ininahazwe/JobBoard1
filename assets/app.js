@@ -20,6 +20,8 @@ import './js/theme';
 
 import 'datatables.net';
 import 'datatables.net-bs4';
+import Filter from "./js/Filter";
+
 
 $(document).ready( function () {
     $('#datatable').DataTable({
@@ -45,3 +47,5 @@ $(document).ready( function () {
         }
     });
 });
+
+new Filter(document.querySelector('.js-filter'))

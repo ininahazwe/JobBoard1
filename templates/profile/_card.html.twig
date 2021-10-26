@@ -1,0 +1,27 @@
+<div class="job-block-two col-lg-12" id="profile-{{ profile.id }}">
+    <div class="inner-box">
+        <div class="content">
+            {% if profile.photo %}
+                <span class="company-logo"><img src="{{ asset('/uploads/' ~ profile.photo.last().nom) }}" alt=""></span>
+            {% else %}
+                <span class="company-logo"><img src="{{ asset('uploads/avatar.png') }}" alt=""></span>
+            {% endif %}
+            <h4><a href="{{ path('profile_show', {'id': profile.id}) }}">{{ profile.getUser.fullname|capitalize }}</a></h4>
+            <ul class="job-info">
+                {% if profile.cv|length %}
+                    <li><a href="{{ asset('/uploads/' ~ profile.cv.last().nom) }}" title="Telecharger {{ profile.cv.last().getNomFichier() }}"><span class="icon flaticon-briefcase"></span>
+                        </a></li>
+                {% endif %}
+                <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                <li><span class="icon flaticon-clock-3"></span> Mise à jour : {{ profile.updatedAt|date('d-m-Y')}} </li>
+                <li><span class="icon flaticon-money"></span> $35k - $45k</li>
+            </ul>
+        </div>
+        <ul class="job-other-info">
+            {% if profile.secteurActivite %}<li class="privacy">{{ profile.secteurActivite }}</li>{% endif %}
+            {% if profile.secteurActivite %}<li class="required">{{ profile.typeContrat }}</li>{% endif %}
+            {% if profile.secteurActivite %}<li class="time">{{ profile.typeDiplome }}</li>{% endif %}
+        </ul>
+        <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+    </div>
+</div>
