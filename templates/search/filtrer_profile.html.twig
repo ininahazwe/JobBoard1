@@ -1,3 +1,52 @@
+
+{{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+{# <form method="post" action="" class="filter js-filter-form">#}
+    <div class="spinner-border js-loading" role="status" aria-hidden="true" style="display: none">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <div class="row">
+        <!-- Form Group -->
+        <div class="form-group col-lg-4 col-md-12 col-sm-12">
+            <span class="icon flaticon-search-1"></span>
+            {{ form_row(form.q) }}
+        </div>
+
+        <!-- Form Group -->
+        <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
+            <span class="icon flaticon-map-locator"></span>
+            <input type="text" name="field_name" placeholder="City or postcode">
+        </div>
+
+        <!-- Form Group -->
+        <div class="form-group col-lg-3 col-md-12 col-sm-12 category">
+            <span class="icon flaticon-briefcase"></span>
+            <select class="chosen-select">
+                <option value="">All Categories</option>
+                <option value="44">Accounting / Finance</option>
+                <option value="106">Automotive Jobs</option>
+                <option value="46">Customer</option>
+                <option value="48">Design</option>
+                <option value="47">Development</option>
+                <option value="45">Health and Care</option>
+                <option value="105">Marketing</option>
+                <option value="107">Project Management</option>
+            </select>
+        </div>
+        <!-- Form Group -->
+        <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+            <button type="submit" class="theme-btn btn-style-one">Trouver</button>
+        </div>
+    </div>
+
+<script>
+
+</script>
+
+{# </form> #}
+{{ form_end(form, {'render_rest': false}) }}
+
+{#
 {{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
 
 <div class="spinner-border js-loading" role="status" aria-hidden="true" style="display: none">
@@ -24,4 +73,10 @@
 
 <button type="submit" class="btn btn-primary w-100">Filtrer</button>
 
-{{ form_end(form) }}
+{{ form_end(form) }}#}
+
+<script>
+    new TomSelect("#select-state",{
+        maxItems: 3
+    });
+</script>

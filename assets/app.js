@@ -8,8 +8,6 @@
 // any CSS you import will output into a single css file (app.scss in this case)
 import './styles/app.scss';
 
-
-
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
 
@@ -49,3 +47,6 @@ $(document).ready( function () {
 });
 
 new Filter(document.querySelector('.js-filter'))
+
+const config = {};
+new TomSelect('#tom-select-it',config);

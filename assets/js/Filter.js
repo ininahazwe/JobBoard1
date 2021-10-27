@@ -1,5 +1,6 @@
 import {URLSearchParams} from "core-js/modules/web.url-search-params";
 import {Flipper, spring} from "flip-toolkit";
+
 /**
  * @property {HTMLElement} pagination
  * @property {HTMLElement} content
@@ -97,6 +98,7 @@ export default class Filter {
     /**
      * Remplace les éléments de la grille avec un effet d'animation flip
      * @param {string} content
+     * @param append
      */
 
     flipContent (content, append){
@@ -133,7 +135,8 @@ export default class Filter {
         const flipper = new Flipper({
             element: this.content
         })
-        this.content.children.forEach(element => {
+
+       /* this.content.children.forEach(element => {
             flipper.addFlipped({
                 element,
                 springConfig,
@@ -142,13 +145,13 @@ export default class Filter {
                 onExit: exitSpring
             })
         })
-        flipper.recordBeforeUpdate()
+        flipper.recordBeforeUpdate()*/
         if(append){
             this.content.innerHTML += content
         } else {
             this.content.innerHTML = content
         }
-        this.content.children.forEach(element => {
+        /*this.content.children.forEach(element => {
             flipper.addFlipped({
                 element,
                 springConfig,
@@ -156,7 +159,7 @@ export default class Filter {
                 onAppear: appearSpring
             })
         })
-        flipper.update()
+        flipper.update()*/
     }
 
     showLoader(){

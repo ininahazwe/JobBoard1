@@ -56,10 +56,16 @@ class ProfileRepository extends ServiceEntityRepository
 
         if (!empty($search->q)) {
             $query
-                    ->andWhere('p.description LIKE :q')
+                    ->innerJoin('p.user', 'u' )
+                    ->andWhere("CONCAT(u.nom, ' ', u.prenom) LIKE :q OR u.email LIKE :q OR p.description LIKE :q")
                     ->setParameter('q', "%" . $search->q . "%");
         }
         if(!empty($search->typeDiplome)){
+/*            $idsDiplomas = array();
+            foreach($search->typeDiplome as $diplome){
+                $idsDiplomas[] = $diplome->getId();
+            }*/
+
             $query = $query
                     ->innerJoin('p.typeDiplome', 'd')
                     ->andWhere('d.id IN (:typeDiplome)')
