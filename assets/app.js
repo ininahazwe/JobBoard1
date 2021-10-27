@@ -47,6 +47,3 @@ $(document).ready( function () {
 });
 
 new Filter(document.querySelector('.js-filter'))
-
-const config = {};
-new TomSelect('#tom-select-it',config);

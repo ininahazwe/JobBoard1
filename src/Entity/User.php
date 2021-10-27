@@ -286,14 +286,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
     }
 
-    /**
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return $this->getFullname();
-    }
-
     public function getProfile(): ?Profile
     {
         return $this->profile;
@@ -340,4 +332,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getFullname();
+    }
+
 }

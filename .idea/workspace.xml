@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/assets/js/tom-select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/tom-select.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/select2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/tom-select.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/tom-select.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Search/SearchProfileForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Search/SearchProfileForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +255,7 @@
       <workItem from="1634884450668" duration="21561000" />
       <workItem from="1635145237407" duration="20630000" />
       <workItem from="1635230461555" duration="21983000" />
-      <workItem from="1635316331111" duration="11439000" />
+      <workItem from="1635316331111" duration="23792000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -366,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635262283559</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="readme">
+      <created>1635329068655</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1635329068655</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

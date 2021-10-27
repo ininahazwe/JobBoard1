@@ -17,7 +17,7 @@ class SearchProfileForm extends AbstractType {
                         'label' => false,
                         'required' => false,
                         'attr' => [
-                                'placeholder' => 'Rechercher'
+                                'placeholder' => 'Rechercher par nom, prenom et email'
                         ]
                 ])
                 ->add('typeDiplome', EntityType::class, [
