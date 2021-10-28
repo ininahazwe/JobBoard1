@@ -390,14 +390,6 @@ class Profile
     }
 
     /**
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return $this->getUser();
-    }
-
-    /**
      * @return Collection
      */
     public function getCv(): Collection
@@ -509,5 +501,13 @@ class Profile
         $this->experiences = $experiences;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getUser();
     }
 }
