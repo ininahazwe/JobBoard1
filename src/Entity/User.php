@@ -69,10 +69,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $files;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Blog::class, mappedBy="auteur")
+     */
+    private $blogs;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
         $this->files = new ArrayCollection();
+        $this->blogs = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -339,6 +345,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString(): string
     {
         return $this->getFullname();
+    }
+
+    /**
+     * @return Collection|Blog[]
+     */
+    public function getBlogs(): Collection
+    {
+        return $this->blogs;
+    }
+
+    public function addBlog(Blog $blog): self
+    {
+        if (!$this->blogs->contains($blog)) {
+            $this->blogs[] = $blog;
+            $blog->addAuteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlog(Blog $blog): self
+    {
+        if ($this->blogs->removeElement($blog)) {
+            $blog->removeAuteur($this);
+        }
+
+        return $this;
     }
 
 }
