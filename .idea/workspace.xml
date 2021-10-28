@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
+      <change afterPath="$PROJECT_DIR$/public/images/resource/network.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/tom-select.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/tom-select.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Search/SearchProfileForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Search/SearchProfileForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-dashboard.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,11 +213,11 @@
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\public\images\resource" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles\template" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\dashboard" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\public\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,7 +249,8 @@
       <workItem from="1634884450668" duration="21561000" />
       <workItem from="1635145237407" duration="20630000" />
       <workItem from="1635230461555" duration="21983000" />
-      <workItem from="1635316331111" duration="23792000" />
+      <workItem from="1635316331111" duration="23823000" />
+      <workItem from="1635402573057" duration="6417000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -369,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635329068655</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="readme">
+      <created>1635350065335</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1635350065335</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
