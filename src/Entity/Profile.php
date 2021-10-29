@@ -141,12 +141,24 @@ class Profile
      */
     private ?Dictionnaire $experiences;
 
+    /**
+     * @ORM\OneToMany(targetEntity=CvFormation::class, mappedBy="profile")
+     */
+    private Collection $cvformation;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CvExperience::class, mappedBy="profile")
+     */
+    private Collection $cvexperiences;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
         $this->photo = new ArrayCollection();
         $this->adresse = new ArrayCollection();
         $this->cv = new ArrayCollection();
+        $this->cvformation = new ArrayCollection();
+        $this->cvexperiences = new ArrayCollection();
     }
 
     public function getDescription(): ?string
@@ -509,5 +521,65 @@ class Profile
     public function __toString(): string
     {
         return $this->getUser();
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getFormation(): Collection
+    {
+        return $this->cvformation;
+    }
+
+    public function addFormation(CvFormation $formation): self
+    {
+        if (!$this->cvformation->contains($formation)) {
+            $this->cvformation[] = $formation;
+            $formation->setProfile($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormation(CvFormation $formation): self
+    {
+        if ($this->cvformation->removeElement($formation)) {
+            // set the owning side to null (unless already changed)
+            if ($formation->getProfile() === $this) {
+                $formation->setProfile(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCvexperiences(): Collection
+    {
+        return $this->cvexperiences;
+    }
+
+    public function addCvexperience(CvExperience $cvexperience): self
+    {
+        if (!$this->cvexperiences->contains($cvexperience)) {
+            $this->cvexperiences[] = $cvexperience;
+            $cvexperience->setProfile($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCvexperience(CvExperience $cvexperience): self
+    {
+        if ($this->cvexperiences->removeElement($cvexperience)) {
+            // set the owning side to null (unless already changed)
+            if ($cvexperience->getProfile() === $this) {
+                $cvexperience->setProfile(null);
+            }
+        }
+
+        return $this;
     }
 }

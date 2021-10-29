@@ -1,3 +1,8 @@
+{% if app.request.attributes.get('_route') == 'blog_show' %}
+<!-- Header Span -->
+<span class="header-span"></span>
+{% endif %}
+
 <!-- Main Header-->
 <header class="main-header header-style-three">
     <div class="container-fluid">

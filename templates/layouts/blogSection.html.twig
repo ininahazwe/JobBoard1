@@ -7,53 +7,30 @@
         </div>
 
         <div class="row wow fadeInUp">
+            {% for blog in blogs %}
             <!-- News Block -->
             <div class="news-block col-lg-4 col-md-6 col-sm-12">
                 <div class="inner-box">
                     <div class="image-box">
-                        <figure class="image"><img src="images/resource/news-1.jpg" alt="" /></figure>
+                        <figure class="image">
+                            {% if blog.images %}
+                                {% for image in blog.images %}
+                                    {% if loop.first %}
+                                        <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </figure>
                     </div>
                     <div class="lower-content">
                         <ul class="post-meta">
-                            <li><a href="#">August 31, 2021</a></li>
-                            <li><a href="#">12 Comment</a></li>
+                            <li><a href="#">{{ blog.createdAt|date('d-m-Y') }}</a></li>
                         </ul>
-                        <h3><a href="blog-single.html">Attract Sales And Profits</a></h3>
+                        <h3><a href="{{ path('blog_show', {'slug': blog.slug}) }}">{{ blog.titre|striptags|slice(0, 43) }}</a></h3>
                     </div>
                 </div>
             </div>
-
-            <!-- News Block -->
-            <div class="news-block col-lg-4 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="images/resource/news-2.jpg" alt="" /></figure>
-                    </div>
-                    <div class="lower-content">
-                        <ul class="post-meta">
-                            <li><a href="#">August 31, 2021</a></li>
-                            <li><a href="#">12 Comment</a></li>
-                        </ul>
-                        <h3><a href="blog-single.html">5 Tips For Your Job Interviews</a></h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- News Block -->
-            <div class="news-block col-lg-4 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="images/resource/news-3.jpg" alt="" /></figure>
-                    </div>
-                    <div class="lower-content">
-                        <ul class="post-meta">
-                            <li><a href="#">August 31, 2021</a></li>
-                            <li><a href="#">12 Comment</a></li>
-                        </ul>
-                        <h3><a href="blog-single.html">An Overworked Newspaper Editor</a></h3>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
