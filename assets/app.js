@@ -20,6 +20,7 @@ import 'datatables.net';
 import 'datatables.net-bs4';
 import Filter from "./js/Filter";
 
+//new WOW().init();
 
 $(document).ready( function () {
     $('#datatable').DataTable({

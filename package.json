@@ -28,6 +28,7 @@
         "datatables.net-bs4": "^1.11.3",
         "datatables.net-dt": "^1.11.3",
         "flip-toolkit": "^7.0.13",
-        "postcss-loader": "^6.1.1"
+        "postcss-loader": "^6.1.1",
+        "wowjs": "^1.1.3"
     }
 }

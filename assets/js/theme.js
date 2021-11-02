@@ -10,7 +10,7 @@ import './mmenu';
 import './appear';
 import './anm.min';
 import './owl';
-import './wow';
+//import './wow';
 import './knob';
 import './script';
 

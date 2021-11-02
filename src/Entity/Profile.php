@@ -151,6 +151,16 @@ class Profile
      */
     private Collection $cvformations;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $lien_video;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="competences")
+     */
+    private $tags;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
@@ -159,6 +169,7 @@ class Profile
         $this->cv = new ArrayCollection();
         $this->cvexperiences = new ArrayCollection();
         $this->cvformations = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getDescription(): ?string
@@ -578,6 +589,45 @@ class Profile
             if ($cvformation->getProfile() === $this) {
                 $cvformation->setProfile(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getLienVideo(): ?string
+    {
+        return $this->lien_video;
+    }
+
+    public function setLienVideo(?string $lien_video): self
+    {
+        $this->lien_video = $lien_video;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+            $tag->addCompetence($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        if ($this->tags->removeElement($tag)) {
+            $tag->removeCompetence($this);
         }
 
         return $this;

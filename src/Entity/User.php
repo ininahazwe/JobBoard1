@@ -72,7 +72,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\ManyToMany(targetEntity=Blog::class, mappedBy="auteur")
      */
-    private $blogs;
+    private Collection $blogs;
 
     public function __construct()
     {
@@ -348,7 +348,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Blog[]
+     * @return Collection
      */
     public function getBlogs(): Collection
     {
