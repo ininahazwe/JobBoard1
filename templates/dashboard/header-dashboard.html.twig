@@ -201,8 +201,8 @@
 
                         {% if app.user.profile and app.user.profile.photo|length %}
                             {% for avatar in app.user.profile.photo %}
-                                {% if loop.last %}
-                                    <img src="{{ asset('uploads/' ~ avatar.nom) }}" alt="avatar" class="thumb">
+                                {% if avatar.type is same as 1 %}
+                                    {% if loop.first %}<img src="{{ asset('uploads/' ~ avatar.nom) }}" alt="avatar" class="thumb">{% endif %}
                                 {% endif %}
                             {% endfor %}
                         {% else %}

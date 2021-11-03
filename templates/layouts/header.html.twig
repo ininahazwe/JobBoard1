@@ -1,4 +1,9 @@
-{% if app.request.attributes.get('_route') == 'blog_show' %}
+{% if app.request.attributes.get('_route')  in
+    [
+        'annonces_all',
+        'blog_show'
+    ]
+%}
 <!-- Header Span -->
 <span class="header-span"></span>
 {% endif %}
@@ -19,6 +24,7 @@
                         <li class="current dropdown">
                             <span>Home</span>
                             <ul>
+
                                 <li><a href="index.html">Home Page 01</a></li>
                                 <li><a href="index-2.html">Home Page 02</a></li>
                                 <li><a href="index-3.html">Home Page 03</a></li>

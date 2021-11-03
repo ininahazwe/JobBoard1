@@ -20,7 +20,7 @@ import 'datatables.net';
 import 'datatables.net-bs4';
 import Filter from "./js/Filter";
 
-//new WOW().init();
+new Filter(document.querySelector('.js-filter'))
 
 $(document).ready( function () {
     $('#datatable').DataTable({
@@ -46,5 +46,3 @@ $(document).ready( function () {
         }
     });
 });
-
-new Filter(document.querySelector('.js-filter'))

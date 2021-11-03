@@ -4,64 +4,55 @@
 
 {% block body %}
     <!--Page Title-->
-    <div class="js-filter">
-        <section class="page-title style-three">
-            <div class="auto-container">
-                <!-- Job Search Form -->
-                <div class="job-search-form">
+    <section class="ls-section">
+        <div class="auto-container">
+            <div class="filters-backdrop"></div>
+
+            <div class="row js-filter">
+                <div class="filters-column col-lg-3 col-md-12 col-sm-12">
                     {% include 'search/filtrer_profile.html.twig' with {form: form} only %}
                 </div>
-                <!-- Job Search Form -->
-            </div>
-        </section>
-        <!--End Page Title-->
-        <section class="ls-section style-three">
-            <div class="auto-container">
-                <div class="filters-backdrop"></div>
+                <div class="content-column col-lg-9 col-md-12 col-sm-12">
+                    <div class="ls-outer">
+                        <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
 
-                <div class="row">
-                    <!-- Content Column -->
-                    <div class="content-column col-lg-12">
-                        <div class="ls-outer">
-
-                            <div class="ls-switcher">
-                                <div class="showing-result">
-                                    <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>
-                                </div>
-
-                                <div class="sort-by">
-                                    <select class="chosen-select">
-                                        <option>New Jobs</option>
-                                        <option>Freelance</option>
-                                        <option>Full Time</option>
-                                        <option>Internship</option>
-                                        <option>Part Time</option>
-                                        <option>Temporary</option>
-                                    </select>
-
-                                    <select class="chosen-select">
-                                        <option>Show 10</option>
-                                        <option>Show 20</option>
-                                        <option>Show 30</option>
-                                        <option>Show 40</option>
-                                        <option>Show 50</option>
-                                        <option>Show 60</option>
-                                    </select>
-                                </div>
+                        <!-- ls Switcher -->
+                        <div class="ls-switcher">
+                            <div class="showing-result">
+                                <div class="text">Showing <strong>41-60</strong> of <strong>{{ profiles|length }}</strong> profiles</div>
                             </div>
+                            <div class="sort-by">
+                                <select class="chosen-select">
+                                    <option>New Jobs</option>
+                                    <option>Freelance</option>
+                                    <option>Full Time</option>
+                                    <option>Internship</option>
+                                    <option>Part Time</option>
+                                    <option>Temporary</option>
+                                </select>
 
-                            <div class="row js-filter-content">
-                                {% include('profile/_profiles.html.twig') %}
+                                <select class="chosen-select">
+                                    <option>Show 10</option>
+                                    <option>Show 20</option>
+                                    <option>Show 30</option>
+                                    <option>Show 40</option>
+                                    <option>Show 50</option>
+                                    <option>Show 60</option>
+                                </select>
                             </div>
-                            <div class="row js-filter-pagination">
-                                {% include 'profile/_pagination.html.twig' %}
-                            </div>
+                        </div>
+                        <div class="js-filter-content">
+                            {% include 'profile/_profiles.html.twig' %}
+                        </div>
+                        <div class="js-filter-pagination">
+                            {% include 'profile/_pagination.html.twig' %}
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
 
 {% endblock %}
 

@@ -2,6 +2,7 @@
 <html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -9,8 +10,9 @@
     </head>
     <body data-anm=".anm">
     <div class="page-wrapper">
-        <!-- Preloader -->
-        {#<div class="preloader"></div>#}
+        {#<!-- Preloader -->
+        <div class="preloader"></div>#}
+
         {{ include('layouts/header.html.twig') }}
         {{ include('partials/flashbag.html.twig') }}
         {% block body %}{% endblock %}
