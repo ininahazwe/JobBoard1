@@ -159,7 +159,7 @@ class Profile
     /**
      * @ORM\ManyToMany(targetEntity=Tag::class, mappedBy="competences")
      */
-    private $tags;
+    private Collection $tags;
 
     public function __construct() {
         $this->isVisible = false;
@@ -607,7 +607,7 @@ class Profile
     }
 
     /**
-     * @return Collection|Tag[]
+     * @return Collection
      */
     public function getTags(): Collection
     {
