@@ -194,8 +194,8 @@
 
             <div class="outer-box">
                 <!-- Add Listing -->
-                {% if app.user and app.user.isCandidat() %}
-                <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="upload-cv"> Upload your CV</a>
+                {% if app.user and app.user.isCandidat() and app.user.profile %}
+                    <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="theme-btn btn-style-four"> Upload your CV</a>
                 {% endif %}
                 <!-- Login/Register -->
                 <div class="btn-box">

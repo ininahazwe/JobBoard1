@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
+      <change afterPath="$PROJECT_DIR$/public/uploads/stand.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/banner.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/_cv_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/_cv_form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,11 +217,11 @@
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\layouts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\public\uploads" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images\resource" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles\template" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\dashboard" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,7 +258,8 @@
       <workItem from="1635489290674" duration="11788000" />
       <workItem from="1635510692716" duration="11300000" />
       <workItem from="1635838362021" duration="23032000" />
-      <workItem from="1635925752314" duration="23893000" />
+      <workItem from="1635925752314" duration="23904000" />
+      <workItem from="1636010873319" duration="11287000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -425,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635956960266</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="readme">
+      <created>1635960456591</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1635960456591</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

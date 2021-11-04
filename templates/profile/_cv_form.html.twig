@@ -1,7 +1,9 @@
 {{ form_start(form, { 'attr': {'class': 'default-form'} }) }}
 <div class="row">
     {{ form_row(form.cv) }}
-    {% if app.request.attributes.get('_route') == 'profile_my_cv' %}
+    <div class="form-group col-lg-6 col-md-12">
+        <button class="theme-btn btn-style-one small" type="submit">Enregistrer</button>
+    </div>    {% if app.request.attributes.get('_route') == 'profile_my_cv' %}
     <div class="files-outer">
         {% for cv in app.user.profile.getCv() %}
             <div class="file-edit-box">
@@ -14,8 +16,5 @@
         {% endfor %}
     </div>
     {% endif %}
-    <div class="form-group col-lg-6 col-md-12">
-        <button class="theme-btn btn-style-one small" type="submit">Enregistrer</button>
-    </div>
 </div>
 {{ form_end(form, {'render_rest': false}) }}

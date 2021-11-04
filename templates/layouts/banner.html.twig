@@ -37,7 +37,11 @@
                 <div class="image-box">
                     <div class="row">
                         <div class="column col-lg-6 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="1500ms">
-                            <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-4.png') }}" alt=""></figure>
+                            {% for forum in forums %}
+                                {% for logo in forum.logo %}
+                                    <figure class="image anm" data-speed-x="2"><img src="{{ asset('uploads/' ~ logo.nom) }}" alt=""></figure>
+                                {% endfor %}
+                            {% endfor %}
                         </div>
                         <div class="column col-lg-6 col-md-6 col-sm-12 wow fadeInRight" data-wow-delay="2000ms">
                             <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-5.png')}}" alt=""></figure>
@@ -46,16 +50,31 @@
                     </div>
 
                     <!-- Info BLock One -->
-                    <div class="info_block wow fadeIn anm" data-wow-delay="2500ms" data-speed-x="2" data-speed-y="2">
-                        <span class="icon flaticon-email-3"></span>
-                        <p>Work Inquiry From <br>Ali Tufan</p>
-                    </div>
+                    {% for forum in forums %}
+                        <div class="info_block wow fadeIn anm" data-wow-delay="2500ms" data-speed-x="2" data-speed-y="2">
+                            <span class="icon flaticon-email-3"></span>
+                            <p>{{ forum.nom }}</p>
+                            <div class="text">Du {{ forum.dateOuverture|date('m-d-Y') }} au {{ forum.dateFermeture|date('m-d-Y') }}</div>
+                        </div>
 
-                    <!-- Info BLock Two -->
-                    <div class="info_block_two wow fadeIn anm" data-wow-delay="3000ms" data-speed-x="3" data-speed-y="3">
-                        <p>10k+ Candidates</p>
-                        <div class="image"><img src="images/resource/multi-peoples.png" alt=""></div>
-                    </div>
+                        <!-- Info BLock Two -->
+                        <div class="info_block_two wow fadeIn anm" data-wow-delay="3000ms" data-speed-x="3" data-speed-y="3">
+                            <p>10k+ Offres d'emplois</p>
+                            <div class="container">
+                                <div class="row">
+                                    {% for stand in forum.stand %}
+                                        {% if stand.logo %}
+                                                {% for logo in stand.logo %}
+                                                    <div class="col"><img class="img-thumbnail" src="{{ asset('uploads/' ~ logo.nom) }}" alt="logo" style="width: 50px"></div>
+                                                {% else %}
+                                                    <div class="col"><img class="img-thumbnail" src="{{ asset('uploads/stand.png') }}" alt="logo"  style="width: 50px"></div>
+                                                {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
