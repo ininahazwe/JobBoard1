@@ -37,11 +37,7 @@
                 <div class="image-box">
                     <div class="row">
                         <div class="column col-lg-6 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="1500ms">
-                            {% for forum in forums %}
-                                {% for logo in forum.logo %}
-                                    <figure class="image anm" data-speed-x="2"><img src="{{ asset('uploads/' ~ logo.nom) }}" alt=""></figure>
-                                {% endfor %}
-                            {% endfor %}
+                            <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-4.png') }}" alt=""></figure>
                         </div>
                         <div class="column col-lg-6 col-md-6 col-sm-12 wow fadeInRight" data-wow-delay="2000ms">
                             <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-5.png')}}" alt=""></figure>
@@ -54,7 +50,7 @@
                         <div class="info_block wow fadeIn anm" data-wow-delay="2500ms" data-speed-x="2" data-speed-y="2">
                             <span class="icon flaticon-email-3"></span>
                             <p>{{ forum.nom }}</p>
-                            <div class="text">Du {{ forum.dateOuverture|date('m-d-Y') }} au {{ forum.dateFermeture|date('m-d-Y') }}</div>
+                            <div class="text" style="font-size: 10px">Du {{ forum.dateOuverture|date('m-d-Y') }} au {{ forum.dateFermeture|date('m-d-Y') }}</div>
                         </div>
 
                         <!-- Info BLock Two -->

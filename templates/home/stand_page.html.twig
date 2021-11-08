@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ stand.nom }}{% endblock %}
+
+{% block body %}
+    <!-- Job Detail Section -->
+    <section class="job-detail-section">
+        <!-- Upper Box -->
+        <div class="upper-box">
+            <div class="auto-container">
+                <!-- Job Block -->
+                <div class="job-block-seven style-three">
+                    <div class="inner-box">
+                        <div class="content">
+                            <span class="company-logo">
+                                {% if stand.logo %}
+                                    {% for logo in stand.logo %}
+                                        <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
+                                                        {% else %}
+                                        <img src="{{ asset('uploads/stand.png') }}" alt="" style="width: 100px">
+                                    {% endfor %}
+                                {% endif %}
+                            </span>
+                            <h4>{{ stand.nom }}</h4>
+                            <ul class="job-other-info">
+                                <li class="time">{{ pluralize(stand.annonces|length, 'annonce') }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="job-detail-outer">
+            <div class="auto-container">
+                <div class="row">
+                    <div class="content-column col-lg-8 col-md-12 col-sm-12 order-2">
+                        <div class="job-detail">
+                            <h4>A propos de l'entreprise</h4>
+                            <p>{{ stand.description }}</p>
+                            <div class="row images-outer">
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                    <figure class="image"><a href="{{ asset('images/resource/employers-single-1.png') }}" class="lightbox-image" data-fancybox="gallery"><img src="{{ asset('images/resource/employers-single-1.png') }}" alt=""></a></figure>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                    <figure class="image"><a href="{{ asset('images/resource/employers-single-2.png') }}" class="lightbox-image" data-fancybox="gallery"><img src="{{ asset('images/resource/employers-single-2.png') }}" alt=""></a></figure>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                    <figure class="image"><a href="{{ asset('images/resource/employers-single-3.png') }}" class="lightbox-image" data-fancybox="gallery"><img src="{{ asset('images/resource/employers-single-3.png') }}" alt=""></a></figure>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                    <figure class="image"><a href="{{ asset('images/resource/employers-single-4.png') }}" class="lightbox-image" data-fancybox="gallery"><img src="{{ asset('images/resource/employers-single-4.png') }}" alt=""></a></figure>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Related Jobs -->
+                        <div class="related-jobs">
+                            <div class="title-box">
+                                <h3>{{ pluralize(stand.annonces|length, 'annonce') }} d'emploi</h3>
+                            </div>
+                            {% for annonce in stand.annonces %}
+                            <!-- Job Block -->
+                            <div class="job-block">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <span class="company-logo"><img src="images/resource/company-logo/1-3.png" alt=""></span>
+                                        <h4><a href="{{ path('annonce_page', {'slug': annonce.slug}) }}">{{ annonce.nom|capitalize }}</a></h4>
+                                        <ul class="job-info">
+                                            {% if annonce.secteur %}<li><span class="icon flaticon-briefcase"></span> {{ annonce.secteur|join }}</li>{% endif %}
+                                            {% if annonce.contrat %}<li><span class="icon flaticon-map-locator"></span> {{ annonce.contrat }}</li>{% endif %}
+                                            <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                                            {% if annonce.salaire %}<li><span class="icon flaticon-money"></span> {{ annonce.salaire }}</li>{% endif %}
+                                        </ul>
+                                        <ul class="job-other-info">
+                                            {% if annonce.secteur %}<li class="time">{{ annonce.horaires }}</li>{% endif %}
+                                            <li class="required">Urgent</li>
+                                        </ul>
+                                        {% if is_granted('ROLE_CANDIDAT') %}
+                                            {% set isFavorite = false %}
+                                            {% for favoris in annonce.favoris %}
+                                                {% if favoris.id == app.user.id %}
+                                                    {% set isFavorite = true %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if isFavorite %}
+                                                <a href="{{ path('annonce_retrait_favoris', {id: annonce.id}) }}" class="bookmark-btn"><i class="fas fa-heart"></i></a>
+                                            {% else %}
+                                                <a href="{{ path('annonce_ajout_favoris', {id: annonce.id}) }}" class="bookmark-btn"><i class="far fa-heart"></i></a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
+                        <aside class="sidebar pd-right">
+
+                            <div class="sidebar-widget company-widget">
+                                <div class="widget-content">
+                                    <ul class="company-info mt-0">
+                                        <li>Primary industry: <span>Software</span></li>
+                                        <li>Company size: <span>501-1,000</span></li>
+                                        <li>Founded in: <span>2011</span></li>
+                                        <li>Phone: <span>123 456 7890</span></li>
+                                        <li>Email: <span>info@joio.com</span></li>
+                                        <li>Location: <span>London, UK</span></li>
+                                        <li>Social media:
+                                            <div class="social-links">
+                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn-box"><a href="{{ stand.url }}" class="theme-btn btn-style-three" target="_blank">{{ stand.url }}</a></div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Job Detail Section -->
+{% endblock %}

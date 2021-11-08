@@ -74,11 +74,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $blogs;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Annonce::class, mappedBy="favoris")
+     */
+    private $favoris;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
         $this->files = new ArrayCollection();
         $this->blogs = new ArrayCollection();
+        $this->favoris = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -369,6 +375,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->blogs->removeElement($blog)) {
             $blog->removeAuteur($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Annonce[]
+     */
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(Annonce $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+            $favori->addFavori($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(Annonce $favori): self
+    {
+        if ($this->favoris->removeElement($favori)) {
+            $favori->removeFavori($this);
         }
 
         return $this;

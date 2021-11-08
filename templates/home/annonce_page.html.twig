@@ -1,0 +1,225 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offre - {{ annonce.nom }}{% endblock %}
+
+{% block body %}
+    <!-- Job Detail Section -->
+    <section class="job-detail-section">
+        <div class="job-detail-outer">
+            <div class="auto-container">
+                <div class="row">
+                    <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="job-block-outer">
+                            <!-- Job Block -->
+                            <div class="job-block-seven style-two">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <h4><a href="#">{{ annonce.nom|capitalize }}</a></h4>
+                                        <ul class="job-info">
+                                            <li><span class="icon flaticon-briefcase"></span> Segment</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-clock-3"></span> {{ annonce.createdAt|date('d-m-Y') }}</li>
+                                            {% if annonce.salaire %}<li><span class="icon flaticon-money"></span> {{ annonce.salaire }}</li>{% endif %}
+                                        </ul>
+                                        <ul class="job-other-info">
+                                            {% if annonce.horaires %}<li class="time">{{ annonce.horaires }}</li>{% endif %}
+                                            {% if annonce.contrat %}<li class="privacy">{{ annonce.contrat }}</li>{% endif %}
+                                            {% if annonce.salaire %}<li class="required">{{ annonce.salaire }}</li>{% endif %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="job-overview-two">
+                            <ul>
+                                <li>
+                                    <i class="icon icon-calendar"></i>
+                                    <h5>En ligne le</h5>
+                                    <span>{{ annonce.createdAt|date('d-m-Y') }}</span>
+                                </li>
+                                {% if annonce.dateCloture %}
+                                <li>
+                                    <i class="icon icon-expiry"></i>
+                                    <h5>Date de clôture:</h5>
+                                    <span>{{ annonce.dateCloture|date('d-m-Y') }}</span>
+                                </li>
+                                {% endif %}
+                                {% if annonce.adresse %}
+                                <li>
+                                    <i class="icon icon-location"></i>
+                                    <h5>Adresse:</h5>
+                                    <span>{{ annonce.adresse }}</span>
+                                </li>
+                                {% endif %}
+                                <li>
+                                    <i class="icon icon-user-2"></i>
+                                    <h5>Job Title:</h5>
+                                    <span>Designer</span>
+                                </li>
+                                {% if annonce.horaires%}
+                                <li>
+                                    <i class="icon icon-clock"></i>
+                                    <h5>Horaire:</h5>
+                                    <span>35h / semaine</span>
+                                </li>
+                                {% endif %}
+                                {% if annonce.salaire %}
+                                <li>
+                                    <i class="icon icon-rate"></i>
+                                    <h5>Rémunération:</h5>
+                                    <span>{{ annonce.salaire }}</span>
+                                </li>
+                                {% endif %}
+                                <li>
+                                    <i class="icon icon-salary"></i>
+                                    <h5>Salary:</h5>
+                                    <span>$35k - $45k</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="job-detail">
+
+                            <h4>Description</h4>
+                            <p>{{ annonce.description|raw }}</p>
+
+                            <h4>Compétences requises</h4>
+                            <p>{{ annonce.qualites|raw }}</p>
+                        </div>
+
+                        <!-- Other Options -->
+                        <div class="other-options">
+                            <div class="social-share">
+                                <h5>Share this job</h5>
+                                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                                <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
+                        <aside class="sidebar">
+                            <div class="btn-box">
+                                <a href="#" class="theme-btn btn-style-one">Postuler</a>
+                                {% if is_granted('ROLE_CANDIDAT') %}
+                                    {% set isFavorite = false %}
+                                    {% for favoris in annonce.favoris %}
+                                        {% if favoris.id == app.user.id %}
+                                            {% set isFavorite = true %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if isFavorite %}
+                                        <a href="{{ path('annonce_retrait_favoris', {id: annonce.id}) }}" class="bookmark-btn"><i class="fas fa-heart"></i></a>
+                                    {% else %}
+                                        <a href="{{ path('annonce_ajout_favoris', {id: annonce.id}) }}" class="bookmark-btn"><i class="far fa-heart"></i></a>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+
+                            <div class="sidebar-widget company-widget">
+                                <div class="widget-content">
+                                    <div class="company-title">
+                                        <div class="company-logo">
+                                            {% for logo in annonce.stand.logo %}
+                                                <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
+                                            {% else %}
+                                                <img src="{{ asset('uploads/stand.png') }}" alt="" style="width: 100px">
+                                            {% endfor %}
+                                        </div>
+                                        <h5 class="company-name">{{ annonce.stand.nom }}</h5>
+                                        <a href="{{ path('stand_page', {'slug': annonce.stand.slug}) }}" class="profile-link">Voir le stand</a>
+                                    </div>
+
+                                    <ul class="company-info">
+                                        <li>Primary industry: <span>Software</span></li>
+                                        <li>Company size: <span>501-1,000</span></li>
+                                        <li>Founded in: <span>2011</span></li>
+                                        <li>Phone: <span>123 456 7890</span></li>
+                                        <li>Email: <span>info@joio.com</span></li>
+                                        <li>Location: <span>London, UK</span></li>
+                                        <li>Social media:
+                                            <div class="social-links">
+                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn-box"><a href="{{ annonce.stand.url }}" target="_blank" class="theme-btn btn-style-three">{{ annonce.stand.url }}</a></div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+
+                <!-- Related Jobs -->
+                <div class="related-jobs">
+                    <div class="title-box">
+                        <h3>Related Jobs</h3>
+                        <div class="text">2020 jobs live - 293 added today.</div>
+                    </div>
+                    <div class="row">
+                        <!-- Job Block -->
+                        <div class="job-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <ul class="job-other-info">
+                                    <li class="time">Full Time</li>
+                                    <li class="privacy">Private</li>
+                                    <li class="required">Urgent</li>
+                                </ul>
+                                <span class="company-logo"><img src="images/resource/company-logo/3-1.png" alt=""></span>
+                                <span class="company-name">Catalyst</span>
+                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
+                                <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
+                            </div>
+                        </div>
+
+                        <!-- Job Block -->
+                        <div class="job-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <ul class="job-other-info">
+                                    <li class="time">Full Time</li>
+                                </ul>
+                                <span class="company-logo"><img src="images/resource/company-logo/3-2.png" alt=""></span>
+                                <span class="company-name">Catalyst</span>
+                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
+                                <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
+                            </div>
+                        </div>
+
+                        <!-- Job Block -->
+                        <div class="job-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <ul class="job-other-info">
+                                    <li class="time">Full Time</li>
+                                </ul>
+                                <span class="company-logo"><img src="images/resource/company-logo/3-3.png" alt=""></span>
+                                <span class="company-name">Upwork</span>
+                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
+                                <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
+                            </div>
+                        </div>
+
+                        <!-- Job Block -->
+                        <div class="job-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="inner-box">
+                                <ul class="job-other-info">
+                                    <li class="time">Full Time</li>
+                                </ul>
+                                <span class="company-logo"><img src="images/resource/company-logo/3-4.png" alt=""></span>
+                                <span class="company-name">invision</span>
+                                <h4><a href="#">Software Engineer (Android), Libraries</a></h4>
+                                <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Job Detail Section -->
+{% endblock %}
