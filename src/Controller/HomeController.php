@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Annonce;
+use App\Entity\Forum;
 use App\Entity\Stand;
 use App\Repository\AnnonceRepository;
 use App\Repository\BlogRepository;
@@ -20,10 +21,12 @@ class HomeController extends AbstractController
         $blog = $blogRepository->findAll();
         $stand = $standRepository->findAll();
         $forum = $forumRepository->findLastInserted();
+        $forums = $forumRepository->findAll();
         return $this->render('home/index.html.twig', [
             'blogs' => $blog,
             'forums' => $forum,
-            'stands' => $stand
+            'stands' => $stand,
+            'allForums' => $forums
         ]);
     }
 
@@ -51,11 +54,27 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/stand/{slug}', name: 'stand_page', methods: ['GET'])]
+    #[Route('/stands/{slug}', name: 'stand_page', methods: ['GET'])]
     public function stand(Stand $stand): Response
     {
         return $this->render('home/stand_page.html.twig', [
                 'stand' => $stand,
+        ]);
+    }
+
+    #[Route('/forums', name: 'forums_all', methods: ['GET'])]
+    public function forums(ForumRepository $forumRepository): Response
+    {
+        return $this->render('home/forums.html.twig', [
+                'forums' => $forumRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/forums/{slug}', name: 'forum_page', methods: ['GET'])]
+    public function forum(Forum $forum): Response
+    {
+        return $this->render('home/forum_page.html.twig', [
+                'forum' => $forum,
         ]);
     }
 }

@@ -1,0 +1,16 @@
+<!--Clients Section-->
+<section class="clients-section-two">
+    <div class="sponsors-outer wow fadeInUp">
+        <!--Sponsors Carousel-->
+        <ul class="sponsors-carousel owl-carousel owl-theme">
+            {% for stand in stands %}
+                {% for image in stand.logo %}
+                    {% if loop.first %}
+                        <li class="slide-item"><figure class="image-box"><a href="{{ path('stand_page', {'slug': stand.slug}) }}"><img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}"></a></figure></li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+<!-- End Clients Section-->

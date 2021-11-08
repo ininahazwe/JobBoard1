@@ -2,30 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/templates/home/annonce_page.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/layouts/StandsSection.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/forum_page.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/forums.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/layouts/AgendaForums.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/layouts/recruteursSlider.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/custom.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/bootstrap.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/template.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/template.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stand_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stands.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/annonces.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/annonces.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/banner.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/blogSection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/blogSection.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/jobSection.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +207,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/home" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -229,8 +215,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\home" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\pagination" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\layouts" />
@@ -280,7 +266,7 @@
       <workItem from="1635925752314" duration="23904000" />
       <workItem from="1636010873319" duration="21472000" />
       <workItem from="1636098025133" duration="23258000" />
-      <workItem from="1636356961609" duration="60000" />
+      <workItem from="1636356961609" duration="8443000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -464,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636023545470</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="readme">
+      <created>1636357102063</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1636357102063</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

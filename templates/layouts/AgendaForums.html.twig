@@ -1,0 +1,83 @@
+{#
+<!-- Job Section -->
+<section class="job-section style-two">
+    <div class="auto-container wow fadeInUp">
+        <div class="sec-title text-center">
+            <h2>Agenda des prochains forums</h2>
+            <div class="text">Editions spéciales</div>
+        </div>
+
+        <div class="job-carousel owl-carousel owl-theme default-dots">
+            {% for forum in allForums %}
+            <div class="job-block-three">
+                <div class="inner-box">
+                    <div class="content">
+                        <span class="company-logo">
+                            {% if forum.logo %}
+                                {% for image in forum.logo %}
+                                    <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                {% endfor %}
+                            {% endif %}
+                        </span>
+                        <h4><a href="#">{{ forum.nom }}</a></h4>
+                        <ul class="job-info">
+                            <li><span class="icon la la-calendar"></span></li>
+                            <li>Du {{ forum.dateOuverture|date('d-m-Y') }} au {{ forum.dateFermeture|date('d-m-Y') }}</li>
+                        </ul>
+                    </div>
+                    <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End Job Section -->#}
+
+<!-- Job Section -->
+<section class="job-section-five">
+    <div class="auto-container">
+
+        <div class="sec-title-outer">
+            <div class="sec-title">
+                <h2>Agenda des prochains forums</h2>
+                <div class="text">Editions spéciales</div>
+            </div>
+            <a href="{{ path('forums_all') }}" class="link">Les voir tous <span class="icon fa fa-angle-right"></span></a>
+        </div>
+
+        <div class="outer-box wow fadeInUp">
+            {% for forum in allForums %}
+                <div class="job-block-five">
+                <div class="inner-box">
+                    <div class="content">
+                        <span class="company-logo">
+                            {% if forum.logo %}
+                                {% for image in forum.logo %}
+                                    {% if loop.first %}
+                                    <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <img src="{{ asset('/uploads/avatar.png') }}" alt="">
+                            {% endif %}
+                        </span>
+                        <h4><a href="{{ path('forum_page', {'slug': forum.slug }) }}">{{ forum.nom }}</a></h4>
+                        <ul class="job-info">
+                            <li><span class="icon flaticon-briefcase"></span> Segment</li>
+                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                            <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                            <li><span class="icon flaticon-money"></span> $35k - $45k</li>
+                        </ul>
+                    </div>
+                    <ul class="job-other-info">
+                        <li class="time">Full Time</li>
+                    </ul>
+                    <a href="#" class="theme-btn btn-style-three">Ouvrir</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End Job Section -->
