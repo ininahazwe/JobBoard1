@@ -22,7 +22,7 @@ class RealisationController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'realisation_new', methods: ['GET','POST'])]
+    #[Route('/new/{profileId}', name: 'realisation_new', methods: ['GET','POST'])]
     public function new(Request $request, $profileId): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
@@ -48,7 +48,7 @@ class RealisationController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'realisation_show', methods: ['GET'])]
+    #[Route('/{id}/{profileId}/edit', name: 'realisation_show', methods: ['GET'])]
     public function show(Realisation $realisation): Response
     {
         return $this->render('realisation/show.html.twig', [

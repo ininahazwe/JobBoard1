@@ -1,13 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Edit Realisation{% endblock %}
-
-{% block body %}
-    <h1>Edit Realisation</h1>
-
-    {{ include('realisation/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('realisation_index') }}">back to list</a>
-
-    {{ include('realisation/_delete_form.html.twig') }}
-{% endblock %}
+<div class="model">
+    <div id="login-modal">
+        <div class="login-form default-form">
+            <div class="form-inner">
+                {% include('realisation/_form.html.twig') %}
+            </div>
+        </div>
+    </div>
+</div>

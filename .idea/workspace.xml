@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/templates/home/faq.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/layouts/newsletter.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/annonces.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/annonces.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/forum_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/forum_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/stand_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stand_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/stands.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stands.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/AgendaForums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/AgendaForums.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/StandsSection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/StandsSection.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/recruteursSlider.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/recruteursSlider.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RealisationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RealisationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Realisation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Realisation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RealisationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RealisationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cvexperience/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvexperience/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/realisation/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/realisation/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/realisation/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/realisation/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/realisation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/realisation/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +265,7 @@
       <workItem from="1635925752314" duration="23904000" />
       <workItem from="1636010873319" duration="21472000" />
       <workItem from="1636098025133" duration="23258000" />
-      <workItem from="1636356961609" duration="18469000" />
+      <workItem from="1636356961609" duration="19523000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -469,7 +463,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636367299197</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="readme">
+      <created>1636388216833</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1636388216833</updated>
+    </task>
+    <task id="LOCAL-00030" summary="readme">
+      <created>1636388470801</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1636388470801</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

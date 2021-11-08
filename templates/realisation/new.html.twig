@@ -1,11 +1,14 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Realisation{% endblock %}
-
-{% block body %}
-    <h1>Create new Realisation</h1>
-
-    {{ include('realisation/_form.html.twig') }}
-
-    <a href="{{ path('realisation_index') }}">back to list</a>
-{% endblock %}
+<div class="model">
+    <div id="login-modal">
+        <div class="login-form default-form">
+            <div class="form-inner">
+                {{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('realisation_new', {'profileId' : profile.id }) } }) }}
+                {{ form_row(form.nom) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.documents) }}
+                <button class="btn theme-btn btn-style-one small" >{{ button_label|default('Enregistrer') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

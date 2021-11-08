@@ -35,6 +35,11 @@ class Realisation
      */
     private ?Profile $profile;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $annee;
+
     public function __construct()
     {
         $this->documents = new ArrayCollection();
@@ -103,6 +108,18 @@ class Realisation
     public function setProfile(?Profile $profile): self
     {
         $this->profile = $profile;
+
+        return $this;
+    }
+
+    public function getAnnee(): ?\DateTimeInterface
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(?\DateTimeInterface $annee): self
+    {
+        $this->annee = $annee;
 
         return $this;
     }

@@ -6,6 +6,7 @@ use App\Entity\Realisation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\UX\Dropzone\Form\DropzoneType;
 
 class RealisationType extends AbstractType
 {
@@ -14,7 +15,17 @@ class RealisationType extends AbstractType
         $builder
             ->add('nom')
             ->add('description')
-            ->add('profile')
+                ->add('annee')
+                ->add('documents', DropzoneType::class, [
+                        'attr' => [
+                                'placeholder' => 'Choisir une image',
+                                'data-controller' => 'mydropzone'
+                        ],
+                        'label' => false,
+                        'multiple' => true,
+                        'mapped' => false,
+                        'required' => false,
+                ])
         ;
     }
 

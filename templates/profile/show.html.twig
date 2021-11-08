@@ -144,7 +144,9 @@
                                     <!-- Resume / Awards -->
                                     <div class="resume-outer theme-yellow">
                                         <div class="upper-title">
-                                            <h4>Réalisations</h4>
+                                            <h4>Réalisations
+                                                {% if profile.cvformations is not empty %}<a href="{{ path('realisation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                            </h4>
                                         </div>
                                         {% for realisation in profile.realisations %}
                                         <!-- Resume BLock -->
@@ -153,18 +155,18 @@
                                                 <span class="name"></span>
                                                 <div class="title-box">
                                                     <div class="info-box">
-                                                        <h3>Perfect Attendance Programs</h3>
+                                                        <h3>{{ realisation.nom }}</h3>
                                                         <span></span>
                                                     </div>
                                                     <div class="edit-box">
-                                                        <span class="year">2012 - 2014</span>
+                                                        {% if realisation.annee %}<span class="year">{{ realisation.annee|date('d-m-Y') }}</span>{% endif %}
                                                     </div>
                                                 </div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
+                                                <div class="text"><br>{{ realisation.description }}</div>
                                             </div>
                                         </div>
                                         {% else %}
-                                            <a class="theme-btn btn-style-three small call-modal" href="{{ path('realisation_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une expérience professionnelle</a>
+                                            <a class="theme-btn btn-style-three small call-modal" href="{{ path('realisation_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une réalisation</a>
                                         {% endfor %}
                                     </div>
 
