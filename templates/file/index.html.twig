@@ -1,0 +1,54 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}File index{% endblock %}
+
+{% block body %}
+
+    <section class="ls-section style-three">
+        <div class="auto-container">
+            <div class="filters-backdrop"></div>
+
+            <div class="row">
+                <!-- Content Column -->
+                <div class="content-column col-lg-12">
+                    <div class="ls-outer">
+
+                        <div class="row">
+                            <!-- Job Block -->
+                            {% for file in files %}
+                                {% if file.type is same as 2 %}
+                                    <div class="job-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                        <div class="inner-box">
+                                            <ul class="job-other-info">
+                                                <li class="time">CV</li>
+                                                <li class="privacy"><a href="{{ path('file_show', {'id': file.id}) }}"><span class="la la-eye"></span></a></li>
+                                                <li class="required"><a href="{{ path('file_edit', {'id': file.id}) }}"><span class="la la-pencil"></span></a></li>
+                                            </ul>
+                                            <span class="company-logo">
+                                                      <span class="icon la la-file-pdf"></span>
+                                             </span>
+                                            {% if file.NomLibre %}
+                                                <span class="company-name">{{ file.NomLibre }}</span>
+                                            {% elseif file.nomFichier %}
+                                                <span class="company-name">{{ file.nomFichier }}</span>
+                                            {% else %}
+                                                <span class="company-name">{{ file.nom|slice(10) }}</span>
+                                            {% endif %}
+                                            <span class="company-name">{{ file.getFileSize() }}</span>
+                                            <span class="la la-calendar"></span> {{ file.createdAt ? file.createdAt|date('Y-m-d') : '' }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="8">no records found</td>
+                                </tr>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

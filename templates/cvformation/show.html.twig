@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CvFormation{% endblock %}
+
+{% block body %}
+    <h1>CvFormation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cv_formation.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ cv_formation.nom }}</td>
+            </tr>
+            <tr>
+                <th>Etablissement</th>
+                <td>{{ cv_formation.etablissement }}</td>
+            </tr>
+            <tr>
+                <th>Debut</th>
+                <td>{{ cv_formation.debut ? cv_formation.debut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fin</th>
+                <td>{{ cv_formation.fin ? cv_formation.fin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ cv_formation.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('cv_formation_index') }}">back to list</a>
+
+    <a href="{{ path('cv_formation_edit', {'id': cv_formation.id}) }}">edit</a>
+
+    {{ include('cvformation/_delete_form.html.twig') }}
+{% endblock %}

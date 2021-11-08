@@ -1,0 +1,21 @@
+{{ form_start(form, { 'attr': {'class': 'default-form'} }) }}
+    {{ form_row(form.logo) }}
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.nom) }}</div>
+        <div class="col-md-6">{{ form_row(form.forums) }}</div>
+        <div class="col-md-3">{{ form_row(form.url) }}</div>
+        <div class="col-md-3">{{ form_row(form.type) }}</div>
+        <div class="col-md-3">{{ form_row(form.statut) }}</div>
+        <div class="col-md-3">{{ form_row(form.cvtheque) }}</div>
+        <div class="col-md-3">{{ form_row(form.vivierCandidat) }}</div>
+        <div class="col-md-3">{{ form_row(form.parametresRecruteur) }}</div>
+        <div class="col-md-3">{{ form_row(form.speedMeeting) }}</div>
+        <div class="col-md-3">{{ form_row(form.nombreParticipationCanditatStand) }}</div>
+        <div class="col-md-3">{{ form_row(form.codeInscription) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.description) }}</div>
+        <div class="col-md-6">{{ form_row(form.page_offres) }}</div>
+    </div>
+    <button class="theme-btn btn-style-one small">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

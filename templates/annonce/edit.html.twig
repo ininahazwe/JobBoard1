@@ -1,0 +1,33 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}{{ annonce.nom }}{% endblock %}
+
+{% block body %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Offre | {{ annonce.nom }}</h4>
+                                <div class="option-box">
+                                    <ul class="option-list">
+                                        <li><a href="{{ path('annonce_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                        <li>{{ include('annonce/_delete_form.html.twig') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="widget-content">
+                                {{ include('annonce/_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}

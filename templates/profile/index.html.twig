@@ -1,0 +1,59 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Profile index{% endblock %}
+
+{% block body %}
+    <h1>Profiles</h1>
+
+    <table class="default-table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>DateNaissance</th>
+                <th>IsRqth</th>
+                <th>IsVisible</th>
+                <th>IsAmenagement</th>
+                <th>Portfolio</th>
+                <th>Telephone</th>
+                <th>RecevoirAlertesOffres</th>
+                <th>IsCvtheque</th>
+                <th>IsRecevoirAlertes</th>
+                <th>IsConditionsUtilisation</th>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profile in profiles %}
+            <tr>
+                <td>{{ profile.description }}</td>
+                <td>{{ profile.dateNaissance ? profile.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ profile.isRqth ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.isVisible ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.isAmenagement ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.portfolio }}</td>
+                <td>{{ profile.telephone }}</td>
+                <td>{{ profile.recevoirAlertesOffres ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.isCvtheque ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.isRecevoirAlertes ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.isConditionsUtilisation ? 'Yes' : 'No' }}</td>
+                <td>{{ profile.id }}</td>
+                <td>{{ profile.createdAt ? profile.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ profile.updatedAt ? profile.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('profile_show', {'id': profile.id}) }}">show</a>
+                    <a href="{{ path('profile_edit', {'id': profile.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('profile_new') }}">Create new</a>
+{% endblock %}

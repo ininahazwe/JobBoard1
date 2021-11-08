@@ -1,0 +1,29 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Dictionnaire{% endblock %}
+
+{% block body %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title">
+                                <h4>Dictionnaire</h4>
+                                <li><a href="{{ path('dictionnaire_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                            </div>
+
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    {{ include('dictionnaire/_form.html.twig') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

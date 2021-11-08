@@ -1,0 +1,85 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Stand index{% endblock %}
+
+{% block body %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Stand</h4>
+                                <a class="theme-btn btn-style-three small" href="{{ path('stand_new') }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter</a>
+                            </div>
+
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    <table class="default-table">
+                                        <thead>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <th>Nom</th>
+                                            <th>Forums</th>
+                                            <th></th>
+                                            <th>actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for stand in stands %}
+                                            <tr>
+                                                <td>
+                                                    {% if stand.logo %}
+                                                        {% for logo in stand.logo %}
+                                                             <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
+                                                        {% else %}
+                                                            <img src="{{ asset('uploads/stand.png') }}" alt="" style="width: 100px">
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </td>
+                                                <td><a href="{{ path('stand_show', {'slug': stand.slug}) }}">{{ stand.nom }}</a></td>
+                                                <td>
+                                                    {% for forum in stand.forums %}
+                                                        <ul class="list-style-two">
+                                                            <li><a href="{{ path('forum_show', {'slug': forum.slug}) }}">{{ forum.nom }}</a></li>
+                                                        </ul>
+                                                    {% endfor %}
+                                                </td>
+                                                <td>
+                                                    <div class="buttons">
+                                                        <a href="{{ path('stand_edit', {'id': stand.id}) }}" class="theme-btn btn-style-one small">Paramètres</a>
+                                                        {% if stand.statut == 0 %}
+                                                            <a href="{{ path('stand_publier', {'id': stand.id}) }}" class="theme-btn btn-style-three small">Publier</a>
+                                                        {% else %}
+                                                            <a href="{{ path('stand_depublier', {'id': stand.id}) }}" class="theme-btn btn-style-four small">Dépublier</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="option-box">
+                                                        <ul class="option-list">
+                                                            <li><a href="{{ path('stand_show', {'slug': stand.slug}) }}" data-text="View Aplication"><span class="la la-eye"></span></a></li>
+                                                            <li><a href="{{ path('stand_edit', {'id': stand.id}) }}" data-text="Approve Aplication"><span class="la la-pen"></span></a></li>
+                                                            <li>{{ include('stand/_delete_form.html.twig') }}</li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="11">no records found</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

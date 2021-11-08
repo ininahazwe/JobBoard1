@@ -1,0 +1,82 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Edit Stand{% endblock %}
+
+{% block body %}
+
+<!-- Dashboard -->
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Stand | {{ stand.nom }}</h4>
+                                <div class="option-box">
+                                    <ul class="option-list">
+                                        <li><a href="{{ path('stand_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                        <li>{{ include('stand/_delete_form.html.twig') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                {{ form_start(form, { 'attr': {'class': 'default-form'} }) }}
+                                <div class="default-tabs tabs-box">
+                                    <!--Tabs Box-->
+                                    <ul class="tab-buttons clearfix">
+                                        <li class="tab-btn active-btn" data-tab="#tab1">Infos générales</li>
+                                        <li class="tab-btn" data-tab="#tab2">Paramètres avancés</li>
+                                    </ul>
+
+                                    <div class="tabs-content">
+                                        <!--Tab-->
+                                        <div class="tab active-tab" id="tab1">
+                                            {{ form_row(form.logo) }}
+                                            <div class="files-outer d-flex gap-2 mt-2 mb-3">
+                                                {% if app.request.attributes.get('_route') == 'stand_edit' %}
+                                                    <h4 class="title">Logo</h4>
+                                                    {% for image in stand.logo %}
+                                                        <div class="image-container" style="background-repeat: no-repeat; background-image: url('{{ asset('/uploads/' ~ image.nom) }}')">
+                                                            <div class="supprimer-image">
+                                                                <a class="" href="{{ path('stand_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                            {{ form_row(form.nom) }}
+                                            {{ form_row(form.url) }}
+                                            {{ form_row(form.description) }}
+                                            {{ form_row(form.page_offres) }}
+                                        </div>
+
+                                        <!--Tab-->
+                                        <div class="tab" id="tab2">
+                                            {{ form_row(form.forums) }}
+                                            <div class="row">
+                                                <div class="col-md-3">{{ form_row(form.type) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.statut) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.cvtheque) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.vivierCandidat) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.parametresRecruteur) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.speedMeeting) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.nombreParticipationCanditatStand) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.codeInscription) }}</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <button class="theme-btn btn-style-one small">{{ button_label|default('Enregistrer') }}</button>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{{ form_start(form, { 'attr': {'class': 'default-form'} }) }}
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.nom) }}</div>
+        <div class="col-md-4">{{ form_row(form.reference) }}</div>
+        <div class="col-md-4">{{ form_row(form.nombre_postes) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.description) }}</div>
+        <div class="col-md-6">{{ form_row(form.qualites) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.stand) }}</div>
+        <div class="col-md-6">{{ form_row(form.forum) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.salaire) }}</div>
+        <div class="col-md-4">{{ form_row(form.horaires) }}</div>
+        <div class="col-md-4">{{ form_row(form.avantages) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.statut) }}</div>
+        <div class="col-md-4">{{ form_row(form.zone) }}</div>
+        <div class="col-md-4">{{ form_row(form.secteur) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.diplome) }}</div>
+        <div class="col-md-4">{{ form_row(form.experience) }}</div>
+        <div class="col-md-4">{{ form_row(form.contrat) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">{{ form_row(form.adresse) }}</div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">{{ form_row(form.accessibilite) }}</div>
+                <div class="col-md-12">{{ form_row(form.documents) }}</div>
+                <div class="col-md-12">{{ form_row(form.dateCloture) }}</div>
+            </div>
+        </div>
+    </div>
+
+    <button class="theme-btn btn-style-one small">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

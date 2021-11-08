@@ -1,0 +1,32 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}New Stand{% endblock %}
+
+{% block body %}
+<!-- Dashboard -->
+<section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Ls widget -->
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title d-flex flex-row">
+                            <h4>Nouveau stand</h4>
+                            <div class="option-box">
+                                <ul class="option-list">
+                                    <li><a href="{{ path('stand_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget-content">
+                            {{ include('stand/_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CvExperience index{% endblock %}
+
+{% block body %}
+    <h1>Expériences professionnelles dans le CV</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Post</th>
+                <th>Entreprise</th>
+                <th>Debut</th>
+                <th>Fin</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cv_experience in cv_experiences %}
+            <tr>
+                <td>{{ cv_experience.id }}</td>
+                <td>{{ cv_experience.post }}</td>
+                <td>{{ cv_experience.entreprise }}</td>
+                <td>{{ cv_experience.debut ? cv_experience.debut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cv_experience.fin ? cv_experience.fin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cv_experience.description }}</td>
+                <td>
+                    <a href="{{ path('cv_experience_show', {'id': cv_experience.id}) }}">show</a>
+                    <a href="{{ path('cv_experience_edit', {'id': cv_experience.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cv_experience_new') }}">Create new</a>
+{% endblock %}

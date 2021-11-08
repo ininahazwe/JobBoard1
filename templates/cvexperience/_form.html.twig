@@ -1,0 +1,10 @@
+{{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('cvexperience_edit', {'id': cvexperience.id, 'profileId' : profile.id }) } }) }}
+    {{ form_row(form.post) }}
+    {{ form_row(form.entreprise) }}
+    <div class="row">
+        <div class="form-group col-lg-6 col-md-12">{{ form_row(form.debut) }}</div>
+        <div class="form-group col-lg-6 col-md-12">{{ form_row(form.fin) }}</div>
+    </div>
+    {{ form_row(form.description) }}
+<button class="btn theme-btn btn-style-one small" >{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

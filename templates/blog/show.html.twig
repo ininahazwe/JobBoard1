@@ -1,0 +1,69 @@
+{% set isLogged = is_granted('ROLE_RECRUTEUR') %}
+{% extends isLogged ?'base-dashboard.html.twig' : 'base.html.twig' %}
+
+{% block title %}Actu - {{ blog.titre }}{% endblock %}
+
+{% block body %}
+    <section class="blog-single">
+        <div class="auto-container">
+            <div class="upper-box">
+                <h3>{{ blog.titre }}</h3>
+                <ul class="post-info">
+                    {% if is_granted('ROLE_RECRUTEUR') %}
+                    <li>
+                        {% for user in blog.auteur %}
+                            <span class="thumb">
+                                     <img src="{{ asset('uploads/avatar.png') }}" alt="">
+                                </span> {{ user.fullname|capitalize }}
+                        {% endfor %}
+                    </li>
+                    {% endif %}
+                    <li><i class="la la-calendar icon-size"></i>{{ blog.createdAt|date('d-m-Y') }}</li>
+                </ul>
+            </div>
+        </div>
+        <figure class="main-image">
+            {% if blog.images %}
+                {% for image in blog.images %}
+                    {% if loop.first %}
+                        <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </figure>
+        <div class="auto-container">
+            <h4>Course Description</h4>
+            <p>{{ blog.description }}</p>
+
+            <!-- Other Options -->
+            <div class="other-options">
+                <div class="social-share">
+                    <h5>Partager ce post</h5>
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
+                </div>
+
+                <div class="tags">
+                    {% for tag in blog.tag %}
+                    <a href="#">{{ tag.nom }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Post Control -->
+            <div class="post-control">
+                <div class="prev-post">
+                    <span class="icon flaticon-back"></span>
+                    <span class="title">Previous Post</span>
+                    <h5><a href="#">Given Set was without from god divide rule Hath</a></h5>
+                </div>
+                <div class="next-post">
+                    <span class="icon flaticon-next"></span>
+                    <span class="title">Next Post</span>
+                    <h5><a href="#">Tree earth fowl given moveth deep lesser After</a></h5>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

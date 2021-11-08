@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Pavillon{% endblock %}
+
+{% block body %}
+    <h1>Edit Pavillon</h1>
+
+    {{ include('pavillon/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('pavillon_index') }}">back to list</a>
+
+    {{ include('pavillon/_delete_form.html.twig') }}
+{% endblock %}

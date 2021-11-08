@@ -1,0 +1,249 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    <!-- Dashboard -->
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <section class="candidate-detail-section">
+                <div class="candidate-detail-outer">
+                    <div class="auto-container">
+                        <div class="row">
+                            <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                                <!-- Candidate block Five -->
+                                <div class="candidate-block-five">
+                                    <div class="inner-box">
+                                        <div class="content">
+                                            {% if profile.photo %}
+                                                {% for image in profile.photo %}
+                                                    {% if loop.first %}
+                                                        <figure class="image"><img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}"></figure>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% else %}
+                                                <figure class="image"><img src="{{ asset('/uploads/avatar.png') }}" alt=""></figure>
+                                            {% endif %}
+                                            <h4 class="name"><a href="#">{{ profile.user.fullname|capitalize }}</a></h4>
+                                            <ul class="candidate-info">
+                                                <li class="designation">UI Designer at Invision</li>
+                                                <li><span class="icon flaticon-map-locator"></span> {{ profile.ville }}</li>
+                                                {% if profile.isRqth %}<li>RQTH: {{ profile.isRqth ? 'Oui' : 'Non' }}</li>{% endif %}
+                                                <li><span class="icon flaticon-clock"></span> Membre depuis le {{ profile.createdAt|date('d-m-Y') }}</li>
+                                            </ul>
+                                            <ul class="post-tags">
+                                                {% if profile.typeDiplome %}<li><a href="#">{{ profile.typeDiplome }}</a></li>{% endif %}
+                                                {% if profile.secteurActivite %}<li><a href="#">{{ profile.secteurActivite }}</a></li>{% endif %}
+                                                {% if profile.zonegeographique %}<li><a href="#">{{ profile.zonegeographique }}</a></li>{% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="job-detail">
+                                    <h4>Introduction</h4>
+                                    <p>{{ profile.description }}</p>
+
+                                    <!-- Resume / Education -->
+                                    <div class="resume-outer">
+                                        <div class="upper-title">
+                                            <h4>Formations
+                                                {% if profile.cvformations is not empty %}<a href="{{ path('cvformation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                            </h4>
+                                        </div>
+                                        <!-- Resume BLock -->
+                                        {% for formation in profile.cvformations %}
+                                        <div class="resume-block">
+                                            <div class="inner">
+                                                <span class="name">{{formation.etablissement|first|capitalize }} </span>
+                                                <div class="title-box">
+                                                    <div class="info-box">
+                                                        <h3>{{ formation.nom|capitalize }}</h3>
+                                                        <span>{{ formation.etablissement|capitalize }}</span>
+                                                    </div>
+                                                    <div class="edit-box">
+                                                        <span class="year">{{ formation.debut|date('Y') }} - {{ formation.fin|date('Y') }}</span>
+                                                        {% if app.user %}
+                                                        <div class="edit-btns">
+                                                            <a href="{{ path('cvformation_edit', {'id': formation.id, 'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-pen"></span></a>
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="text">{{ formation.description }}</div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                            <a class="theme-btn btn-style-three small call-modal" href="{{ path('cvformation_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une formation</a>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- Resume / Work & Experience -->
+                                    <div class="resume-outer theme-blue">
+                                        <div class="upper-title">
+                                            <h4>Expériences professionnelles
+                                                {% if profile.getCvexperiences is not empty %}<a href="{{ path('cvexperience_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                            </h4>
+                                        </div>
+                                        {% for experience in profile.getCvexperiences() %}
+                                        <!-- Resume BLock -->
+                                        <div class="resume-block">
+                                            <div class="inner">
+                                                <span class="name">{{experience.entreprise|first|capitalize }}</span>
+                                                <div class="title-box">
+                                                    <div class="info-box">
+                                                        <h3>{{ experience.post|capitalize }}</h3>
+                                                        <span>{{ experience.entreprise|capitalize }}</span>
+                                                    </div>
+                                                    <div class="edit-box">
+                                                        <span class="year">{{ experience.debut|date('Y') }} - {{ experience.fin|date('Y') }}</span>
+                                                        {% if app.user %}
+                                                        <div class="edit-btns">
+                                                            <a href="{{ path('cvexperience_edit', {'id': experience.id, 'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-pen"></span></a>
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="text">{{ experience.description }}</div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                            <a class="theme-btn btn-style-three small call-modal" href="{{ path('cvexperience_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une expérience professionnelle</a>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- Portfolio -->
+                                    <div class="portfolio-outer">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                                <figure class="image">
+                                                    <a href="{{ asset('images/resource/portfolio-1.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-1.jpg') }}" alt=""></a>
+                                                    <span class="icon flaticon-plus"></span>
+                                                </figure>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                                <figure class="image">
+                                                    <a href="{{ asset('images/resource/portfolio-2.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-2.jpg') }}" alt=""></a>
+                                                    <span class="icon flaticon-plus"></span>
+                                                </figure>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                                <figure class="image">
+                                                    <a href="{{ asset('images/resource/portfolio-3.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-3.jpg') }}" alt=""></a>
+                                                    <span class="icon flaticon-plus"></span>
+                                                </figure>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                                <figure class="image">
+                                                    <a href="{{ asset('images/resource/portfolio-4.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-4.jpg') }}" alt=""></a>
+                                                    <span class="icon flaticon-plus"></span>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Resume / Awards -->
+                                    <div class="resume-outer theme-yellow">
+                                        <div class="upper-title">
+                                            <h4>Réalisations</h4>
+                                        </div>
+                                        {% for realisation in profile.realisations %}
+                                        <!-- Resume BLock -->
+                                        <div class="resume-block">
+                                            <div class="inner">
+                                                <span class="name"></span>
+                                                <div class="title-box">
+                                                    <div class="info-box">
+                                                        <h3>Perfect Attendance Programs</h3>
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="edit-box">
+                                                        <span class="year">2012 - 2014</span>
+                                                    </div>
+                                                </div>
+                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                            <a class="theme-btn btn-style-three small call-modal" href="{{ path('realisation_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une expérience professionnelle</a>
+                                        {% endfor %}
+                                    </div>
+
+                                    <!-- Video Box -->
+                                    <div class="video-outer">
+                                        <h4>Vidéo de présentation</h4>
+                                        <div class="video-box">
+                                            <figure class="image">
+                                                <a href="{{ profile.lienVideo }}" class="play-now" data-fancybox="gallery" data-caption="">
+                                                    <img src="{{ asset('images/resource/video-img.jpg') }}" alt="">
+                                                    <i class="icon flaticon-play-button-3" aria-hidden="true"></i>
+                                                </a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
+                                <aside class="sidebar">
+
+                                    <div class="btn-box">
+                                        <a href="{{ asset('/uploads/' ~ profile.cv.last()) }}" class="theme-btn btn-style-one">Télécharger le CV</a>
+                                        <a class="bookmark-btn" href="{{ path('profile_edit', {'id': profile.id}) }}" data-text="Modifier"><i class="flaticon-edit"></i></a>
+                                    </div>
+
+                                    <div class="sidebar-widget">
+                                        <div class="widget-content">
+                                            <ul class="job-overview">
+                                                <li>
+                                                    <i class="icon icon-calendar"></i>
+                                                    <h5>Experience:</h5>
+                                                    <span>{{ profile.experiences }}</span>
+                                                </li>
+
+                                                <li>
+                                                    <i class="icon icon-expiry"></i>
+                                                    <h5>Date de naissance:</h5>
+                                                    <span>{{ profile.dateNaissance|date('m-d-Y') }}</span>
+                                                </li>
+
+                                                <li>
+                                                    <i class="icon icon-language"></i>
+                                                    <h5>Language:</h5>
+                                                    <span>{{ profile.langues }}</span>
+                                                </li>
+
+                                                <li>
+                                                    <i class="icon icon-degree"></i>
+                                                    <h5>Niveau:</h5>
+                                                    <span>{{ profile.typeDiplome }}</span>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="sidebar-widget">
+                                        <!-- Job Skills -->
+                                        <h4 class="widget-title">Compétences
+                                            {% if profile.tags is not empty %}<a href="{{ path('tag_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                        </h4>
+                                        <div class="widget-content">
+                                            <ul class="job-skills">
+                                                {% for tag in profile.tags %}
+                                                <li><a href="#">{{ tag.nom }}</a></li>
+                                                {% else %}
+                                                    <a class="theme-btn btn-style-three small call-modal" href="{{ path('tag_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter un tag</a>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- End Dashboard -->
+{% endblock %}

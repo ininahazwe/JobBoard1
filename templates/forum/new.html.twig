@@ -1,0 +1,25 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}New Forum{% endblock %}
+
+{% block body %}
+<section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- applicants Widget -->
+                <div class="applicants-widget ls-widget">
+                    <div class="widget-title">
+                        <h4>Forums</h4>
+                    </div>
+                    <div class="widget-content">
+                        <div class="row">
+                            {{ include('forum/_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,83 @@
+{{ form_start(form, { 'attr': {'class': 'default-form'} }) }}
+<div class="row">
+    <div class="default-tabs tabs-box">
+        <!--Tabs Box-->
+        <ul class="tab-buttons clearfix">
+            <li class="tab-btn active-btn" data-tab="#tab1">Infos générales</li>
+            <li class="tab-btn" data-tab="#tab2">Formations</li>
+            <li class="tab-btn" data-tab="#tab3">Experiences</li>
+            <li class="tab-btn" data-tab="#tab4">Compétences</li>
+        </ul>
+
+        <div class="tabs-content wow fadeInUp">
+            <!--Tab-->
+            <div class="tab active-tab" id="tab1">
+                <div class="row">
+                    {{ form_row(form.photo) }}
+                    <div class="files-outer d-flex gap-2 mt-2 mb-3">
+                        {% if app.request.attributes.get('_route') == 'profile_edit' %}
+                            {% for image in app.user.profile.photo %}
+                                {% if image.type is same as 1 %}
+                                <div class="image-container" style="background-image: url('{{ asset('/uploads/' ~ image.nom) }}'); background-repeat: no-repeat">
+                                    <div class="supprimer-image">
+                                        <a class="" href="{{ path('profile_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.portfolio) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.telephone) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.lien_video) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.typeDiplome) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.typeContrat) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.secteurActivite) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.typeEntretien) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.ville) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.codePostal) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.langues) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.zonegeographique) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.experiences) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.dateNaissance) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isConditionsUtilisation) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isRqth) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isVisible) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isAmenagement) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.recevoirAlertesOffres) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isCvtheque) }}</div>
+                    <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isRecevoirAlertes) }}</div>
+                    <div class="form-group col-lg-12 col-md-12">{{ form_row(form.description) }}</div>
+                </div>
+            </div>
+            <!--Tab-->
+            <div class="tab" id="tab2">
+                <div class="row">
+                    <div class="widget-title d-flex flex-row">
+                        <a class="theme-btn btn-style-three small call-modal" href="{{ path('cvformation_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une formation</a>
+                    </div>
+                    {{ form_row(form.cvformations) }}
+                </div>
+            </div>
+            <!--Tab-->
+            <div class="tab" id="tab3">
+                <div class="row">
+                    <div class="widget-title d-flex flex-row">
+                        <a class="theme-btn btn-style-three small call-modal" href="{{ path('cvexperience_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une expérience professionnelle</a>
+                    </div>
+                    {{ form_row(form.cvexperiences) }}
+                </div>
+            </div>
+            <!--Tab-->
+            <div class="tab" id="tab4">
+                <div class="row">
+                    {{ form_row(form.tags) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group col-lg-3 col-md-12">
+    <button class="theme-btn btn-style-one small" type="submit">Enregistrer</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}

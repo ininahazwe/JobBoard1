@@ -1,0 +1,41 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Formations dans le CV{% endblock %}
+
+{% block body %}
+    <h1>CvFormation</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Etablissement</th>
+                <th>Debut</th>
+                <th>Fin</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cvformation in cvformations %}
+            <tr>
+                <td>{{ cvformation.nom }}</td>
+                <td>{{ cvformation.etablissement }}</td>
+                <td>{{ cvformation.debut ? cvformation.debut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cvformation.fin ? cvformation.fin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cvformation.description }}</td>
+                <td>
+                    <a href="{{ path('cvformation_show', {'id': cvformation.id}) }}">show</a>
+                    <a href="{{ path('cvformation_edit', {'id': cvformation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cvformation_new') }}">Create new</a>
+{% endblock %}

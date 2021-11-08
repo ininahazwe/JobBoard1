@@ -1,0 +1,70 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+<section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Ls widget -->
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title d-flex flex-row">
+                            <h4>{{ user.fullname }}</h4>
+                            <div class="option-box">
+                                <ul class="option-list">
+                                    <li><a href="{{ path('user_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                    <li><a href="{{ path('user_edit', {'id': user.id}) }}" data-text="Editer"><span class="la la-pen"></span></a></li>
+                                    <li>{{ include('user/_delete_form.html.twig') }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="widget-content">
+                            <div class="table-outer">
+                                <table class="default-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>{{ user.email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Roles</th>
+                                            <td>{{ user.getRoleName()}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Civilite</th>
+                                            <td>{{ user.civilite }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <td>{{ user.nom|capitalize }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Prenom</th>
+                                            <td>{{ user.prenom|capitalize }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Statut du compte</th>
+                                            <td>{{ user.isVerified ? 'Vérifié' : 'Non vérifié' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>CreatedAt</th>
+                                            <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>UpdatedAt</th>
+                                            <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

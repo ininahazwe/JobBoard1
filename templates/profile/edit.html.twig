@@ -1,0 +1,30 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+
+    <!-- Dashboard -->
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title">
+                                <h4>Mon profile</h4>
+                                <a class="theme-btn btn-style-three small" href="{{ path('profile_show', {'id': profile.id}) }}"><i class="fas fa-eye mr-2"></i>Visualiser</a>
+                            </div>
+                            <div class="widget-content">
+                                    {{ include('profile/_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Dashboard -->
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}
