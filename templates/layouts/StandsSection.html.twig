@@ -1,5 +1,5 @@
 <!-- Job Section -->
-<section class="job-section-four">
+<section class="job-section-two">
     <div class="auto-container">
         <div class="sec-title text-center">
             <h2>Stands</h2>
@@ -15,8 +15,8 @@
                         <div class="inner-box">
                             <ul class="job-other-info">
                                 <li class="time">{{ stand.type }}</li>
-                                {# <li class="privacy">Private</li>
-                        <li class="required">Urgent</li> #}
+                                <li class="privacy">Speed Meeting</li>
+                                {#<li class="required">Urgent</li>#}
                             </ul>
                             <span class="company-logo">
                         {% if stand.logo %}
@@ -28,13 +28,10 @@
                         {% endif %}
                     </span>
                             <span class="company-name">Catalyst</span>
-                            <h4><a href="#">{{ stand.nom }}</a></h4>
+                            <h4><a href="{{ path('stand_page', {'slug': stand.slug}) }}">{{ stand.nom|slice(0, 20) }}</a></h4>
                             <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
                             <ul class="post-tags">
-                                <li><a href="#">App</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Digital</a></li>
-                                <li class="colored">{{ pluralize(stand.annonces|length, 'annonce') }}</li>
+                                {% if stand.annonces|length >= 1 %}<li class="colored">{{ pluralize(stand.annonces|length, 'annonce') }}</li>{% endif %}
                             </ul>
                         </div>
                     </a>

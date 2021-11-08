@@ -161,6 +161,11 @@ class Profile
      */
     private Collection $tags;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Realisation::class, mappedBy="profile")
+     */
+    private $realisations;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
@@ -170,6 +175,7 @@ class Profile
         $this->cvexperiences = new ArrayCollection();
         $this->cvformations = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->realisations = new ArrayCollection();
     }
 
     public function getDescription(): ?string
@@ -628,6 +634,36 @@ class Profile
     {
         if ($this->tags->removeElement($tag)) {
             $tag->removeCompetence($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Realisation[]
+     */
+    public function getRealisations(): Collection
+    {
+        return $this->realisations;
+    }
+
+    public function addRealisation(Realisation $realisation): self
+    {
+        if (!$this->realisations->contains($realisation)) {
+            $this->realisations[] = $realisation;
+            $realisation->setProfile($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRealisation(Realisation $realisation): self
+    {
+        if ($this->realisations->removeElement($realisation)) {
+            // set the owning side to null (unless already changed)
+            if ($realisation->getProfile() === $this) {
+                $realisation->setProfile(null);
+            }
         }
 
         return $this;

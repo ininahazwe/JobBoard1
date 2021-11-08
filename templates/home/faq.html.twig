@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+<!-- Faqs Section -->
+<section class="faqs-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Foire Aux Questions</h2>
+            <div class="text">Home / Faq</div>
+        </div>
+
+        <!--Accordian Box-->
+        <ul class="accordion-box">
+            <!--Block-->
+            {% for faq in faqs %}
+            <li class="accordion block">
+                <div class="acc-btn active">{{ faq.question }} <span class="icon flaticon-add"></span></div>
+                <div class="acc-content current">
+                    <div class="content">
+                        <p>{{ faq.reponse }}</p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+    <script type="text/javascript">
+        $(".accordion li").first().addClass("active-block");
+    </script>
+<!-- End Faqs Section -->
+{% endblock %}

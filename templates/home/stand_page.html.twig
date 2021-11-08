@@ -38,6 +38,7 @@
                         <div class="job-detail">
                             <h4>A propos de l'entreprise</h4>
                             <p>{{ stand.description }}</p>
+                            <h4>Documents à consulter</h4>
                             <div class="row images-outer">
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <figure class="image"><a href="{{ asset('images/resource/employers-single-1.png') }}" class="lightbox-image" data-fancybox="gallery"><img src="{{ asset('images/resource/employers-single-1.png') }}" alt=""></a></figure>
@@ -54,10 +55,11 @@
                             </div>
                         </div>
 
+                        {% if stand.annonces|length > 1 %}
                         <!-- Related Jobs -->
                         <div class="related-jobs">
                             <div class="title-box">
-                                <h3>{{ pluralize(stand.annonces|length, 'annonce') }} d'emploi</h3>
+                                <h3>{{ pluralize(stand.annonces|length, 'offre') }} d'emploi</h3>
                             </div>
                             {% for annonce in stand.annonces %}
                             <!-- Job Block -->
@@ -94,6 +96,7 @@
                             </div>
                             {% endfor %}
                         </div>
+                        {% endif %}
                     </div>
 
                     <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">

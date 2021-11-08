@@ -242,8 +242,8 @@
                         <div class="row">
                             {% for annonce in annonces %}
                             <!-- Job Block -->
-                            <a href="{{ path('annonce_page', {'slug' : annonce.slug}) }}">
                                 <div class="job-block-four col-lg-6 col-md-6 col-sm-12">
+                                    <a href="{{ path('annonce_page', {'slug' : annonce.slug}) }}">
                                     <div class="inner-box">
                                         <ul class="job-other-info">
                                             {% if annonce.horaires %}<li class="time">{{ annonce.horaires }}</li>{% endif %}
@@ -258,11 +258,11 @@
                                             {% endfor %}
                                         </span>
                                         <span class="company-name">{{ annonce.contrat }}</span>
-                                        <h4>{{ annonce.nom }}</h4>
+                                        <h4>{{ annonce.nom|capitalize|slice(0, 20) }}</h4>
                                         <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
                                     </div>
+                                    </a>
                                 </div>
-                            </a>
                             {% endfor %}
                         </div>
 

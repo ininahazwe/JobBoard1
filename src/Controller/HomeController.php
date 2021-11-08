@@ -7,6 +7,7 @@ use App\Entity\Forum;
 use App\Entity\Stand;
 use App\Repository\AnnonceRepository;
 use App\Repository\BlogRepository;
+use App\Repository\FAQRepository;
 use App\Repository\ForumRepository;
 use App\Repository\StandRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -77,4 +78,13 @@ class HomeController extends AbstractController
                 'forum' => $forum,
         ]);
     }
+
+    #[Route('/faq', name: 'faq_all', methods: ['GET'])]
+    public function faq(FAQRepository $FAQRepository): Response
+    {
+        return $this->render('home/faq.html.twig', [
+                'faqs' => $FAQRepository->findAll(),
+        ]);
+    }
+
 }
