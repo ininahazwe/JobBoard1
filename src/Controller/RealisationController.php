@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\File;
 use App\Entity\Profile;
 use App\Entity\Realisation;
 use App\Form\RealisationType;
 use App\Repository\RealisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,6 +37,21 @@ class RealisationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $images = $form->get('documents')->getData();
+            foreach($images as $image){
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $nomFichier = $image->getClientOriginalName();
+                $image->move($this->getParameter('files_directory'), $fichier);
+                $img = new File();
+                $img->setRealisation($realisation);
+                $img->setProfile($user);
+                $img->setNom($fichier);
+                $img->setNomFichier($nomFichier);
+                $img->setType(File::TYPE_DOCUMENTS);
+                $realisation->addDocument($img);
+            }
+
             $realisation->setProfile($user);
             $entityManager->persist($realisation);
             $entityManager->flush();
@@ -48,7 +65,7 @@ class RealisationController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/{profileId}/edit', name: 'realisation_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'realisation_show', methods: ['GET'])]
     public function show(Realisation $realisation): Response
     {
         return $this->render('realisation/show.html.twig', [
@@ -56,16 +73,33 @@ class RealisationController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'realisation_edit', methods: ['GET','POST'])]
+    #[Route('/{id}/{profileId}/edit', name: 'realisation_edit', methods: ['GET','POST'])]
     public function edit(Request $request, Realisation $realisation, $profileId): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $profile = $entityManager->getRepository(Profile::class)->find($profileId);
 
+        $user = $this->getUser()->getProfile();
+
         $form = $this->createForm(RealisationType::class, $realisation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $images = $form->get('documents')->getData();
+            foreach($images as $image){
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+                $nomFichier = $image->getClientOriginalName();
+                $image->move($this->getParameter('files_directory'), $fichier);
+                $img = new File();
+                $img->setRealisation($realisation);
+                $img->setProfile($user);
+                $img->setNom($fichier);
+                $img->setNomFichier($nomFichier);
+                $img->setType(File::TYPE_DOCUMENTS);
+                $realisation->addDocument($img);
+            }
+
             $realisation->updateTimestamps();
             $entityManager->flush();
 
@@ -74,7 +108,7 @@ class RealisationController extends AbstractController
 
         return $this->renderForm('realisation/edit.html.twig', [
             'realisation' => $realisation,
-                'profile' => $profile,
+            'profile' => $profile,
             'form' => $form,
         ]);
     }
@@ -89,5 +123,24 @@ class RealisationController extends AbstractController
         }
 
         return $this->redirectToRoute('realisation_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/supprime/file/{id}', name: 'realisation_delete_files', methods: ['DELETE'])]
+    public function deleteImage(File $file, Request $request): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+
+        if($this->isCsrfTokenValid('delete'.$file->getId(), $data['_token'])){
+            $nom = $file->getNom();
+            unlink($this->getParameter('files_directory').'/'.$nom);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($file);
+            $em->flush();
+
+            return new JsonResponse(['success' => 1]);
+        }else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
     }
 }

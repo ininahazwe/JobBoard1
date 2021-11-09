@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ cv_experience.id }}</td>
-            </tr>
-            <tr>
                 <th>Post</th>
                 <td>{{ cv_experience.post }}</td>
             </tr>
@@ -34,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cv_experience_index') }}">back to list</a>
+    <a href="{{ path('cvexperience_index') }}">back to list</a>
 
-    <a href="{{ path('cv_experience_edit', {'id': cv_experience.id}) }}">edit</a>
+    <a href="{{ path('cvexperience_edit', {'id': cv_experience.id}) }}">edit</a>
 
     {{ include('cvexperience/_delete_form.html.twig') }}
 {% endblock %}

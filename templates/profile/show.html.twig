@@ -111,58 +111,50 @@
                                         {% endfor %}
                                     </div>
 
-                                    <!-- Portfolio -->
-                                    <div class="portfolio-outer">
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                                <figure class="image">
-                                                    <a href="{{ asset('images/resource/portfolio-1.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-1.jpg') }}" alt=""></a>
-                                                    <span class="icon flaticon-plus"></span>
-                                                </figure>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                                <figure class="image">
-                                                    <a href="{{ asset('images/resource/portfolio-2.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-2.jpg') }}" alt=""></a>
-                                                    <span class="icon flaticon-plus"></span>
-                                                </figure>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                                <figure class="image">
-                                                    <a href="{{ asset('images/resource/portfolio-3.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-3.jpg') }}" alt=""></a>
-                                                    <span class="icon flaticon-plus"></span>
-                                                </figure>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                                <figure class="image">
-                                                    <a href="{{ asset('images/resource/portfolio-4.jpg') }}" class="lightbox-image"><img src="{{ asset('images/resource/portfolio-4.jpg') }}" alt=""></a>
-                                                    <span class="icon flaticon-plus"></span>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <!-- Resume / Awards -->
                                     <div class="resume-outer theme-yellow">
                                         <div class="upper-title">
                                             <h4>Réalisations
-                                                {% if profile.cvformations is not empty %}<a href="{{ path('realisation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                                {% if profile.realisations is not empty %}<a href="{{ path('realisation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
                                             </h4>
                                         </div>
                                         {% for realisation in profile.realisations %}
                                         <!-- Resume BLock -->
                                         <div class="resume-block">
                                             <div class="inner">
-                                                <span class="name"></span>
+                                                <span class="name">{{realisation.nom|first|capitalize }} </span>
                                                 <div class="title-box">
                                                     <div class="info-box">
                                                         <h3>{{ realisation.nom }}</h3>
                                                         <span></span>
                                                     </div>
                                                     <div class="edit-box">
-                                                        {% if realisation.annee %}<span class="year">{{ realisation.annee|date('d-m-Y') }}</span>{% endif %}
+                                                        {% if realisation.annee %}<span class="year">{{ realisation.annee|date('Y') }}</span>{% endif %}
+                                                        {% if app.user %}
+                                                            <div class="edit-btns">
+                                                                <a href="{{ path('realisation_edit', {'id': realisation.id, 'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-pen"></span></a>
+                                                            </div>
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                                 <div class="text"><br>{{ realisation.description }}</div>
+
+                                                <!-- Portfolio -->
+                                                <div class="portfolio-outer">
+                                                    <div class="row">
+                                                        {% if realisation.documents %}
+                                                            {% for image in realisation.documents %}
+                                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                                    <figure class="image">
+                                                                        <a href="{{ asset('uploads/' ~ image.nom) }}" class="lightbox-image"><img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}"></a>
+                                                                        <span class="icon flaticon-plus"></span>
+                                                                    </figure>
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                         {% else %}
@@ -227,12 +219,15 @@
                                     <div class="sidebar-widget">
                                         <!-- Job Skills -->
                                         <h4 class="widget-title">Compétences
-                                            {% if profile.tags is not empty %}<a href="{{ path('tag_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                            {% if profile.tags is not empty %}<a href="{{ path('tag_new', {'profileId' : profile.id }) }}" data-text="Ajouter" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
                                         </h4>
                                         <div class="widget-content">
                                             <ul class="job-skills">
                                                 {% for tag in profile.tags %}
-                                                <li><a href="#">{{ tag.nom }}</a></li>
+                                                <li>
+                                                    <a>{{ tag.nom }}</a>
+                                                </li>
+                                                    {{ include('tag/_delete_form.html.twig') }}
                                                 {% else %}
                                                     <a class="theme-btn btn-style-three small call-modal" href="{{ path('tag_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter un tag</a>
                                                 {% endfor %}

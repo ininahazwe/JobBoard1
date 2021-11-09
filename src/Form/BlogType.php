@@ -85,6 +85,7 @@ class BlogType extends AbstractType {
                 ->add('tag', EntityType::class, [
                         'class' => Tag::class,
                         'multiple' => true,
+                        'required' => false,
                         'choice_label' => 'nom',
                         'query_builder' => function (EntityRepository $er){
                             return $er->createQueryBuilder('t')

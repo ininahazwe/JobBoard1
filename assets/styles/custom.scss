@@ -1,7 +1,3 @@
-#profile_dateNaissance_time_hour {
-  display: none;
-}
-
 .table.custom > thead {
   vertical-align: bottom;
   background: #F5F7FC;
@@ -47,6 +43,8 @@
 #cv_formation_fin_time_hour,
 #cv_experience_fin_time_hour,
 #annonce_dateCloture_time_hour,
+#realisation_annee_time_hour,
+#profile_dateNaissance_time_hour,
 #forum_date_fermeture_candidature_time_hour{
   display: none;
 }

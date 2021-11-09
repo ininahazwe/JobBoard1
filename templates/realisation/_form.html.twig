@@ -1,4 +1,25 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('realisation_edit', {'id': realisation.id, 'profileId' : profile.id }) } }) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.annee) }}
+    {{ form_row(form.documents) }}
+
+    {% if app.request.attributes.get('_route') == 'realisation_edit' %}
+        <div class="title">Illustrations</div>
+        <div class="row">
+            {% if realisation.documents %}
+                {% for image in realisation.documents %}
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <figure class="image">
+                            <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                            <a class="" href="{{ path('realisation_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                        </figure>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <button class="btn theme-btn btn-style-one small" >{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
+<script src="{{ asset('js/images.js') }}"></script>

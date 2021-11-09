@@ -12,9 +12,8 @@
                     {% if is_granted('ROLE_RECRUTEUR') %}
                     <li>
                         {% for user in blog.auteur %}
-                            <span class="thumb">
-                                     <img src="{{ asset('uploads/avatar.png') }}" alt="">
-                                </span> {{ user.fullname|capitalize }}
+                            <span class="thumb"><img src="{{ asset('uploads/avatar.png') }}" alt=""></span>
+                            {{ user.fullname|capitalize }}
                         {% endfor %}
                     </li>
                     {% endif %}

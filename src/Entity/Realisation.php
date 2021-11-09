@@ -26,7 +26,7 @@ class Realisation
     private ?string $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=File::class, mappedBy="realisation")
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="realisation", cascade={"persist"})
      */
     private Collection $documents;
 
@@ -38,7 +38,7 @@ class Realisation
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $annee;
+    private ?\DateTimeInterface $annee;
 
     public function __construct()
     {

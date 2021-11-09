@@ -2,18 +2,22 @@
     {{ form_row(form.titre) }}
     {{ form_row(form.description) }}
     {{ form_row(form.images) }}
-    <div class="files-outer d-flex gap-2 mt-2 mb-3">
-        {% if app.request.attributes.get('_route') == 'blog_edit' %}
-            <h4 class="title">Illustrations</h4>
-            {% for image in blog.images %}
-                <div class="image-container" style="background-image: url('{{ asset('/uploads/' ~ image.nom) }}'); background-repeat: no-repeat">
-                    <div class="supprimer-image">
-                        <a class="" href="{{ path('blog_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+
+    {% if app.request.attributes.get('_route') == 'blog_edit' %}
+        <div class="title">Illustrations</div>
+        <div class="row">
+            {% if blog.images %}
+                {% for image in blog.images %}
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <figure class="image">
+                            <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                            <a class="" href="{{ path('blog_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                        </figure>
                     </div>
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
     <div class="row">
         <div class="form-group col-lg-3 col-md-12">{{ form_row(form.isStatut) }}</div>
         <div class="form-group col-lg-3 col-md-12">{{ form_row(form.type) }}</div>
