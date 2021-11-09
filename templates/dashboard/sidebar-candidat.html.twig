@@ -11,8 +11,8 @@
             </li>
             <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i>Mes rendez-vous</a></li>
             <li><a href="{{ path('annonce_favoris') }}"><i class="la la-briefcase"></i>Mes offres d'emploi</a></li>
-            <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Ma sélection</a></li>
-            <li><a href="{{ path('file_index') }}"><i class="la la-file-invoice"></i> Mon CV</a></li>
+            <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Mes forums</a></li>
+            <li><a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}"><i class="la la-file-invoice"></i> Mon CV</a></li>
             {#<li><a href="dashboard-packages.html"><i class="la la-box"></i>Packages</a></li>
             <li><a href="candidate-dashboard-shortlisted-resume.html"><i class="la la-bookmark-o"></i>Shortlisted Jobs</a></li>
             <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>#}

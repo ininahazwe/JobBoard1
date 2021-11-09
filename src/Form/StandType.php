@@ -30,6 +30,16 @@ class StandType extends AbstractType {
                         'mapped' => false,
                         'required' => false,
                 ])
+                ->add('documents', DropzoneType::class, [
+                        'attr' => [
+                                'placeholder' => 'Choisir un document',
+                                'data-controller' => 'mydropzone'
+                        ],
+                        'label' => false,
+                        'multiple' => true,
+                        'mapped' => false,
+                        'required' => false,
+                ])
                 ->add('url', UrlType::class, [
                         'label' => 'Lien web de l\'entreprise'
                 ])

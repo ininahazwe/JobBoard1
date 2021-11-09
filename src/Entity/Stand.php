@@ -101,12 +101,18 @@ class Stand
      */
     private Collection $annonces;
 
+    /**
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="stand_documents")
+     */
+    private Collection $documents;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable('now');
         $this->forums = new ArrayCollection();
         $this->annonces = new ArrayCollection();
         $this->logo = new ArrayCollection();
+        $this->documents = new ArrayCollection();
     }
 
     /**
@@ -344,6 +350,36 @@ class Stand
             // set the owning side to null (unless already changed)
             if ($annonce->getStand() === $this) {
                 $annonce->setStand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getDocuments(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function addDocument(File $document): self
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->setStandDocuments($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocument(File $document): self
+    {
+        if ($this->documents->removeElement($document)) {
+            // set the owning side to null (unless already changed)
+            if ($document->getStandDocuments() === $this) {
+                $document->setStandDocuments(null);
             }
         }
 

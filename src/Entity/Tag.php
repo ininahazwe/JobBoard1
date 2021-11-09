@@ -37,11 +37,17 @@ class Tag
      */
     private Collection $blogs;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Annonce::class, mappedBy="tags")
+     */
+    private $annonces_tags;
+
     public function __construct()
     {
         $this->competences = new ArrayCollection();
         $this->setCreatedAt(new \DateTimeImmutable('now'));
         $this->blogs = new ArrayCollection();
+        $this->annonces_tags = new ArrayCollection();
     }
 
     public function getNom(): ?string
@@ -116,5 +122,32 @@ class Tag
     public function __toString(): string
     {
         return $this->nom;
+    }
+
+    /**
+     * @return Collection|Annonce[]
+     */
+    public function getAnnoncesTags(): Collection
+    {
+        return $this->annonces_tags;
+    }
+
+    public function addAnnoncesTag(Annonce $annoncesTag): self
+    {
+        if (!$this->annonces_tags->contains($annoncesTag)) {
+            $this->annonces_tags[] = $annoncesTag;
+            $annoncesTag->addTag($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnoncesTag(Annonce $annoncesTag): self
+    {
+        if ($this->annonces_tags->removeElement($annoncesTag)) {
+            $annoncesTag->removeTag($this);
+        }
+
+        return $this;
     }
 }

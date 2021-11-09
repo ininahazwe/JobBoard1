@@ -18,7 +18,14 @@ class FileController extends AbstractController
     #[Route('/', name: 'file_index', methods: ['GET'])]
     public function index(FileRepository $fileRepository): Response
     {
-        $files = $fileRepository->findAll();
+        $user = $this->getUser();
+        $profile = $user->getProfile();
+        $files = null;
+        if ($profile){
+            $files = $fileRepository->getCVByCandidat($profile, $user);
+        }
+        //$files = $fileRepository->findAll();
+
          //dd($files);
         return $this->render('file/index.html.twig', [
             'files' => $files,

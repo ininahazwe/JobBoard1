@@ -34,18 +34,21 @@
                                         <!--Tab-->
                                         <div class="tab active-tab" id="tab1">
                                             {{ form_row(form.logo) }}
-                                            <div class="files-outer d-flex gap-2 mt-2 mb-3">
-                                                {% if app.request.attributes.get('_route') == 'stand_edit' %}
-                                                    <h4 class="title">Logo</h4>
-                                                    {% for image in stand.logo %}
-                                                        <div class="image-container" style="background-repeat: no-repeat; background-image: url('{{ asset('/uploads/' ~ image.nom) }}')">
-                                                            <div class="supprimer-image">
-                                                                <a class="" href="{{ path('stand_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                                            {% if app.request.attributes.get('_route') == 'stand_edit' %}
+                                                <div class="title">Logo</div>
+                                                <div class="row">
+                                                    {% if stand.logo %}
+                                                        {% for image in stand.logo %}
+                                                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                                                <figure class="image">
+                                                                    <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                                                    <a class="" href="{{ path('realisation_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                                                                </figure>
                                                             </div>
-                                                        </div>
-                                                    {% endfor %}
-                                                {% endif %}
-                                            </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
                                             {{ form_row(form.nom) }}
                                             {{ form_row(form.url) }}
                                             {{ form_row(form.description) }}
@@ -64,9 +67,24 @@
                                                 <div class="col-md-3">{{ form_row(form.speedMeeting) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.nombreParticipationCanditatStand) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.codeInscription) }}</div>
+                                                {{ form_row(form.documents) }}
+                                                {% if app.request.attributes.get('_route') == 'stand_edit' %}
+                                                    <div class="title">Documents</div>
+                                                    <div class="row">
+                                                        {% if stand.documents %}
+                                                            {% for image in stand.documents %}
+                                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                                    <figure class="image">
+                                                                        <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                                                        <a class="" href="{{ path('stand_delete_files', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}"><span class="la la-trash"></span></a>
+                                                                    </figure>
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <button class="theme-btn btn-style-one small">{{ button_label|default('Enregistrer') }}</button>

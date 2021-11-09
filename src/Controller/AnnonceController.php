@@ -59,7 +59,7 @@ class AnnonceController extends AbstractController
         ]);
     }
 
-    #[Route('/{slug}', name: 'annonce_show', methods: ['GET'])]
+    #[Route('/view/{slug}', name: 'annonce_show', methods: ['GET'])]
     public function show(Annonce $annonce): Response
     {
         return $this->render('annonce/show.html.twig', [
@@ -132,7 +132,7 @@ class AnnonceController extends AbstractController
     }
 
     #[Route('/favoris/ajout/{id}', name: 'annonce_ajout_favoris')]
-    public function ajoutFavoris(Annonce $annonce): RedirectResponse
+    public function ajoutFavoris(Request $request, Annonce $annonce): RedirectResponse
     {
         if(!$annonce){
             throw new NotFoundHttpException('Pas d\'annonce trouvée');
@@ -142,11 +142,17 @@ class AnnonceController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->persist($annonce);
         $em->flush();
-        return $this->redirectToRoute('annonce_page', ['slug'=> $annonce->getSlug()], Response::HTTP_SEE_OTHER);
+
+        if ($referer = $request->get('referer', false)) {
+            $referer = base64_decode($referer);
+            return $this->redirect(($referer));
+        } else {
+            return $this->redirectToRoute('annonce_page', ['slug'=> $annonce->getSlug()], Response::HTTP_SEE_OTHER);
+        }
     }
 
     #[Route('/favoris/retrait/{id}', name: 'annonce_retrait_favoris')]
-    public function retraitFavoris(Annonce $annonce): RedirectResponse
+    public function retraitFavoris(Request $request, Annonce $annonce): RedirectResponse
     {
         if(!$annonce){
             throw new NotFoundHttpException('Pas d\'annonce trouvée');
@@ -156,7 +162,13 @@ class AnnonceController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->persist($annonce);
         $em->flush();
-        return $this->redirectToRoute('annonce_page', ['slug'=> $annonce->getSlug()], Response::HTTP_SEE_OTHER);
+
+        if ($referer = $request->get('referer', false)) {
+            $referer = base64_decode($referer);
+            return $this->redirect(($referer));
+        } else {
+            return $this->redirectToRoute('annonce_page', ['slug'=> $annonce->getSlug()], Response::HTTP_SEE_OTHER);
+        }
     }
 
     #[Route('/selection', name: 'annonce_favoris')]

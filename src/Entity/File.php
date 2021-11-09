@@ -87,6 +87,11 @@ class File
      */
     private $realisation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Stand::class, inversedBy="documents")
+     */
+    private $stand_documents;
+
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable('now');
     }
@@ -302,6 +307,18 @@ class File
     public function setRealisation(?Realisation $realisation): self
     {
         $this->realisation = $realisation;
+
+        return $this;
+    }
+
+    public function getStandDocuments(): ?Stand
+    {
+        return $this->stand_documents;
+    }
+
+    public function setStandDocuments(?Stand $stand_documents): self
+    {
+        $this->stand_documents = $stand_documents;
 
         return $this;
     }

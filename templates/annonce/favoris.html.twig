@@ -1,1 +1,103 @@
-ffff
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Mes annonces!{% endblock %}
+
+{% block body %}
+    <!-- Listing Section -->
+    <section class="ls-section">
+        <div class="auto-container">
+            <div class="filters-backdrop"></div>
+                <div class="row">
+            <!--End Page Title-->
+                <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                    <div class="ls-outer">
+                        <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+
+                        <!-- ls Switcher -->
+                        <div class="ls-switcher">
+                            <div class="showing-result">
+                                <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>
+                            </div>
+                            <div class="sort-by">
+                                <select class="chosen-select">
+                                    <option>New Jobs</option>
+                                    <option>Freelance</option>
+                                    <option>Full Time</option>
+                                    <option>Internship</option>
+                                    <option>Part Time</option>
+                                    <option>Temporary</option>
+                                </select>
+
+                                <select class="chosen-select">
+                                    <option>Show 10</option>
+                                    <option>Show 20</option>
+                                    <option>Show 30</option>
+                                    <option>Show 40</option>
+                                    <option>Show 50</option>
+                                    <option>Show 60</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            {% for annonce in annonces %}
+                                <!-- Job Block -->
+                                <div class="job-block col-lg-6 col-md-12 col-sm-12">
+                                    <div class="inner-box">
+                                        <div class="content">
+                                                        <span class="company-logo">
+                                                            {% for logo in annonce.stand.logo %}
+                                                                <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
+                                                                    {% else %}
+                                                                <img src="{{ asset('uploads/stand.png') }}" alt="" style="width: 100px">
+                                                            {% endfor %}
+                                                        </span>
+                                            <h4><a href="{{ path('annonce_page', {'slug' : annonce.slug}) }}">{{ annonce.nom|capitalize|slice(0, 20) }}</a></h4>
+                                            <ul class="job-info">
+                                                <li><span class="icon flaticon-briefcase"></span> Segment</li>
+                                                <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                                <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                                                <li><span class="icon flaticon-money"></span> $35k - $45k</li>
+                                            </ul>
+                                            <ul class="job-other-info">
+                                                {% if annonce.horaires %}<li class="time">{{ annonce.horaires }}</li>{% endif %}
+                                                {% if annonce.accessibilite %}<li class="privacy">{{ annonce.accessibilite ? 'CMR' : 'Non CMR' }}</li>{% endif %}
+                                                {% if annonce.contrat %}<li class="required">{{ annonce.contrat }}</li>{% endif %}
+                                            </ul>
+                                            {% if is_granted('ROLE_CANDIDAT') %}
+                                                {% set isFavorite = false %}
+                                                {% for favoris in annonce.favoris %}
+                                                    {% if favoris.id == app.user.id %}
+                                                        {% set isFavorite = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if isFavorite %}
+                                                    <a href="{{ path('annonce_retrait_favoris', {id: annonce.id}) }}" class="bookmark-btn"><i class="fas fa-heart"></i></a>
+                                                {% else %}
+                                                    <a href="{{ path('annonce_ajout_favoris', {id: annonce.id}) }}" class="bookmark-btn"><i class="far fa-heart"></i></a>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+
+                        <!-- Pagination -->
+                        <nav class="ls-pagination">
+                            <ul>
+                                <li class="prev"><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#" class="current-page">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="next"><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

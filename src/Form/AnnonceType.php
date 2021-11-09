@@ -6,6 +6,7 @@ use App\Entity\Annonce;
 use App\Entity\Dictionnaire;
 use App\Entity\Forum;
 use App\Entity\Stand;
+use App\Entity\Tag;
 use Doctrine\ORM\EntityRepository;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -179,6 +180,22 @@ class AnnonceType extends AbstractType {
                         'multiple' => true,
                         'mapped' => false,
                         'required' => false,
+                ])
+                ->add('tags', EntityType::class, [
+                        'class' => Tag::class,
+                        'multiple' => true,
+                        'required' => false,
+                        'choice_label' => 'nom',
+
+                        'query_builder' => function(EntityRepository $er){
+                            return $er->createQueryBuilder('t')
+                                    ->orderBy('t.nom', 'ASC');
+                        },
+                        'label' => 'Tags',
+                        'by_reference' => false,
+                        'attr' => [
+                                'class' => 'chosen-select'
+                        ]
                 ])
             ;
     }

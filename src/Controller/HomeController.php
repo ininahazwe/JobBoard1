@@ -10,6 +10,7 @@ use App\Repository\BlogRepository;
 use App\Repository\FAQRepository;
 use App\Repository\ForumRepository;
 use App\Repository\StandRepository;
+use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,17 +33,22 @@ class HomeController extends AbstractController
     }
 
     #[Route('/job/all', name: 'annonces_all', methods: ['GET'])]
-    public function annonces(AnnonceRepository $annonceRepository): Response
+    public function annonces(AnnonceRepository $annonceRepository, TagRepository $tagRepository): Response
     {
+        $tags = $tagRepository->findAll();
+        $annonces = $annonceRepository->findAll();
         return $this->render('home/annonces.html.twig', [
-                'annonces' => $annonceRepository->findAll(),
+                'annonces' => $annonces,
+                'tags' => $tags,
         ]);
     }
 
     #[Route('/job/{slug}', name: 'annonce_page', methods: ['GET'])]
-    public function annonce(Annonce $annonce): Response
+    public function annonce(Annonce $annonce, AnnonceRepository $annonceRepository): Response
     {
+        $annonces = $annonceRepository->findAll();
         return $this->render('home/annonce_page.html.twig', [
+                'annonces' => $annonces,
                 'annonce' => $annonce,
         ]);
     }

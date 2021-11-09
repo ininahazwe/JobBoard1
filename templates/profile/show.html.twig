@@ -115,7 +115,7 @@
                                     <div class="resume-outer theme-yellow">
                                         <div class="upper-title">
                                             <h4>Réalisations
-                                                {% if profile.realisations is not empty %}<a href="{{ path('realisation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                                {% if app.user %}<a href="{{ path('realisation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
                                             </h4>
                                         </div>
                                         {% for realisation in profile.realisations %}
@@ -181,7 +181,11 @@
                                 <aside class="sidebar">
 
                                     <div class="btn-box">
-                                        <a href="{{ asset('/uploads/' ~ profile.cv.last()) }}" class="theme-btn btn-style-one">Télécharger le CV</a>
+                                        {% if is_granted('ROLE_RECRUTEUR') %}
+                                            <a href="{{ asset('/uploads/' ~ profile.cv.last().nom()) }}" class="theme-btn btn-style-one">Télécharger le CV</a>
+                                        {% else %}
+                                            <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="theme-btn btn-style-one">Gérer mes CV</a>
+                                        {% endif %}
                                         <a class="bookmark-btn" href="{{ path('profile_edit', {'id': profile.id}) }}" data-text="Modifier"><i class="flaticon-edit"></i></a>
                                     </div>
 
@@ -219,7 +223,7 @@
                                     <div class="sidebar-widget">
                                         <!-- Job Skills -->
                                         <h4 class="widget-title">Compétences
-                                            {% if profile.tags is not empty %}<a href="{{ path('tag_new', {'profileId' : profile.id }) }}" data-text="Ajouter" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                            {% if app.user %}<a href="{{ path('tag_new', {'profileId' : profile.id }) }}" data-text="Ajouter" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
                                         </h4>
                                         <div class="widget-content">
                                             <ul class="job-skills">

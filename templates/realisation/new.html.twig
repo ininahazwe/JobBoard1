@@ -5,6 +5,7 @@
                 {{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('realisation_new', {'profileId' : profile.id }) } }) }}
                 {{ form_row(form.nom) }}
                 {{ form_row(form.description) }}
+                {{ form_row(form.annee) }}
                 {{ form_row(form.documents) }}
                 <button class="btn theme-btn btn-style-one small" >{{ button_label|default('Enregistrer') }}</button>
                 {{ form_end(form) }}

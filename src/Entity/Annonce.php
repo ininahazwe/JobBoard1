@@ -129,6 +129,11 @@ class Annonce
      */
     private Collection $favoris;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Tag::class, inversedBy="annonces_tags")
+     */
+    private Collection $tags;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -136,6 +141,7 @@ class Annonce
         $this->secteur = new ArrayCollection();
         $this->documents = new ArrayCollection();
         $this->favoris = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getNom(): ?string
@@ -450,6 +456,30 @@ class Annonce
     public function removeFavori(User $favori): self
     {
         $this->favoris->removeElement($favori);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        $this->tags->removeElement($tag);
 
         return $this;
     }

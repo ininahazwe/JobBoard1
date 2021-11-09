@@ -69,7 +69,7 @@ class ProfileController extends AbstractController {
     public function GestionCV(Request $request, Profile $profile, FileRepository $fileRepository): Response {
         $entityManager = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $cVCandidat = $fileRepository->getCVByCandidat($user);
+        $cVCandidat = $fileRepository->getCVByCandidat($profile, $user);
         $form = $this->createForm(CvType::class, $profile);
         $form->handleRequest($request);
 

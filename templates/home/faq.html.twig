@@ -15,9 +15,10 @@
         <ul class="accordion-box">
             <!--Block-->
             {% for faq in faqs %}
-            <li class="accordion block">
-                <div class="acc-btn active">{{ faq.question }} <span class="icon flaticon-add"></span></div>
-                <div class="acc-content current">
+            <li class="accordion block {% if loop.first %} active-block{% endif %}">
+                <div class="acc-btn {% if loop.first %} active{% endif %}">
+                    {{ loop.index }} - {{ faq.question }}<span class="icon flaticon-add"></span></div>
+                <div class="acc-content {% if loop.first %}current{% endif %}">
                     <div class="content">
                         <p>{{ faq.reponse }}</p>
                     </div>
@@ -28,8 +29,5 @@
     </div>
 </section>
 
-    <script type="text/javascript">
-        
-    </script>
 <!-- End Faqs Section -->
 {% endblock %}

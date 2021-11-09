@@ -21,21 +21,19 @@ class FileRepository extends ServiceEntityRepository
     }
 
 
-    /**
-     * @param $user
-     * @return QueryBuilder
-     */
-    public function getCVByCandidat($user): QueryBuilder {
+
+    public function getCVByCandidat($profile, $user) {
         $query = $this->createQueryBuilder('f');
+        $query->andWhere('f.type = :type')
+                ->andWhere('f.profile = :profile')
+                ->andWhere('f.user = :user')
+                ->setParameter('type', File::TYPE_CV)
+                ->setParameter('profile', $profile)
+                ->setParameter('user', $user)
+                ;
+        return $query->getQuery()->getResult();
 
-            $query
-                    ->where('f.type= :cv')
-                    ->andWhere('f.profile = :profile')
-                    ->setParameter('cv', File::TYPE_CV)
-                    ->setParameter('profile', $user->getProfile())
-                    ->getQuery();
 
-            return $query;
 
     }
 
