@@ -34,13 +34,15 @@
                                             <td>{{ dictionnaire.value }}</td>
                                         </tr>
                                         <tr>
-                                            <th>CreatedAt</th>
-                                            <td>{{ dictionnaire.createdAt ? dictionnaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                            <th>Crée le</th>
+                                            <td>{{ dictionnaire.createdAt ? dictionnaire.createdAt|date('Y-m-d à H:i:s') : '' }}</td>
                                         </tr>
+                                        {% if dictionnaire.updatedAt %}
                                         <tr>
                                             <th>UpdatedAt</th>
-                                            <td>{{ dictionnaire.updatedAt ? dictionnaire.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                            <td>{{ dictionnaire.updatedAt ? dictionnaire.updatedAt|date('Y-m-d à H:i:s') : '' }}</td>
                                         </tr>
+                                        {% endif %}
                                     </tbody>
                                 </table>
                             </div>

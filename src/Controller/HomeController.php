@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Data\SearchDataAnnonce;
+use App\Form\Search\SearchAnnonceForm;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Annonce;
 use App\Entity\Forum;
 use App\Entity\Stand;
@@ -18,28 +22,52 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(BlogRepository $blogRepository, ForumRepository $forumRepository, StandRepository $standRepository): Response
+    public function index(Request $request, AnnonceRepository $annonceRepository, BlogRepository $blogRepository, ForumRepository $forumRepository, StandRepository $standRepository): Response
     {
+        $data = new SearchDataAnnonce();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchAnnonceForm::class, $data);
+        $form->handleRequest($request);
+
+        $annonces = $annonceRepository->findSearch($data);
+
         $blog = $blogRepository->findAll();
         $stand = $standRepository->findAll();
         $forum = $forumRepository->findLastInserted();
         $forums = $forumRepository->findAll();
         return $this->render('home/index.html.twig', [
             'blogs' => $blog,
+            'annonces' => $annonces,
             'forums' => $forum,
             'stands' => $stand,
-            'allForums' => $forums
+            'allForums' => $forums,
+            'form' => $form->createView()
         ]);
     }
 
     #[Route('/job/all', name: 'annonces_all', methods: ['GET'])]
-    public function annonces(AnnonceRepository $annonceRepository, TagRepository $tagRepository): Response
+    public function annonces(Request $request, AnnonceRepository $annonceRepository, TagRepository $tagRepository): Response
     {
+        $data = new SearchDataAnnonce();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchAnnonceForm::class, $data);
+        $form->handleRequest($request);
+
         $tags = $tagRepository->findAll();
-        $annonces = $annonceRepository->findAll();
+        $annonces = $annonceRepository->findSearch($data);
+
+        if($request->get('ajax')){
+            return new JsonResponse([
+                    'content' => $this->renderView('home/annonces.html.twig', ['annonces' => $annonces]),
+                    'pagination' => $this->renderView('annonce/_pagination.html.twig', ['annonces' => $annonces]),
+                    'pages' => ceil($annonces->getTotalItemCount() / $annonces->getItemNumberPerPage())
+            ]);
+        }
+
         return $this->render('home/annonces.html.twig', [
                 'annonces' => $annonces,
                 'tags' => $tags,
+                'form' => $form->createView()
         ]);
     }
 

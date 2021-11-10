@@ -166,6 +166,39 @@ class Dictionnaire {
         $this->annonces_secteur = new ArrayCollection();
     }
 
+    public static function getTypeList(): array {
+        return array(
+                'Contrat' => Dictionnaire::TYPE_CONTRAT,
+                'Diplôme' => Dictionnaire::TYPE_DIPLOMA,
+                'Expérience' => Dictionnaire::TYPE_EXPERIENCE,
+                'Langues' => Dictionnaire::TYPE_LANGUAGE,
+                'Niveau' => Dictionnaire::TYPE_LEVEL,
+                'Contrat de formation' => Dictionnaire::TYPE_CONTRAT_FORMATION,
+                'Source' => Dictionnaire::TYPE_SOURCE,
+                'Début' => Dictionnaire::TYPE_START,
+                'Budget' => Dictionnaire::TYPE_BUDGET,
+                'Secteur' => Dictionnaire::TYPE_SECTEUR,
+                'Durée' => Dictionnaire::TYPE_DURATION,
+                'Refus' => Dictionnaire::TYPE_REFUS,
+                'Catégorie métier' => Dictionnaire::TYPE_METIER,
+                'Mobilier' => Dictionnaire::TYPE_MOBILIER,
+                'Plante' => Dictionnaire::TYPE_PLANTE,
+                'Transport' => Dictionnaire::TYPE_TRANSPORT,
+                'Entretien' => Dictionnaire::TYPE_ENTRETIEN,
+                'Formation' => Dictionnaire::TYPE_FORMATION,
+                'Catégorie annuaire' => Dictionnaire::TYPE_CATEGORIE_ANNUAIRE,
+                'Catégorie agenda' => Dictionnaire::TYPE_CATEGORIE_AGENDA,
+                'Catégorie blog' => Dictionnaire::TYPE_CATEGORIE_BLOG,
+                'Civilité' => Dictionnaire::TYPE_CATEGORIE_CIVILITE,
+                'Zone géographique' => Dictionnaire::TYPE_ZONE_GEOGRAPHIQUE,
+                'Statut ouverture forum' => Dictionnaire::TYPE_FORUM_OPENING_STATUS,
+                'Type de pavillon' => Dictionnaire::TYPE_PAVILLON,
+                'Type de stand' => Dictionnaire::TYPE_STAND,
+                'Type de FaQ' => Dictionnaire::TYPE_FAQ_BLOG,
+                'Type de blog' => Dictionnaire::TYPE_BLOG,
+        );
+    }
+
     public function getType(): ?string {
         return $this->type;
     }
@@ -265,39 +298,6 @@ class Dictionnaire {
         }
 
         return $this;
-    }
-
-    public static function getTypeList(): array {
-        return array(
-                'Contrat' => Dictionnaire::TYPE_CONTRAT,
-                'Diplôme' => Dictionnaire::TYPE_DIPLOMA,
-                'Expérience' => Dictionnaire::TYPE_EXPERIENCE,
-                'Langues' => Dictionnaire::TYPE_LANGUAGE,
-                'Niveau' => Dictionnaire::TYPE_LEVEL,
-                'Contrat de formation' => Dictionnaire::TYPE_CONTRAT_FORMATION,
-                'Source' => Dictionnaire::TYPE_SOURCE,
-                'Début' => Dictionnaire::TYPE_START,
-                'Budget' => Dictionnaire::TYPE_BUDGET,
-                'Secteur' => Dictionnaire::TYPE_SECTEUR,
-                'Durée' => Dictionnaire::TYPE_DURATION,
-                'Refus' => Dictionnaire::TYPE_REFUS,
-                'Catégorie métier' => Dictionnaire::TYPE_METIER,
-                'Mobilier' => Dictionnaire::TYPE_MOBILIER,
-                'Plante' => Dictionnaire::TYPE_PLANTE,
-                'Transport' => Dictionnaire::TYPE_TRANSPORT,
-                'Entretien' => Dictionnaire::TYPE_ENTRETIEN,
-                'Formation' => Dictionnaire::TYPE_FORMATION,
-                'Catégorie annuaire' => Dictionnaire::TYPE_CATEGORIE_ANNUAIRE,
-                'Catégorie agenda' => Dictionnaire::TYPE_CATEGORIE_AGENDA,
-                'Catégorie blog' => Dictionnaire::TYPE_CATEGORIE_BLOG,
-                'Civilité' => Dictionnaire::TYPE_CATEGORIE_CIVILITE,
-                'Zone géographique' => Dictionnaire::TYPE_ZONE_GEOGRAPHIQUE,
-                'Statut ouverture forum' => Dictionnaire::TYPE_FORUM_OPENING_STATUS,
-                'Type de pavillon' => Dictionnaire::TYPE_PAVILLON,
-                'Type de stand' => Dictionnaire::TYPE_STAND,
-                'Type de FaQ' => Dictionnaire::TYPE_FAQ_BLOG,
-                'Type de blog' => Dictionnaire::TYPE_BLOG,
-        );
     }
 
     /**
@@ -583,13 +583,6 @@ class Dictionnaire {
     }
 
     /**
-     * @return string
-     */
-    public function __toString(): string {
-        return $this->value;
-    }
-
-    /**
      * @return Collection
      */
     public function getAnnoncesDiplome(): Collection
@@ -731,5 +724,12 @@ class Dictionnaire {
         }
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string {
+        return $this->value;
     }
 }

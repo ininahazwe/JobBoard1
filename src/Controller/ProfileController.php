@@ -106,6 +106,7 @@ class ProfileController extends AbstractController {
 
     #[Route('/cvtheque', name: 'cvtheque', methods: ['GET'])]
     public function cvtheque(FileRepository $fileRepository, ProfileRepository $profileRepository, Request $request): Response {
+
         $data = new SearchDataProfile();
         $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchProfileForm::class, $data);

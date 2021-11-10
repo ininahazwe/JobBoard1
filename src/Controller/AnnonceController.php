@@ -180,4 +180,16 @@ class AnnonceController extends AbstractController
                 'annonces' => $annonces,
         ]);
     }
+
+    #[Route('/activer/{id}', name: 'annonce_activer')]
+    public function activer(Annonce $annonce): Response
+    {
+        $annonce->setStatut(!$annonce->getStatut());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($annonce);
+        $em->flush();
+
+        return new Response("true");
+    }
 }

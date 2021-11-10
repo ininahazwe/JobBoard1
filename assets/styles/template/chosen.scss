@@ -41,8 +41,8 @@
     display: block;
     overflow: hidden;
     padding: 0 0 0 18px;
-    /*height: 61px;
-    line-height: 66px;*/
+    height: 61px;
+    line-height: 66px;
     border: 1px solid #dbdbdb;
     border: 1px solid transparent;
     /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);*/
@@ -240,7 +240,7 @@
     position: relative;
     display: block;
     overflow: hidden;
-    padding: 0 0 0 18px;
+    padding: 0 0 0 40px;
     height: auto;
     border: 1px solid #dbdbdb;
     background-color: #fff;
@@ -270,11 +270,11 @@
 
 .chosen-container-multi .chosen-choices li.search-field input[type=text] {
     margin: 0;
-    padding: 0;
+    padding-left: 15px;
     height: 49px;
     outline: 0;
     border: 0!important;
-    background: 0 0!important;
+    background: white !important;
     color: #888;
     line-height: normal;
     font-weight: 500;

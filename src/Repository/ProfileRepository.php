@@ -36,6 +36,7 @@ class ProfileRepository extends ServiceEntityRepository
                 ->setParameter('role', 'ROLE_CANDIDAT')
                 ->getQuery()->getResult();
     }
+
     /**
      * @param SearchDataProfile $search
      * @return PaginationInterface

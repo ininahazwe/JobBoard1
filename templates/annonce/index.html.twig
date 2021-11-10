@@ -17,25 +17,39 @@
 
                         <div class="widget-content">
                             <div class="table-outer">
-                                <table class="default-table" >
+                                <table class="default-table" id="datatable">
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
                                             <th>Stand</th>
                                             <th>Forum</th>
-                                            <th>Accessibilite</th>
                                             <th>Statut</th>
                                             <th>actions</th>
+                                            <th>Paramètres</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     {% for annonce in annonces %}
                                         <tr>
                                             <td>{{ annonce.nom }}</td>
-                                            <td>{% for stand in annonce.stand %}{{ stand.nom }}{% endfor %}</td>
-                                            <td>{% for forum in annonce.forum %}{{ forum.nom }}{% endfor %}</td>
-                                            <td>{{ annonce.accessibilite ? 'Oui' : 'Non' }}</td>
-                                            <td>{{ annonce.statut ? 'Oui' : 'Non' }}</td>
+                                            <td>{{ annonce.stand.nom }}</td>
+                                            <td>{{ annonce.forum.nom }}</td>
+                                            <td>
+
+                                                <ul class="switchbox">
+                                                    <li>
+                                                        <label class="switch">
+                                                            <input type="checkbox" id="flexSwitchCheckDefault" {{ (annonce.statut) ? 'checked' : ''}} data-id="{{annonce.id}}"/>
+                                                            <span class="slider round"></span>
+                                                            {% if annonce.statut  ? 'checked'%}
+                                                                <span class="title">publiée</span>
+                                                            {% else %}
+                                                                <span class="title">non publiée</span>
+                                                            {% endif %}
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                             <td>
                                                 <div class="option-box">
                                                     <ul class="option-list">
@@ -43,6 +57,12 @@
                                                         <li><a href="{{ path('annonce_edit', {'id': annonce.id}) }}" data-text="Modifier"><span class="la la-pen"></span></a></li>
                                                         <li>{{ include('annonce/_delete_form.html.twig') }}</li>
                                                     </ul>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="buttons">
+                                                    <a href="" class="theme-btn btn-style-four small">Dupliquer</a>
+                                                    <a href="" class="theme-btn btn-style-eight small">Archiver</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -61,4 +81,16 @@
         </div>
     </div>
 </section>
+    <script>
+        window.onload = () => {
+            let activer = document.querySelectorAll("[type=checkbox]")
+            for (let bouton of activer) {
+                bouton.addEventListener("click", function () {
+                    let xmlhttp = new XMLHttpRequest;
+                    xmlhttp.open("get", `/cms/annonce/activer/${this.dataset.id}`)
+                    xmlhttp.send()
+                })
+            }
+        }
+    </script>
 {% endblock %}

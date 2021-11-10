@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Annonce;
 use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,23 @@ class TagRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Tag::class);
+    }
+
+    public function getTagsAnnoncesPubliees(): array
+    {
+        $ids = array();
+        $now = new \DateTime('now');
+        $query = $this->getEntityManager()->getRepository(Annonce::class)->createQueryBuilder('a')
+                ->andWhere('a.statut = 1')
+                /*->andWhere('a.dateCloture > :date')
+                ->setParameter('date', $now)*/
+
+        ;
+        $result = $query->getQuery()->getResult();
+        foreach($result as $annonce){
+            $ids[] = $annonce->getTags()->getId();
+        }
+        return $ids;
     }
 
     // /**

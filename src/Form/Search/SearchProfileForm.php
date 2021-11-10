@@ -21,9 +21,12 @@ class SearchProfileForm extends AbstractType {
                         ]
                 ])
                 ->add('typeDiplome', EntityType::class, [
+                        'attr' => [
+                                'class' => 'chosen-select'
+                        ],
                         'required'  => false,
                         'label' => false,
-                        'expanded' => true,
+                        'expanded' => false,
                         'multiple' => true,
                         'class' => Dictionnaire::class,
                         'query_builder' => function($repository) {
@@ -36,9 +39,12 @@ class SearchProfileForm extends AbstractType {
                         }
                 ])
                 ->add('zonegeographique', EntityType::class, [
+                        'attr' => [
+                                'class' => 'chosen-select'
+                        ],
                         'required'  => false,
                         'label' => false,
-                        'expanded' => true,
+                        'expanded' => false,
                         'multiple' => true,
                         'class' => Dictionnaire::class,
                         'query_builder' => function($repository) {

@@ -18,9 +18,9 @@ import './js/theme';
 
 import 'datatables.net';
 import 'datatables.net-bs4';
-import Filter from "./js/Filter";
+/*import Filter from "./js/Filter";
 
-new Filter(document.querySelector('.js-filter'))
+new Filter(document.querySelector('.js-filter'))*/
 
 $(document).ready( function () {
     $('#datatable').DataTable({

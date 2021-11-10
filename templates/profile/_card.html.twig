@@ -27,8 +27,8 @@
             </ul>
             <ul class="job-other-info">
                 {% if profile.secteurActivite %}<li class="privacy">{{ profile.secteurActivite }}</li>{% endif %}
-                {% if profile.secteurActivite %}<li class="required">{{ profile.typeContrat }}</li>{% endif %}
-                {% if profile.secteurActivite %}<li class="time">{{ profile.typeDiplome }}</li>{% endif %}
+                {% if profile.typeContrat %}<li class="required">{{ profile.typeContrat }}</li>{% endif %}
+                {% if profile.typeDiplome %}<li class="time">{{ profile.typeDiplome }}</li>{% endif %}
             </ul>
             <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
         </div>

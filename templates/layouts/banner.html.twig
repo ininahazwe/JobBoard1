@@ -11,23 +11,23 @@
 
                     <!-- Job Search Form -->
                     <div class="job-search-form wow fadeInUp" data-wow-delay="1000ms">
-                        <form method="post" action="job-list-v10.html">
+                        {{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
                             <div class="row">
                                 <div class="form-group col-lg-5 col-md-12 col-sm-12">
                                     <span class="icon flaticon-search-1"></span>
-                                    <input type="text" name="field_name" placeholder="intitulé, mots clés, ou entreprise">
+                                    {{ form_row(form.q) }}
                                 </div>
                                 <!-- Form Group -->
                                 <div class="form-group col-lg-4 col-md-12 col-sm-12 location">
                                     <span class="icon flaticon-map-locator"></span>
-                                    <input type="text" name="field_name" placeholder="Ville ou Code postal">
+                                    {{ form_row(form.zone) }}
                                 </div>
                                 <!-- Form Group -->
                                 <div class="form-group col-lg-3 col-md-12 col-sm-12 btn-box">
                                     <a href="{{ path('annonces_all') }}" class="theme-btn btn-style-seven"><span class="btn-title">Touver un emploi</span></a>
                                 </div>
                             </div>
-                        </form>
+                        {{ form_end(form, {'render_rest': false}) }}
                     </div>
                     <!-- Job Search Form -->
                 </div>
