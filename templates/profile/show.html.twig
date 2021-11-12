@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="job-detail">
                                     <h4>Introduction</h4>
-                                    <p>{{ profile.description }}</p>
+                                    <p>{{ profile.description|raw }}</p>
 
                                     <!-- Resume / Education -->
                                     <div class="resume-outer">
@@ -69,7 +69,7 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <div class="text">{{ formation.description }}</div>
+                                                <div class="text">{{ formation.description|raw }}</div>
                                             </div>
                                         </div>
                                         {% else %}
@@ -103,7 +103,7 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <div class="text">{{ experience.description }}</div>
+                                                <div class="text">{{ experience.description|raw }}</div>
                                             </div>
                                         </div>
                                         {% else %}
@@ -137,7 +137,7 @@
                                                         {% endif %}
                                                     </div>
                                                 </div>
-                                                <div class="text"><br>{{ realisation.description }}</div>
+                                                <div class="text"><br>{{ realisation.description|raw }}</div>
 
                                                 <!-- Portfolio -->
                                                 <div class="portfolio-outer">

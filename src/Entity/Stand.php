@@ -102,7 +102,7 @@ class Stand
     private Collection $annonces;
 
     /**
-     * @ORM\OneToMany(targetEntity=File::class, mappedBy="stand_documents")
+     * @ORM\OneToMany(targetEntity=File::class, mappedBy="stand_documents", cascade={"persist"})
      */
     private Collection $documents;
 

@@ -14,7 +14,7 @@
                     <a href="{{ path('stand_page', {'slug': stand.slug}) }}">
                         <div class="inner-box">
                             <ul class="job-other-info">
-                                <li class="time">{{ stand.type }}</li>
+                                {% if stand.annonces|length >= 1 %}<li class="time">{{ pluralize(stand.annonces|length, 'annonce') }}{% endif %}
                                 <li class="privacy">Speed Meeting</li>
                                 {#<li class="required">Urgent</li>#}
                             </ul>
@@ -31,7 +31,7 @@
                             <h4><a href="{{ path('stand_page', {'slug': stand.slug}) }}">{{ stand.nom|slice(0, 20) }}</a></h4>
                             <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
                             <ul class="post-tags">
-                                {% if stand.annonces|length >= 1 %}<li class="colored">{{ pluralize(stand.annonces|length, 'annonce') }}</li>{% endif %}
+
                             </ul>
                         </div>
                     </a>

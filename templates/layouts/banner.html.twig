@@ -11,7 +11,7 @@
 
                     <!-- Job Search Form -->
                     <div class="job-search-form wow fadeInUp" data-wow-delay="1000ms">
-                        {{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+                        {{ form_start(form, {'action': path('annonces_all')}) }}
                             <div class="row">
                                 <div class="form-group col-lg-5 col-md-12 col-sm-12">
                                     <span class="icon flaticon-search-1"></span>

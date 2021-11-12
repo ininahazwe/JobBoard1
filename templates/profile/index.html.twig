@@ -28,7 +28,7 @@
         <tbody>
         {% for profile in profiles %}
             <tr>
-                <td>{{ profile.description }}</td>
+                <td>{{ profile.description|raw }}</td>
                 <td>{{ profile.dateNaissance ? profile.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ profile.isRqth ? 'Yes' : 'No' }}</td>
                 <td>{{ profile.isVisible ? 'Yes' : 'No' }}</td>

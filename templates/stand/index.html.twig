@@ -39,7 +39,7 @@
                                                         {% endfor %}
                                                     {% endif %}
                                                 </td>
-                                                <td><a href="{{ path('stand_show', {'slug': stand.slug}) }}">{{ stand.nom }}</a></td>
+                                                <td><a href="{{ path('stand_page', {'slug': stand.slug}) }}">{{ stand.nom }}</a></td>
                                                 <td>
                                                     {% for forum in stand.forums %}
                                                         <ul class="list-style-two">

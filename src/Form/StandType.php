@@ -6,6 +6,7 @@ use App\Entity\Dictionnaire;
 use App\Entity\Forum;
 use App\Entity\Stand;
 use Doctrine\ORM\EntityRepository;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -43,7 +44,7 @@ class StandType extends AbstractType {
                 ->add('url', UrlType::class, [
                         'label' => 'Lien web de l\'entreprise'
                 ])
-                ->add('description', TextareaType::class, [
+                ->add('description', CKEditorType::class, [
                         'label' => 'Description de l\'entreprise'
                 ])
                 ->add('page_offres', TextareaType::class, [

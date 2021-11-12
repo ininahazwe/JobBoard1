@@ -1,34 +1,62 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-dashboard.html.twig' %}
 
 {% block title %}Pavillon{% endblock %}
 
 {% block body %}
-    <h1>Pavillon</h1>
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Pavillon | {{ pavillon.nom }}</h4>
+                                <div class="option-box">
+                                    <ul class="option-list">
+                                        <li><a href="{{ path('pavillon_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                        <li><a href="{{ path('pavillon_edit', {'id': pavillon.id}) }}" data-text="Editer"><span class="la la-pen"></span></a></li>
+                                        <li>{{ include('pavillon/_delete_form.html.twig') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ pavillon.nom }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ pavillon.id }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ pavillon.createdAt ? pavillon.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ pavillon.updatedAt ? pavillon.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('pavillon_index') }}">back to list</a>
-
-    <a href="{{ path('pavillon_edit', {'id': pavillon.id}) }}">edit</a>
-
-    {{ include('pavillon/_delete_form.html.twig') }}
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    <table class="default-table">
+                                        <tbody>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <td>{{ pavillon.type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Forums</th>
+                                            <td>
+                                                <ul>
+                                                    {% for forum in pavillon.forums %}
+                                                        <li><a href="{{ path('forum_page', {'slug': forum.slug}) }}">{{ forum.nom }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Crée le</th>
+                                            <td>{{ pavillon.createdAt ? pavillon.createdAt|date('Y-m-d à H:i:s') : '' }}</td>
+                                        </tr>
+                                        {% if pavillon.updatedAt %}
+                                            <tr>
+                                                <th>UpdatedAt</th>
+                                                <td>{{ pavillon.updatedAt ? pavillon.updatedAt|date('Y-m-d à H:i:s') : '' }}</td>
+                                            </tr>
+                                        {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

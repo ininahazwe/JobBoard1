@@ -23,7 +23,7 @@
                 <td>{{ cvformation.etablissement }}</td>
                 <td>{{ cvformation.debut ? cvformation.debut|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ cvformation.fin ? cvformation.fin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ cvformation.description }}</td>
+                <td>{{ cvformation.description|raw }}</td>
                 <td>
                     <a href="{{ path('cvformation_show', {'id': cvformation.id}) }}">show</a>
                     <a href="{{ path('cvformation_edit', {'id': cvformation.id}) }}">edit</a>

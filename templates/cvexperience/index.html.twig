@@ -23,7 +23,7 @@
                 <td>{{ cv_experience.entreprise }}</td>
                 <td>{{ cv_experience.debut ? cv_experience.debut|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ cv_experience.fin ? cv_experience.fin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ cv_experience.description }}</td>
+                <td>{{ cv_experience.description|raw }}</td>
                 <td>
                     <a href="{{ path('cvexperience_show', {'id': cv_experience.id}) }}">show</a>
                     <a href="{{ path('cvexperience_edit', {'id': cv_experience.id}) }}">edit</a>

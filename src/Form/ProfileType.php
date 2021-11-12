@@ -7,14 +7,13 @@ use App\Entity\CvFormation;
 use App\Entity\Dictionnaire;
 use App\Entity\Profile;
 use App\Entity\Tag;
-use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +22,7 @@ use Symfony\UX\Dropzone\Form\DropzoneType;
 class ProfileType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder
-                ->add('description', TextareaType::class, [
+                ->add('description', CKEditorType::class, [
                         'label' => 'Description',
                         'required' => false
                 ])

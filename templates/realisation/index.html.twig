@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ realisation.id }}</td>
                 <td>{{ realisation.nom }}</td>
-                <td>{{ realisation.description }}</td>
+                <td>{{ realisation.description|raw }}</td>
                 <td>
                     <a href="{{ path('realisation_show', {'id': realisation.id}) }}">show</a>
                     <a href="{{ path('realisation_edit', {'id': realisation.id}) }}">edit</a>

@@ -22,6 +22,7 @@
                                         <tr>
                                             <th>Titre</th>
                                             <th>Auteurs</th>
+                                            <th>Tags</th>
                                             <th>Statut</th>
                                             <th>actions</th>
                                         </tr>
@@ -31,9 +32,18 @@
                                         <tr>
                                             <td>{{ blog.titre }}</td>
                                             <td>
-                                                {% for user in blog.auteur %}
-                                                    <ul><li>{{ user.fullname|capitalize }}</li></ul>
-                                                {% endfor %}
+                                                <ul>
+                                                    {% for user in blog.auteur %}
+                                                        <li>{{ user.fullname|capitalize }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    {% for tag in blog.tag %}
+                                                        <li>{{ tag.nom|capitalize }}</li>
+                                                    {% endfor %}
+                                                </ul>
                                             </td>
                                             <td>{{ blog.isStatut ? 'Publié' : 'Non publié' }}</td>
                                             <td>

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/stands')]
+#[Route('/cms/stands')]
 class StandController extends AbstractController
 {
     #[Route('/', name: 'stand_index', methods: ['GET'])]
@@ -34,15 +34,11 @@ class StandController extends AbstractController
 
             $images = $form->get('logo')->getData();
             foreach($images as $image){
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
-                $nomFichier = $image->getClientOriginalName();
-                $image->move($this->getParameter('files_directory'), $fichier);
-                $img = new File();
-                $img->setStand($stand);
-                $img->setNom($fichier);
-                $img->setNomFichier($nomFichier);
-                $img->setType(File::TYPE_LOGO);
-                $stand->addLogo($img);
+               $this->saveDoc($stand, $image, File::TYPE_LOGO);
+            }
+            $documents = $form->get('documents')->getData();
+            foreach($documents as $document){
+                $this->saveDoc($stand, $document, File::TYPE_DOCUMENTS);
             }
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -58,6 +54,26 @@ class StandController extends AbstractController
             'stand' => $stand,
             'form' => $form,
         ]);
+    }
+
+    public function saveDoc($stand, $image, $type, $document){
+        $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+        $nomFichier = $image->getClientOriginalName();
+        $image->move($this->getParameter('files_directory'), $fichier);
+        $document->move($this->getParameter('files_directory'), $fichier);
+        $img = new File();
+        $img->setStand($stand);
+        $img->setNom($fichier);
+        $img->setNomFichier($nomFichier);
+        if ($type == File::TYPE_LOGO){
+            $img->setType($type);
+            $stand->addLogo($img);
+        }
+        if ($type == File::TYPE_DOCUMENTS){
+            $img->setType($type);
+            $stand->addDocument($img);
+        }
+
     }
 
     #[Route('/{slug}', name: 'stand_show', methods: ['GET'])]

@@ -3,44 +3,62 @@
 {% block title %}Forum{% endblock %}
 
 {% block body %}
-    <h1>Forum</h1>
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Forum | {{ forum.nom }}</h4>
+                                <div class="option-box">
+                                    <ul class="option-list">
+                                        <li><a href="{{ path('forum_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                        <li><a href="{{ path('forum_edit', {'id': forum.id}) }}" data-text="Editer"><span class="la la-pen"></span></a></li>
+                                        <li>{{ include('forum/_delete_form.html.twig') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ forum.nom }}</td>
-            </tr>
-            <tr>
-                <th>Nombre_stands</th>
-                <td>{{ pluralize(forum.stand|length, 'stand') }}</td>
-            </tr>
-            <tr>
-                <th>Date_ouverture</th>
-                <td>{{ forum.dateOuverture ? forum.dateOuverture|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Date_fermeture</th>
-                <td>{{ forum.dateFermeture ? forum.dateFermeture|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Statut</th>
-                <td>{{ forum.statut ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Date_fermeture_candidature</th>
-                <td>{{ forum.dateFermetureCandidature ? forum.dateFermetureCandidature|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ forum.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('forum_index') }}">back to list</a>
-
-    <a href="{{ path('forum_edit', {'id': forum.id}) }}">edit</a>
-
-    {{ include('forum/_delete_form.html.twig') }}
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    <table class="default-table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Nom</th>
+                                                <td>{{ forum.nom }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Description</th>
+                                                <td>{{ forum.description|raw }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Stands</th>
+                                                <td>
+                                                    <ul>
+                                                        {% for stand in forum.stand %}
+                                                            <li><a href="{{ path('stand_page', {'slug': stand.slug}) }}">{{ stand.nom }}</a></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Date d'ouverture</th>
+                                                <td>{{ forum.dateOuverture ? forum.dateOuverture|date('Y-m-d à H:i:s') : '' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>UpdatedAt</th>
+                                                <td>{{ forum.dateFermeture ? forum.dateFermeture|date('Y-m-d à H:i:s') : '' }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
