@@ -106,6 +106,21 @@ class Stand
      */
     private Collection $documents;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Questionnaire::class, mappedBy="stand")
+     */
+    private Collection $questionnaires;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private ?bool $isUne;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="stands_favoris")
+     */
+    private Collection $favoris_stand;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable('now');
@@ -113,6 +128,8 @@ class Stand
         $this->annonces = new ArrayCollection();
         $this->logo = new ArrayCollection();
         $this->documents = new ArrayCollection();
+        $this->questionnaires = new ArrayCollection();
+        $this->favoris_stand = new ArrayCollection();
     }
 
     /**
@@ -382,6 +399,72 @@ class Stand
                 $document->setStandDocuments(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getQuestionnaires(): Collection
+    {
+        return $this->questionnaires;
+    }
+
+    public function addQuestionnaire(Questionnaire $questionnaire): self
+    {
+        if (!$this->questionnaires->contains($questionnaire)) {
+            $this->questionnaires[] = $questionnaire;
+            $questionnaire->setStand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionnaire(Questionnaire $questionnaire): self
+    {
+        if ($this->questionnaires->removeElement($questionnaire)) {
+            // set the owning side to null (unless already changed)
+            if ($questionnaire->getStand() === $this) {
+                $questionnaire->setStand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIsUne(): ?bool
+    {
+        return $this->isUne;
+    }
+
+    public function setIsUne(?bool $isUne): self
+    {
+        $this->isUne = $isUne;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getFavorisStand(): Collection
+    {
+        return $this->favoris_stand;
+    }
+
+    public function addFavorisStand(User $favorisStand): self
+    {
+        if (!$this->favoris_stand->contains($favorisStand)) {
+            $this->favoris_stand[] = $favorisStand;
+        }
+
+        return $this;
+    }
+
+    public function removeFavorisStand(User $favorisStand): self
+    {
+        $this->favoris_stand->removeElement($favorisStand);
 
         return $this;
     }

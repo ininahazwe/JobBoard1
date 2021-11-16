@@ -90,7 +90,7 @@ class File
     /**
      * @ORM\ManyToOne(targetEntity=Stand::class, inversedBy="documents")
      */
-    private $stand_documents;
+    private ?Stand  $stand_documents;
 
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable('now');

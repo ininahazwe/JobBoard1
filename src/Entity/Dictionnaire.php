@@ -43,6 +43,8 @@ class Dictionnaire {
     const TYPE_STAND = 'type_stand';
     const TYPE_FAQ_BLOG = 'type_faq_blog';
     const TYPE_BLOG = 'type_blog';
+    const TYPE_QUESTION = 'type_question';
+    const TYPE_ANNUAIRE = 'type_annuaire';
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -144,6 +146,36 @@ class Dictionnaire {
      */
     private Collection $annonces_secteur;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="type")
+     */
+    private Collection $questions;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Annuaire::class, mappedBy="type")
+     */
+    private Collection $annuaires_type;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Annuaire::class, mappedBy="contrat")
+     */
+    private Collection $annuaires_contrat;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Annuaire::class, mappedBy="zone")
+     */
+    private Collection $annuaires_zone;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Annuaire::class, mappedBy="secteur")
+     */
+    private Collection $annuaires_secteur;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Annuaire::class, mappedBy="diplome")
+     */
+    private Collection $annuaires_diplome;
+
     public function __construct() {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
         $this->profilesContrat = new ArrayCollection();
@@ -164,6 +196,12 @@ class Dictionnaire {
         $this->annonces_contrat = new ArrayCollection();
         $this->annonces_zone = new ArrayCollection();
         $this->annonces_secteur = new ArrayCollection();
+        $this->questions = new ArrayCollection();
+        $this->annuaires_type = new ArrayCollection();
+        $this->annuaires_contrat = new ArrayCollection();
+        $this->annuaires_zone = new ArrayCollection();
+        $this->annuaires_secteur = new ArrayCollection();
+        $this->annuaires_diplome = new ArrayCollection();
     }
 
     public static function getTypeList(): array {
@@ -196,6 +234,8 @@ class Dictionnaire {
                 'Type de stand' => Dictionnaire::TYPE_STAND,
                 'Type de FaQ' => Dictionnaire::TYPE_FAQ_BLOG,
                 'Type de blog' => Dictionnaire::TYPE_BLOG,
+                'Type de question' => Dictionnaire::TYPE_QUESTION,
+                'Type d\'annuaire' => Dictionnaire::TYPE_ANNUAIRE,
         );
     }
 
@@ -731,5 +771,173 @@ class Dictionnaire {
      */
     public function __toString(): string {
         return $this->value;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getQuestions(): Collection
+    {
+        return $this->questions;
+    }
+
+    public function addQuestion(Question $question): self
+    {
+        if (!$this->questions->contains($question)) {
+            $this->questions[] = $question;
+            $question->setType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestion(Question $question): self
+    {
+        if ($this->questions->removeElement($question)) {
+            // set the owning side to null (unless already changed)
+            if ($question->getType() === $this) {
+                $question->setType(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnnuaires(): Collection
+    {
+        return $this->annuaires_type;
+    }
+
+    public function addAnnuaire(Annuaire $annuaire): self
+    {
+        if (!$this->annuaires_type->contains($annuaire)) {
+            $this->annuaires_type[] = $annuaire;
+            $annuaire->setType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnuaire(Annuaire $annuaire): self
+    {
+        if ($this->annuaires_type->removeElement($annuaire)) {
+            // set the owning side to null (unless already changed)
+            if ($annuaire->getType() === $this) {
+                $annuaire->setType(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnnuairesContrat(): Collection
+    {
+        return $this->annuaires_contrat;
+    }
+
+    public function addAnnuairesContrat(Annuaire $annuairesContrat): self
+    {
+        if (!$this->annuaires_contrat->contains($annuairesContrat)) {
+            $this->annuaires_contrat[] = $annuairesContrat;
+            $annuairesContrat->addContrat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnuairesContrat(Annuaire $annuairesContrat): self
+    {
+        if ($this->annuaires_contrat->removeElement($annuairesContrat)) {
+            $annuairesContrat->removeContrat($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnnuairesZone(): Collection
+    {
+        return $this->annuaires_zone;
+    }
+
+    public function addAnnuairesZone(Annuaire $annuairesZone): self
+    {
+        if (!$this->annuaires_zone->contains($annuairesZone)) {
+            $this->annuaires_zone[] = $annuairesZone;
+            $annuairesZone->addZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnuairesZone(Annuaire $annuairesZone): self
+    {
+        if ($this->annuaires_zone->removeElement($annuairesZone)) {
+            $annuairesZone->removeZone($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnnuairesSecteur(): Collection
+    {
+        return $this->annuaires_secteur;
+    }
+
+    public function addAnnuairesSecteur(Annuaire $annuairesSecteur): self
+    {
+        if (!$this->annuaires_secteur->contains($annuairesSecteur)) {
+            $this->annuaires_secteur[] = $annuairesSecteur;
+            $annuairesSecteur->addSecteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnuairesSecteur(Annuaire $annuairesSecteur): self
+    {
+        if ($this->annuaires_secteur->removeElement($annuairesSecteur)) {
+            $annuairesSecteur->removeSecteur($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnnuairesDiplome(): Collection
+    {
+        return $this->annuaires_diplome;
+    }
+
+    public function addAnnuairesDiplome(Annuaire $annuairesDiplome): self
+    {
+        if (!$this->annuaires_diplome->contains($annuairesDiplome)) {
+            $this->annuaires_diplome[] = $annuairesDiplome;
+            $annuairesDiplome->addDiplome($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnuairesDiplome(Annuaire $annuairesDiplome): self
+    {
+        if ($this->annuaires_diplome->removeElement($annuairesDiplome)) {
+            $annuairesDiplome->removeDiplome($this);
+        }
+
+        return $this;
     }
 }

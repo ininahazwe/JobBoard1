@@ -32,14 +32,16 @@ class HomeController extends AbstractController
         $annonces = $annonceRepository->findSearch($data);
 
         $blog = $blogRepository->findAll();
-        $stand = $standRepository->findAll();
+        $stands = $standRepository->findAll();
+        $alaUne = $standRepository->findAlaUne();
         $forum = $forumRepository->findLastInserted();
         $forums = $forumRepository->findAll();
         return $this->render('home/index.html.twig', [
             'blogs' => $blog,
             'annonces' => $annonces,
             'forums' => $forum,
-            'stands' => $stand,
+            'stands' => $stands,
+            'standsUne' => $alaUne,
             'allForums' => $forums,
             'form' => $form->createView()
         ]);

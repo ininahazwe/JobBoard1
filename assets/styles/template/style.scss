@@ -7083,7 +7083,9 @@ Job Section Four
 
 .job-block-four .company-logo{
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 90px;
     width: 90px;
     border-radius: 50%;
@@ -9803,6 +9805,9 @@ Candidates Section Two
     height: 90px;
     overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .candidate-block-two .image img{
@@ -13373,6 +13378,7 @@ Blog Single
     color: #696969;
     padding-left: 15px;
     margin-right: 10px;
+    gap: 20px;
 }
 
 .blog-single .post-info li:before{
@@ -13400,7 +13406,7 @@ Blog Single
     width: 30px;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 12px;
+    //margin-right: 12px;
 }
 
 .blog-single .main-image{

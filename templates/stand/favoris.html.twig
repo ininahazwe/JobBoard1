@@ -1,33 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-dashboard.html.twig' %}
 
-{% block title %}Liste des stands{% endblock %}
+{% block title %}Mes stands favoris!{% endblock %}
 
 {% block body %}
-    <!--Page Title-->
-    <section class="page-title">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1>Stands</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="{{ path('home') }}">Home</a></li>
-                    <li>Stands</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!--End Page Title-->
-
     <!-- Listing Section -->
     <section class="ls-section">
         <div class="auto-container">
             <div class="filters-backdrop"></div>
 
             <div class="row">
-
                 <!-- Content Column -->
                 <div class="content-column col-lg-12 col-md-12 col-sm-12">
                     <div class="ls-outer">
                         <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+                        <!-- ls Switcher -->
+                        <div class="ls-switcher">
+                            <div class="showing-result">
+                                <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>
+                            </div>
+                            <div class="sort-by">
+                                <select class="chosen-select">
+                                    <option>New Jobs</option>
+                                    <option>Freelance</option>
+                                    <option>Full Time</option>
+                                    <option>Internship</option>
+                                    <option>Part Time</option>
+                                    <option>Temporary</option>
+                                </select>
+
+                                <select class="chosen-select">
+                                    <option>Show 10</option>
+                                    <option>Show 20</option>
+                                    <option>Show 30</option>
+                                    <option>Show 40</option>
+                                    <option>Show 50</option>
+                                    <option>Show 60</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <!-- Company Block Four -->
@@ -49,8 +59,8 @@
                                                     <a href="{{ path('stand_ajout_favoris', {id: stand.id}) }}" class="bookmark-btn"><i class="far fa-heart"></i></a>
                                                 {% endif %}
                                             {% endif %}
-                                        <span class="featured">{{ stand.type }}</span>
-                                        <span class="company-logo">
+                                            <span class="featured">{{ stand.type }}</span>
+                                            <span class="company-logo">
                                             {% if stand.logo %}
                                                 {% for logo in stand.logo %}
                                                     <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
@@ -59,14 +69,14 @@
                                                 {% endfor %}
                                             {% endif %}
                                         </span>
-                                        <h4>{{ stand.nom }}</h4>
-                                        <ul class="job-info">
-                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                            <li><span class="icon flaticon-briefcase"></span> Accounting / Finance</li>
-                                        </ul>
-                                        {% if stand.annonces|length >= 1 %}
-                                        <a href="{{ path('stand_page', {'slug': stand.slug}) }}" class="job-type">{{ pluralize(stand.annonces|length, 'annonce') }}</a>
-                                        {% endif %}
+                                            <h4>{{ stand.nom }}</h4>
+                                            <ul class="job-info">
+                                                <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                                <li><span class="icon flaticon-briefcase"></span> Accounting / Finance</li>
+                                            </ul>
+                                            {% if stand.annonces|length >= 1 %}
+                                                <a href="{{ path('stand_page', {'slug': stand.slug}) }}" class="job-type">{{ pluralize(stand.annonces|length, 'annonce') }}</a>
+                                            {% endif %}
                                         </a>
                                     </div>
                                 </div>

@@ -35,15 +35,7 @@ class BlogController extends AbstractController
             $blog->addAuteur($user);
             $images = $form->get('images')->getData();
             foreach($images as $image){
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
-                $nomFichier = $image->getClientOriginalName();
-                $image->move($this->getParameter('files_directory'), $fichier);
-                $img = new File();
-                $img->setBlog($blog);
-                $img->setNom($fichier);
-                $img->setNomFichier($nomFichier);
-                $img->setType(File::TYPE_ILLUSTRATION);
-                $blog->addImage($img);
+                $this->saveDoc($blog, $image);
             }
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -81,15 +73,7 @@ class BlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
             foreach($images as $image){
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
-                $nomFichier = $image->getClientOriginalName();
-                $image->move($this->getParameter('files_directory'), $fichier);
-                $img = new File();
-                $img->setNom($fichier);
-                $img->setBlog($blog);
-                $img->setNomFichier($nomFichier);
-                $img->setType(File::TYPE_ILLUSTRATION);
-                $blog->addImage($img);
+                $this->saveDoc($blog, $image);
             }
 
             $blog->updateTimestamps();
@@ -138,5 +122,17 @@ class BlogController extends AbstractController
         }else{
             return new JsonResponse(['error' => 'Token Invalide'], 400);
         }
+    }
+
+    public function saveDoc($blog, $image){
+        $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+        $nomFichier = $image->getClientOriginalName();
+        $image->move($this->getParameter('files_directory'), $fichier);
+        $img = new File();
+        $img->setNom($fichier);
+        $img->setBlog($blog);
+        $img->setNomFichier($nomFichier);
+        $img->setType(File::TYPE_ILLUSTRATION);
+        $blog->addImage($img);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Stand;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,32 @@ class StandRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Stand::class);
+    }
+
+    /**
+     * @return array
+     */
+    public function findAlaUne(): array {
+
+        $query = $this->createQueryBuilder('s')
+                ->andWhere('s.isUne = 1');
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param $user
+     * @return mixed
+     */
+    public function findStandsEnFavori($user): mixed {
+
+        $query = $this->createQueryBuilder('s')
+                ->innerJoin('s.favoris_stand', 'u', 'WITH', 'u.id = :user')
+                ->setParameter('user', $user)
+                ;
+
+        return $query
+                ->getQuery()->getResult();
     }
 
     // /**

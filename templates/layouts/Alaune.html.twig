@@ -1,0 +1,35 @@
+<!-- Candidates Section -->
+<section class="candidates-section-two">
+    <div class="auto-container">
+        <div class="sec-title">
+            <h2>Employeurs à la une</h2>
+        </div>
+
+        <div class="carousel-outer wow fadeInUp">
+            <div class="row">
+                {% for stand in standsUne %}
+                <div class="candidate-block-two col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-box">
+                        <div class="content-box">
+                            <figure class="image">
+                                {% if stand.logo %}
+                                    {% for logo in stand.logo %}
+                                        <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
+                                    {% else %}
+                                        <img src="{{ asset('uploads/stand.png') }}" alt="" style="width: 100px">
+                                    {% endfor %}
+                                {% endif %}
+                            </figure>
+                            <h4 class="name">{{ stand.nom }}</h4>
+                            <span class="designation">UI Designer</span>
+                            <div class="location"><i class="flaticon-map-locator"></i> London, UK</div>
+                        </div>
+                        <a href="{{ path('stand_page', {'slug': stand.slug }) }}" class="theme-btn btn-style-three">Voir le stand</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Candidates Section -->

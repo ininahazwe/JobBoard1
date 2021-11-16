@@ -26,7 +26,7 @@ class StandType extends AbstractType {
                                 'placeholder' => 'Choisir un logo',
                                 'data-controller' => 'mydropzone'
                         ],
-                        'label' => false,
+                        'label' => 'Logo',
                         'multiple' => true,
                         'mapped' => false,
                         'required' => false,
@@ -36,7 +36,7 @@ class StandType extends AbstractType {
                                 'placeholder' => 'Choisir un document',
                                 'data-controller' => 'mydropzone'
                         ],
-                        'label' => false,
+                        'label' => 'Documents',
                         'multiple' => true,
                         'mapped' => false,
                         'required' => false,
@@ -68,6 +68,13 @@ class StandType extends AbstractType {
                         'choices' => [
                                 'Publie' => true,
                                 'Non publié' => false
+                        ]
+                ])
+                ->add('isUne', ChoiceType::class, [
+                        'label' => 'Statut',
+                        'choices' => [
+                                'Oui' => true,
+                                'Non' => false
                         ]
                 ])
                 ->add('type', EntityType::class, [

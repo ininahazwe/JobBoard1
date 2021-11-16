@@ -8,8 +8,10 @@ use App\Form\StandType;
 use App\Repository\StandRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/cms/stands')]
@@ -36,9 +38,9 @@ class StandController extends AbstractController
             foreach($images as $image){
                $this->saveDoc($stand, $image, File::TYPE_LOGO);
             }
-            $documents = $form->get('documents')->getData();
-            foreach($documents as $document){
-                $this->saveDoc($stand, $document, File::TYPE_DOCUMENTS);
+            $images = $form->get('documents')->getData();
+            foreach($images as $image){
+                $this->saveDoc($stand, $image, File::TYPE_DOCUMENTS);
             }
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -56,20 +58,23 @@ class StandController extends AbstractController
         ]);
     }
 
-    public function saveDoc($stand, $image, $type, $document){
+    public function saveDoc($stand, $image, $type)
+    {
         $fichier = md5(uniqid()) . '.' . $image->guessExtension();
         $nomFichier = $image->getClientOriginalName();
         $image->move($this->getParameter('files_directory'), $fichier);
-        $document->move($this->getParameter('files_directory'), $fichier);
+        //$document->move($this->getParameter('files_directory'), $fichier);
         $img = new File();
-        $img->setStand($stand);
+
         $img->setNom($fichier);
         $img->setNomFichier($nomFichier);
         if ($type == File::TYPE_LOGO){
+            $img->setStand($stand);
             $img->setType($type);
             $stand->addLogo($img);
         }
         if ($type == File::TYPE_DOCUMENTS){
+            $img->setStandDocuments($stand);
             $img->setType($type);
             $stand->addDocument($img);
         }
@@ -94,16 +99,13 @@ class StandController extends AbstractController
 
             $images = $form->get('logo')->getData();
             foreach($images as $image){
-                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
-                $nomFichier = $image->getClientOriginalName();
-                $image->move($this->getParameter('files_directory'), $fichier);
-                $img = new File();
-                $img->setStand($stand);
-                $img->setNom($fichier);
-                $img->setNomFichier($nomFichier);
-                $img->setType(File::TYPE_LOGO);
-                $stand->addLogo($img);
+                $this->saveDoc($stand, $image, File::TYPE_LOGO);
             }
+            $images = $form->get('documents')->getData();
+            foreach($images as $image){
+                $this->saveDoc($stand, $image, File::TYPE_DOCUMENTS);
+            }
+
 
             $stand->updateTimestamps();
             $this->getDoctrine()->getManager()->flush();
@@ -185,5 +187,55 @@ class StandController extends AbstractController
         }else{
             return new JsonResponse(['error' => 'Token Invalide'], 400);
         }
+    }
+
+    #[Route('/favoris/ajout/{id}', name: 'stand_ajout_favoris')]
+    public function ajoutFavoris(Request $request, Stand $stand): RedirectResponse
+    {
+        if(!$stand){
+            throw new NotFoundHttpException('Pas de stand trouvé');
+        }
+        $stand->addFavorisStand($this->getUser());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($stand);
+        $em->flush();
+
+        if ($referer = $request->get('referer', false)) {
+            $referer = base64_decode($referer);
+            return $this->redirect(($referer));
+        } else {
+            return $this->redirectToRoute('stands_all', [], Response::HTTP_SEE_OTHER);
+        }
+    }
+
+    #[Route('/favoris/retrait/{id}', name: 'stand_retrait_favoris')]
+    public function retraitFavoris(Request $request, Stand $stand): RedirectResponse
+    {
+        if(!$stand){
+            throw new NotFoundHttpException('Pas de stand trouvé');
+        }
+        $stand->removeFavorisStand($this->getUser());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($stand);
+        $em->flush();
+
+        if ($referer = $request->get('referer', false)) {
+            $referer = base64_decode($referer);
+            return $this->redirect(($referer));
+        } else {
+            return $this->redirectToRoute('stands_all', [], Response::HTTP_SEE_OTHER);
+        }
+    }
+
+    #[Route('/selection/favoris', name: 'stand_favoris')]
+    public function showStandsFavoris(StandRepository $standRepository): Response
+    {
+        $stands = $standRepository->findStandsEnFavori($this->getUser());
+
+        return $this->render('stand/favoris.html.twig', [
+                'stands' => $stands,
+        ]);
     }
 }

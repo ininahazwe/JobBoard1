@@ -22,9 +22,11 @@
                                 {% endif %}
                             </span>
                             <h4>{{ stand.nom }}</h4>
+                            {% if stand.annonces|length > 1 %}
                             <ul class="job-other-info">
                                 <li class="time">{{ pluralize(stand.annonces|length, 'annonce') }}</li>
                             </ul>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -38,7 +40,7 @@
                         <div class="job-detail">
                             <h4>A propos de l'entreprise</h4>
                             <p>{{ stand.description|raw }}</p>
-                            {% if stand.documents %}
+                            {% if stand.documents|length > 1 %}
                             <h4>Documents à consulter</h4>
                             <div class="row images-outer">
                                     {% for doc in stand.documents %}

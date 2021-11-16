@@ -25,7 +25,11 @@ class AnnonceRepository extends ServiceEntityRepository
         $this->paginator = $paginator;
     }
 
-    public function findAnnoncesEnFavori($user) {
+    /**
+     * @param $user
+     * @return mixed
+     */
+    public function findAnnoncesEnFavori($user): mixed {
         $now = new \DateTime('now');
 
         $query = $this->createQueryBuilder('a')

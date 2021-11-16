@@ -77,7 +77,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\ManyToMany(targetEntity=Annonce::class, mappedBy="favoris")
      */
-    private $favoris;
+    private Collection $favoris;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Stand::class, mappedBy="favoris_stand")
+     */
+    private Collection $stands_favoris;
 
     public function __construct()
     {
@@ -85,6 +90,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->files = new ArrayCollection();
         $this->blogs = new ArrayCollection();
         $this->favoris = new ArrayCollection();
+        $this->stands_favoris = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -381,7 +387,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Annonce[]
+     * @return Collection
      */
     public function getFavoris(): Collection
     {
@@ -402,6 +408,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->favoris->removeElement($favori)) {
             $favori->removeFavori($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getStandsFavoris(): Collection
+    {
+        return $this->stands_favoris;
+    }
+
+    public function addStandsFavori(Stand $standsFavori): self
+    {
+        if (!$this->stands_favoris->contains($standsFavori)) {
+            $this->stands_favoris[] = $standsFavori;
+            $standsFavori->addFavorisStand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStandsFavori(Stand $standsFavori): self
+    {
+        if ($this->stands_favoris->removeElement($standsFavori)) {
+            $standsFavori->removeFavorisStand($this);
         }
 
         return $this;
