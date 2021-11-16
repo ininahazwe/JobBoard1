@@ -8,12 +8,79 @@
     <section class="user-dashboard">
         <div class="dashboard-outer">
             <div class="upper-title-box">
-                {% if app.user %}
+                {% if user %}
                 <h3>Bonjour {{ app.user.prenom|capitalize }}</h3>
-                <div class="text">{{ app.user.getRoleName()}}</div>
+                <div class="text">{{ user.getRoleName()}}</div>
                 {% endif %}
             </div>
-            <div class="row">
+
+            {% if app.user.isCandidat and app.user.profile and app.user.profile.isCvtheque == 0 %}
+            <section class="call-to-action">
+                <div class="auto-container">
+                    <div class="outer-box wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="content-column">
+                            <div class="sec-title">
+                                <h2>Plus de visibilité ?</h2>
+                                <div class="text">Mon profil n'est pas visible sur la CV-Thèque</div>
+                                <a href="{{ path('inscription_cvtheque', {'id': app.user.profile.id}) }}" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Je diffuse mon profil</span></a>
+                            </div>
+                        </div>
+
+                        <div class="image-column" style="background-image: url(../../images/resource/image-1.png);">
+                            <figure class="image"><img src="{{ asset('images/resource/image-1.png') }}" alt=""></figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+
+            {% if app.user.isCandidat %}
+                <div class="row mt-5">
+                <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="ui-item">
+                        <div class="left">
+                            <i class="icon flaticon-briefcase"></i>
+                        </div>
+                        <div class="right">
+                            <h4>FAQ</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="ui-item ui-red">
+                        <div class="left">
+                            <i class="icon la la-file-invoice"></i>
+                        </div>
+                        <div class="right">
+                            <h4>Conseils</h4>
+                            <p>pour trouver un emploi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="ui-item ui-yellow">
+                        <div class="left">
+                            <i class="icon la la-comment-o"></i>
+                        </div>
+                        <div class="right">
+                            <h4>Rendez-vous</h4>
+                            <p>et chats avec les recruteurs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="ui-item ui-green">
+                        <div class="left">
+                            <i class="icon la la-bookmark-o"></i>
+                        </div>
+                        <div class="right">
+                            <h4>Actu</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <div class="row">
                 <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                     <div class="ui-item">
                         <div class="left">
@@ -59,6 +126,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
 
             <div class="row">
                 {% if user.isCandidat() %}

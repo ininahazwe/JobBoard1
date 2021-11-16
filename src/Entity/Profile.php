@@ -15,6 +15,9 @@ class Profile
     use ResourceId;
     use Timestapable;
 
+    const ISCVTHEQUE = 1;
+    const NOTCVTHEQUE = 0;
+
     /**
      * @ORM\Column(type="text", nullable=true)
      */
@@ -164,7 +167,7 @@ class Profile
     /**
      * @ORM\OneToMany(targetEntity=Realisation::class, mappedBy="profile")
      */
-    private $realisations;
+    private Collection $realisations;
 
     public function __construct() {
         $this->isVisible = false;
@@ -640,7 +643,7 @@ class Profile
     }
 
     /**
-     * @return Collection|Realisation[]
+     * @return Collection
      */
     public function getRealisations(): Collection
     {

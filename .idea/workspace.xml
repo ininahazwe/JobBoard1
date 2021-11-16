@@ -2,34 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/templates/layouts/Alaune.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stand/favoris.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/chosen.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/chosen.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/resource/image-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/resource/image-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/File.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/StandType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/StandType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StandRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StandRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/stand_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stand_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/stands.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stands.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/layouts/banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/banner.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/_form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,8 +220,8 @@
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form\Search" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TalentsHandicap\public\uploads" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\images\resource" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\public\uploads" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles\template" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\profile" />
@@ -291,7 +271,7 @@
       <workItem from="1636701634519" duration="5585000" />
       <workItem from="1636721954517" duration="7479000" />
       <workItem from="1636962091245" duration="19203000" />
-      <workItem from="1637048261214" duration="4096000" />
+      <workItem from="1637048261214" duration="9098000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -538,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636732418268</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="readme">
+      <created>1637052709804</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1637052709804</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
