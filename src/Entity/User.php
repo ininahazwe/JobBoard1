@@ -84,6 +84,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $stands_favoris;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Stand::class, mappedBy="gestionnaire")
+     */
+    private Collection $stand_gestionnaires;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Speedmeeting::class, mappedBy="gestionnaire")
+     */
+    private Collection $speedmeeting_gestionnaire;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -91,6 +101,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->blogs = new ArrayCollection();
         $this->favoris = new ArrayCollection();
         $this->stands_favoris = new ArrayCollection();
+        $this->stand_gestionnaires = new ArrayCollection();
+        $this->speedmeeting_gestionnaire = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -435,6 +447,63 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->stands_favoris->removeElement($standsFavori)) {
             $standsFavori->removeFavorisStand($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getStandGestionnaires(): Collection
+    {
+        return $this->stand_gestionnaires;
+    }
+
+    public function addStandGestionnaire(Stand $standGestionnaire): self
+    {
+        if (!$this->stand_gestionnaires->contains($standGestionnaire)) {
+            $this->stand_gestionnaires[] = $standGestionnaire;
+            $standGestionnaire->addGestionnaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStandGestionnaire(Stand $standGestionnaire): self
+    {
+        if ($this->stand_gestionnaires->removeElement($standGestionnaire)) {
+            $standGestionnaire->removeGestionnaire($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetingGestionnaire(): Collection
+    {
+        return $this->speedmeeting_gestionnaire;
+    }
+
+    public function addSpeedmeetingGestionnaire(Speedmeeting $speedmeetingGestionnaire): self
+    {
+        if (!$this->speedmeeting_gestionnaire->contains($speedmeetingGestionnaire)) {
+            $this->speedmeeting_gestionnaire[] = $speedmeetingGestionnaire;
+            $speedmeetingGestionnaire->setGestionnaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeetingGestionnaire(Speedmeeting $speedmeetingGestionnaire): self
+    {
+        if ($this->speedmeeting_gestionnaire->removeElement($speedmeetingGestionnaire)) {
+            // set the owning side to null (unless already changed)
+            if ($speedmeetingGestionnaire->getGestionnaire() === $this) {
+                $speedmeetingGestionnaire->setGestionnaire(null);
+            }
         }
 
         return $this;

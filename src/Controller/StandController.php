@@ -4,15 +4,20 @@ namespace App\Controller;
 
 use App\Entity\File;
 use App\Entity\Stand;
+use App\Entity\User;
 use App\Form\StandType;
+use App\Form\UserType;
 use App\Repository\StandRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 #[Route('/cms/stands')]
 class StandController extends AbstractController
@@ -238,4 +243,51 @@ class StandController extends AbstractController
                 'stands' => $stands,
         ]);
     }
+
+    #[Route('/{id}/recruteur/create', name: 'entreprise_recruteurs_create', methods: ['GET', 'POST'])]
+    public function recruteurCreate(Request $request, Stand $stand, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasherInterface): Response
+    {
+        $userExist = $userRepository->findOneBy(['email' =>$request->get('user[email]')]);
+        $password = $userRepository->genererMDP();
+
+        if ($userExist){
+            $user = $userExist;
+        }else{
+            $user = new User();
+        }
+
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+        $entityManager = $this->getDoctrine()->getManager();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$userExist) {
+                $user->setPassword(
+                        $userPasswordHasherInterface->hashPassword(
+                                $user,
+                                $password
+                        )
+                );
+            }
+                $stand->addGestionnaire($user);
+                $user->setRoles(['ROLE_RECRUTEUR']);
+
+            $user->setModeration(User::ACCEPTEE);
+            $entityManager->persist($user);
+            $entityManager->persist($stand);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Ajout réussi');
+
+            return $this->redirectToRoute('entreprise_recruteurs',['id' => $stand->getId()]);
+
+        }
+
+        return $this->render('user/new.html.twig', [
+                'users' => $user,
+                'form' => $form->createView(),
+        ]);
+
+    }
+
 }

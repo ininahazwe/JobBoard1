@@ -121,6 +121,17 @@ class Stand
      */
     private Collection $favoris_stand;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="stand_gestionnaires")
+     * @ORM\JoinTable(name="stand_gestionnaires")
+     */
+    private Collection $gestionnaire;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Speedmeeting::class, mappedBy="stand")
+     */
+    private Collection $speedmeetings;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable('now');
@@ -130,6 +141,8 @@ class Stand
         $this->documents = new ArrayCollection();
         $this->questionnaires = new ArrayCollection();
         $this->favoris_stand = new ArrayCollection();
+        $this->gestionnaire = new ArrayCollection();
+        $this->speedmeetings = new ArrayCollection();
     }
 
     /**
@@ -465,6 +478,60 @@ class Stand
     public function removeFavorisStand(User $favorisStand): self
     {
         $this->favoris_stand->removeElement($favorisStand);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getGestionnaire(): Collection
+    {
+        return $this->gestionnaire;
+    }
+
+    public function addGestionnaire(User $gestionnaire): self
+    {
+        if (!$this->gestionnaire->contains($gestionnaire)) {
+            $this->gestionnaire[] = $gestionnaire;
+        }
+
+        return $this;
+    }
+
+    public function removeGestionnaire(User $gestionnaire): self
+    {
+        $this->gestionnaire->removeElement($gestionnaire);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetings(): Collection
+    {
+        return $this->speedmeetings;
+    }
+
+    public function addSpeedmeeting(Speedmeeting $speedmeeting): self
+    {
+        if (!$this->speedmeetings->contains($speedmeeting)) {
+            $this->speedmeetings[] = $speedmeeting;
+            $speedmeeting->setStand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeeting(Speedmeeting $speedmeeting): self
+    {
+        if ($this->speedmeetings->removeElement($speedmeeting)) {
+            // set the owning side to null (unless already changed)
+            if ($speedmeeting->getStand() === $this) {
+                $speedmeeting->setStand(null);
+            }
+        }
 
         return $this;
     }

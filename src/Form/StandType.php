@@ -5,10 +5,12 @@ namespace App\Form;
 use App\Entity\Dictionnaire;
 use App\Entity\Forum;
 use App\Entity\Stand;
+use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -47,7 +49,7 @@ class StandType extends AbstractType {
                 ->add('description', CKEditorType::class, [
                         'label' => 'Description de l\'entreprise'
                 ])
-                ->add('page_offres', TextareaType::class, [
+                ->add('page_offres', CKEditorType::class, [
                         'label' => 'Description de la page des offres du stand lorsqu\'aucune offre n\'est publiée'
                 ])
                 ->add('forums', EntityType::class, [
@@ -70,12 +72,9 @@ class StandType extends AbstractType {
                                 'Non publié' => false
                         ]
                 ])
-                ->add('isUne', ChoiceType::class, [
-                        'label' => 'Statut',
-                        'choices' => [
-                                'Oui' => true,
-                                'Non' => false
-                        ]
+                ->add('isUne', CheckboxType::class, [
+                        'label' => 'à la une?',
+                    'required' => false,
                 ])
                 ->add('type', EntityType::class, [
                         'required' => true,
@@ -126,6 +125,19 @@ class StandType extends AbstractType {
                 ->add('codeInscription', TextType::class, [
                         'required' => false,
                         'label' => 'Code pour les inscriptions des ambassadeurs',
+                ])
+                ->add('gestionnaire', EntityType::class, [
+                        'class' => User::class,
+                        'multiple' => true,
+                        'choice_label' => 'nom',
+                        'query_builder' => function (EntityRepository $er){
+                            return $er->createQueryBuilder('g')
+                                    ->orderBy('g.nom', 'ASC');
+                        },
+                        'by_reference' => false,
+                        'attr' => [
+                                'class' => 'chosen-select'
+                        ]
                 ])
         ;
     }

@@ -45,6 +45,7 @@ class Dictionnaire {
     const TYPE_BLOG = 'type_blog';
     const TYPE_QUESTION = 'type_question';
     const TYPE_ANNUAIRE = 'type_annuaire';
+    const TYPE_DUREE_ECHANGE_SPEEDMEETING = 'duree_echange_speedmeeting';
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -176,6 +177,31 @@ class Dictionnaire {
      */
     private Collection $annuaires_diplome;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Speedmeeting::class, mappedBy="diplome")
+     */
+    private Collection $speedmeeting_diplome;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Speedmeeting::class, mappedBy="contrat")
+     */
+    private Collection $speedmeeting_contrat;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Speedmeeting::class, mappedBy="zone")
+     */
+    private Collection $speedmeeting_zone;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Speedmeeting::class, mappedBy="secteur")
+     */
+    private Collection $speedmeeting_secteur;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Speedmeeting::class, mappedBy="duree_echange")
+     */
+    private Collection $speedmeeting_dure_echange;
+
     public function __construct() {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
         $this->profilesContrat = new ArrayCollection();
@@ -202,6 +228,11 @@ class Dictionnaire {
         $this->annuaires_zone = new ArrayCollection();
         $this->annuaires_secteur = new ArrayCollection();
         $this->annuaires_diplome = new ArrayCollection();
+        $this->speedmeeting_diplome = new ArrayCollection();
+        $this->speedmeeting_contrat = new ArrayCollection();
+        $this->speedmeeting_zone = new ArrayCollection();
+        $this->speedmeeting_secteur = new ArrayCollection();
+        $this->speedmeeting_dure_echange = new ArrayCollection();
     }
 
     public static function getTypeList(): array {
@@ -236,6 +267,7 @@ class Dictionnaire {
                 'Type de blog' => Dictionnaire::TYPE_BLOG,
                 'Type de question' => Dictionnaire::TYPE_QUESTION,
                 'Type d\'annuaire' => Dictionnaire::TYPE_ANNUAIRE,
+                'Durée Echange Speedmeeting' => Dictionnaire::TYPE_DUREE_ECHANGE_SPEEDMEETING,
         );
     }
 
@@ -936,6 +968,150 @@ class Dictionnaire {
     {
         if ($this->annuaires_diplome->removeElement($annuairesDiplome)) {
             $annuairesDiplome->removeDiplome($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetingDiplome(): Collection
+    {
+        return $this->speedmeeting_diplome;
+    }
+
+    public function addSpeedmeetingDiplome(Speedmeeting $speedmeetingDiplome): self
+    {
+        if (!$this->speedmeeting_diplome->contains($speedmeetingDiplome)) {
+            $this->speedmeeting_diplome[] = $speedmeetingDiplome;
+            $speedmeetingDiplome->setDiplome($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeetingDiplome(Speedmeeting $speedmeetingDiplome): self
+    {
+        if ($this->speedmeeting_diplome->removeElement($speedmeetingDiplome)) {
+            // set the owning side to null (unless already changed)
+            if ($speedmeetingDiplome->getDiplome() === $this) {
+                $speedmeetingDiplome->setDiplome(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetingContrat(): Collection
+    {
+        return $this->speedmeeting_contrat;
+    }
+
+    public function addSpeedmeetingContrat(Speedmeeting $speedmeetingContrat): self
+    {
+        if (!$this->speedmeeting_contrat->contains($speedmeetingContrat)) {
+            $this->speedmeeting_contrat[] = $speedmeetingContrat;
+            $speedmeetingContrat->setContrat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeetingContrat(Speedmeeting $speedmeetingContrat): self
+    {
+        if ($this->speedmeeting_contrat->removeElement($speedmeetingContrat)) {
+            // set the owning side to null (unless already changed)
+            if ($speedmeetingContrat->getContrat() === $this) {
+                $speedmeetingContrat->setContrat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetingZone(): Collection
+    {
+        return $this->speedmeeting_zone;
+    }
+
+    public function addSpeedmeetingZone(Speedmeeting $speedmeetingZone): self
+    {
+        if (!$this->speedmeeting_zone->contains($speedmeetingZone)) {
+            $this->speedmeeting_zone[] = $speedmeetingZone;
+            $speedmeetingZone->addZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeetingZone(Speedmeeting $speedmeetingZone): self
+    {
+        if ($this->speedmeeting_zone->removeElement($speedmeetingZone)) {
+            $speedmeetingZone->removeZone($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetingSecteur(): Collection
+    {
+        return $this->speedmeeting_secteur;
+    }
+
+    public function addSpeedmeetingSecteur(Speedmeeting $speedmeetingSecteur): self
+    {
+        if (!$this->speedmeeting_secteur->contains($speedmeetingSecteur)) {
+            $this->speedmeeting_secteur[] = $speedmeetingSecteur;
+            $speedmeetingSecteur->addSecteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeetingSecteur(Speedmeeting $speedmeetingSecteur): self
+    {
+        if ($this->speedmeeting_secteur->removeElement($speedmeetingSecteur)) {
+            $speedmeetingSecteur->removeSecteur($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getSpeedmeetingDureEchange(): Collection
+    {
+        return $this->speedmeeting_dure_echange;
+    }
+
+    public function addSpeedmeetingDureEchange(Speedmeeting $speedmeetingDureEchange): self
+    {
+        if (!$this->speedmeeting_dure_echange->contains($speedmeetingDureEchange)) {
+            $this->speedmeeting_dure_echange[] = $speedmeetingDureEchange;
+            $speedmeetingDureEchange->setDureeEchange($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeedmeetingDureEchange(Speedmeeting $speedmeetingDureEchange): self
+    {
+        if ($this->speedmeeting_dure_echange->removeElement($speedmeetingDureEchange)) {
+            // set the owning side to null (unless already changed)
+            if ($speedmeetingDureEchange->getDureeEchange() === $this) {
+                $speedmeetingDureEchange->setDureeEchange(null);
+            }
         }
 
         return $this;

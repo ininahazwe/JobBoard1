@@ -57,8 +57,9 @@
 
                                         <!--Tab-->
                                         <div class="tab" id="tab2">
-                                            {{ form_row(form.forums) }}
                                             <div class="row">
+                                                <div class="col-md-6">{{ form_row(form.forums) }}</div>
+                                                <div class="col-md-6">{{ form_row(form.gestionnaire) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.type) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.statut) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.cvtheque) }}</div>
@@ -67,6 +68,7 @@
                                                 <div class="col-md-3">{{ form_row(form.speedMeeting) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.nombreParticipationCanditatStand) }}</div>
                                                 <div class="col-md-3">{{ form_row(form.codeInscription) }}</div>
+                                                <div class="col-md-3">{{ form_row(form.isUne) }}</div>
                                                 {{ form_row(form.documents) }}
                                                 {% if app.request.attributes.get('_route') == 'stand_edit' %}
                                                     <div class="title">Documents</div>
