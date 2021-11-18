@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/templates/email/email_vide.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stand/new_recruteur.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stand/recruteurs.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/chosen.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/chosen.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/FileUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FileUploader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/HCaptcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/HCaptcha.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cvexperience/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvexperience/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cvformation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvformation/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pavillon/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pavillon/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/custom.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +271,7 @@
       <workItem from="1637048261214" duration="22405000" />
       <workItem from="1637134408345" duration="22807000" />
       <workItem from="1637220711677" duration="4891000" />
-      <workItem from="1637225980048" duration="3227000" />
+      <workItem from="1637225980048" duration="5780000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -566,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637079739964</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="readme">
+      <created>1637229942735</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1637229942735</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
