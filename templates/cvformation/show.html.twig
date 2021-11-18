@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ cv_formation.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
                 <td>{{ cv_formation.nom }}</td>
             </tr>
@@ -34,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cv_formation_index') }}">back to list</a>
+    <a href="{{ path('cvformation_index') }}">back to list</a>
 
-    <a href="{{ path('cv_formation_edit', {'id': cv_formation.id}) }}">edit</a>
+    <a href="{{ path('cvformation_edit', {'id': cv_formation.id}) }}">edit</a>
 
     {{ include('cvformation/_delete_form.html.twig') }}
 {% endblock %}

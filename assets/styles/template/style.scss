@@ -144,7 +144,7 @@ h5,
 h6 {
     position: relative;
     font-weight: normal;
-    margin: 0px;
+    margin: 0;
     background: none;
     line-height: 1.2em;
 }
@@ -187,7 +187,7 @@ p,
 .auto-container {
     position: static;
     max-width: 1310px;
-    padding: 0px 15px;
+    padding: 0 15px;
     margin: 0 auto;
     width: 100%;
 }
@@ -195,7 +195,7 @@ p,
 .small-container {
     position: static;
     max-width: 900px;
-    padding: 0px 15px;
+    padding: 0 15px;
     margin: 0 auto;
 }
 
@@ -223,8 +223,8 @@ p,
 ul,
 li {
     list-style: none;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .fancybox-can-drag .fancybox-image-wrap {
@@ -285,7 +285,7 @@ li {
 }
 
 .select2-container--default .select2-results__option[aria-selected="true"],
-.select2-container--default
+.select2-container--default,
 .select2-results__option--highlighted[aria-selected] {
     background-color: transparent;
     color: #1967D2;
@@ -308,17 +308,17 @@ li {
     transition: all 300ms ease;
 }
 
-.select2-container--default
-.select2-selection--single
+.select2-container--default,
+.select2-selection--single,
 .select2-selection__arrow {
     width: 36px;
     height: 100%;
     background: none;
 }
 
-.select2-container--default
-.select2-selection--single
-.select2-selection__arrow
+.select2-container--default,
+.select2-selection--single,
+.select2-selection__arrow,
 b {
     display: block;
     left: 0;
@@ -331,9 +331,9 @@ b {
     background-color: inherit;
 }
 
-.select2-container--default
-.select2-selection--single
-.select2-selection__arrow
+.select2-container--default,
+.select2-selection--single,
+.select2-selection__arrow,
 b:before {
     position: absolute;
     right: 10px;
@@ -367,7 +367,7 @@ b:before {
 .chosen-container .chosen-results{
     border: 0 !important;
     outline: none !important;
-    border-radius: 0px 0px 8px 8px !important;
+    border-radius: 0 0 8px 8px !important;
     margin-top: -3px;
 }
 
@@ -423,13 +423,13 @@ List Style Two
     color: #696969;
     cursor: default;
     padding-left: 22px;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
 }
 
 .list-style-two li:before{
     position: absolute;
     left: 0;
-    top: 9px;
+    top: 8px;
     width: 8px;
     height: 8px;
     background: #C4C4C4;
@@ -961,7 +961,6 @@ Default Tabs
     order: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
-    line-height: 20px;
     padding: 5px 20px;
     background: #E9A000;
     border: 1px solid #F0F5F7;
@@ -1052,8 +1051,8 @@ Accordian Box
 }
 
 .accordion-box .block.active-block {
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
 }
 
 .accordion-box .block .acc-btn .icon {
@@ -1294,7 +1293,7 @@ Checkbox
     border-radius: 50%;
     margin-right: 10px;
     background: rgba(25,103,210,.15);
-    border-radius: 60px;
+    //border-radius: 60px;
 }
 
 /*======================
@@ -1326,7 +1325,6 @@ Radio bOX
     content: "";
     border: 1px solid #ECEDF2;
     border-radius: 50px;
-    background: #ffffff;
     -webkit-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
@@ -1700,10 +1698,10 @@ Progress Bars
 
 .bar-item .skill-bar .bar-inner .bar {
     position: relative;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     height: 10px;
-    width: 0px;
+    width: 0;
     border-radius: 10px;
     border-bottom: 10px solid #1967D2;
     -webkit-transition: all 2000ms ease;
@@ -1818,8 +1816,8 @@ Pie Graph
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    line-height: 1em;
-    color: #363636;
+    //line-height: 1em;
+    //color: #363636;
 }
 
 .pie-graph h4 {
@@ -2290,7 +2288,7 @@ Callout Three
     position: relative;
     font-size: 32px;
     line-height: 1.4em;
-    margin-top: 0px;
+    margin-top: 0;
     color: #ffffff;
     margin-bottom: 30px;
 }
@@ -2371,8 +2369,8 @@ Preloader
 
 .preloader{ 
     position:fixed; 
-    left:0px; 
-    top:0px; 
+    left:0;
+    top:0;
     width:100%; 
     height:100%; 
     z-index:999999; 
@@ -2786,7 +2784,7 @@ Main Header
 }
 
 .main-menu .navbar-collapse {
-    padding: 0px;
+    padding: 0;
 }
 
 .main-menu .navigation {
@@ -2835,7 +2833,7 @@ Main Header
 
 .main-menu .navigation > li.dropdown > span:after{
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 50%;
     margin-top: -10px;
     font-family: "Font Awesome 5 Free", serif;
@@ -2861,11 +2859,11 @@ Main Header
     z-index: 1;
     min-width: 230px;
     border-top: 2px solid #1967D2;
-    border-radius: 0px 0px 8px 8px;
+    border-radius: 0 0 8px 8px;
     background-color: #fff;
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    -ms-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    -ms-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     -webkit-transform: scaleY(0);
     -ms-transform: scaleY(0);
     transform: scaleY(0);
@@ -2948,9 +2946,9 @@ Main Header
     z-index: 1;
     border-top: 2px solid #1967D2;
     background-color: #fff;
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     -ms-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
@@ -3113,14 +3111,14 @@ Main Header
 }
 
 .main-header.header-shaddow{
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     border-bottom: 1px solid #ECEDF2;
 }
 
 .main-header.alternate3{
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     background-color: #ffffff;
 }
 
@@ -3146,8 +3144,8 @@ Main Header
     margin-top: 8px;
     background: #FFFFFF;
     border: 1px solid #ECEDF2;
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     border-radius: 8px;
     padding: 30px 30px 17px;
 }
@@ -3460,14 +3458,14 @@ Sticky Header
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 100%;
-    padding: 0px 0px;
+    padding: 0 0;
     z-index: 99;
     background: rgba(255, 255, 255, 0.952941);
-    -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10);
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.10);
+    -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
     -webkit-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
@@ -3522,8 +3520,8 @@ Mobile Header
     display: none;
     z-index: 99;
     background-color: #ffffff;
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
-    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
+    box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
 }
 
 .mobile-header:after {
@@ -3718,7 +3716,6 @@ Mobile Header
 }
 
 .mm-add-listing .theme-btn{
-    border-radius: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3822,7 +3819,7 @@ Mobile Header
     z-index:100;
     opacity: 0;
     margin-top: -15px;
-    -webkit-box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+    -webkit-box-shadow: 0 6px 15px rgba(64, 79, 104, 0.05);
     box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
     border-radius: 0px 0px 8px 8px;
     border-top: 2px solid #1967D2;
@@ -4135,11 +4132,11 @@ Login Popup
 }
 
 .modal a.close-modal{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 10px;
-    top: 10px;
+    position: absolute !important;
+    width: 40px !important;
+    height: 40px !important;
+    right: 10px !important;
+    top: 10px !important;
     background: #F0F5F7;
     border-radius: 8px;
     display: -webkit-box;

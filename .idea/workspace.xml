@@ -2,283 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/public/uploads/calltoaction.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/anm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/appear.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/chosen.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/infobox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/jquery.countdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/jquery.fancybox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/jquery.modal.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/knob.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/map-script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/maps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/markerclusterer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/mmenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/mmenu.polyfills.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/owl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/respond.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/select2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js/wow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/email/email_vide.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/stand/new_recruteur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/stand/recruteurs.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/background/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/clients/1-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/fancybox/blank.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/fancybox/fancybox_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/fancybox/fancybox_loading@2x.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/fancybox/fancybox_overlay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/fancybox/fancybox_sprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/fancybox/fancybox_sprite@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/apple-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/apple-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/apple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/bg-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/bg-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/bg-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/bg-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/bg-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/contact-map-marker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/filter.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/google-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/google-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-calendar.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-clock.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-degree.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-expiry.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-language.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-location.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-rate.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-salary.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-user-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-user-2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/icon-user-3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/letter.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/map-marker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/paypal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/placeholder.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/preloader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/preloader.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/preloader.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/quote-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/select2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/shape-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/shape-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/shape-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/shape-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/smartphone.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/icons/user.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/logo-2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/logo-3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/about-img-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/about-img-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/about-img-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/about-img-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/about-img-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/about-img-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/ads-bg-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/ads-bg-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/ads-bg-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/ads-bg-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/applicant-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/applicant-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/applicant-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/avatar-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/avatar-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/banner-img-9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/blog-list-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/blog-list-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/blog-list-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/blog-list-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/blog-list-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/blog-single.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate-9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/candidate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/1-9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/2-9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/3-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/4-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/4-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/4-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/4-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/4-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/5-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/company-logo/6-9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/employ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/employers-single-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/employers-single-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/employers-single-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/employers-single-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/featured-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/featured-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/featured-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/featured-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/featured-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/image-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/image-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/image-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/image-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/image-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/job-post-img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/jobseeker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/map-marker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/mobile-app.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/multi-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/multi-peoples.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-2-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-2-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-2-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-2-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-3-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-3-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-3-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-3-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-3-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/news-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/portfolio-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/portfolio-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/portfolio-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/portfolio-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/post-img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/post-thumb-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/post-thumb-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/post-thumb-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/process-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/process-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/process-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/cart-img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/products/shop-single.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/recruiter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/steps-img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/testi-thumb-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/testi-thumb-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/testi-thumb-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/testimonial-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/testimonial-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/testimonial-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/thumb-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/video-img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/work-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/work-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/superio/images/resource/work-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/chosen.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/chosen.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/StandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FAQType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FAQType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/StandType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/StandType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/header-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/header-dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/FileUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FileUploader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/HCaptcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/HCaptcha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Mailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/annonce/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cvexperience/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvexperience/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cvformation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvformation/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/request.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/reset.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pavillon/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pavillon/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/filtrer_profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stand/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stand/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,6 +215,9 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="1zDLJIHESMMoxQyaeW8RsGMFHtw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -476,7 +231,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -540,7 +295,10 @@
       <workItem from="1636701634519" duration="5585000" />
       <workItem from="1636721954517" duration="7479000" />
       <workItem from="1636962091245" duration="19203000" />
-      <workItem from="1637048261214" duration="21564000" />
+      <workItem from="1637048261214" duration="22405000" />
+      <workItem from="1637134408345" duration="22807000" />
+      <workItem from="1637220711677" duration="4891000" />
+      <workItem from="1637225980048" duration="3227000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -801,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637057762127</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="readme">
+      <created>1637079739964</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1637079739964</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -823,5 +588,20 @@
     <MESSAGE value="ttt" />
     <MESSAGE value="readme" />
     <option name="LAST_COMMIT_MESSAGE" value="readme" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/questionnaire/edit.html.twig</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

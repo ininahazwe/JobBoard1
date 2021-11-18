@@ -20,6 +20,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     const GENRE_FEMME = 'Femme';
     const GENRE_AUTRE = 'Autre';
 
+    const EN_ATTENTE = 0;
+    const ACCEPTEE = 1;
+    const REFUSEE = 2;
+
     use ResourceId;
     use Timestapable;
 

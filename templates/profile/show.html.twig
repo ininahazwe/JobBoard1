@@ -47,7 +47,7 @@
                                     <div class="resume-outer">
                                         <div class="upper-title">
                                             <h4>Formations
-                                                {% if profile.cvformations is not empty %}<a href="{{ path('cvformation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                                <a href="{{ path('cvformation_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>
                                             </h4>
                                         </div>
                                         <!-- Resume BLock -->
@@ -81,7 +81,7 @@
                                     <div class="resume-outer theme-blue">
                                         <div class="upper-title">
                                             <h4>Expériences professionnelles
-                                                {% if profile.getCvexperiences is not empty %}<a href="{{ path('cvexperience_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>{% endif %}
+                                                <a href="{{ path('cvexperience_new', {'profileId' : profile.id }) }}" data-text="Modifier" class="call-modal"><span class="la la-plus-circle"></span></a>
                                             </h4>
                                         </div>
                                         {% for experience in profile.getCvexperiences() %}

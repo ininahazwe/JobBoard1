@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Email;
 use App\Entity\File;
 use App\Entity\Stand;
 use App\Entity\User;
@@ -9,6 +10,7 @@ use App\Form\StandType;
 use App\Form\UserType;
 use App\Repository\StandRepository;
 use App\Repository\UserRepository;
+use App\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -17,7 +19,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Twig\Environment;
+use Twig\Loader\ArrayLoader;
 
 #[Route('/cms/stands')]
 class StandController extends AbstractController
@@ -244,23 +247,42 @@ class StandController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/recruteur/create', name: 'entreprise_recruteurs_create', methods: ['GET', 'POST'])]
-    public function recruteurCreate(Request $request, Stand $stand, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasherInterface): Response
+    #[Route('/{id}/recruteurs', name: 'stand_recruteurs', methods: ['GET', 'POST'])]
+    public function recruteurs(Request $request, Stand $stand): Response
     {
-        $userExist = $userRepository->findOneBy(['email' =>$request->get('user[email]')]);
-        $password = $userRepository->genererMDP();
+        $user = new User();
 
-        if ($userExist){
-            $user = $userExist;
-        }else{
-            $user = new User();
-        }
+        $form = $this->createForm(UserType::class, $user);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($stand);
+        $entityManager->flush();
+
+        return $this->render('stand/recruteurs.html.twig', [
+                'user' => $user,
+                'stand' =>$stand,
+                'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/{id}/recruteur/create', name: 'stand_recruteurs_create', methods: ['GET', 'POST'])]
+    public function recruteurCreate(Request $request, Stand $stand, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasherInterface, Mailer $mailer): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-        $entityManager = $this->getDoctrine()->getManager();
+
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $userExist = $userRepository->findOneBy(['email' =>$form->get('email')->getData()]);
+            $password = $userRepository->genererMDP();
+            if ($userExist){
+                $user = $userExist;
+            }
+
             if (!$userExist) {
                 $user->setPassword(
                         $userPasswordHasherInterface->hashPassword(
@@ -269,25 +291,104 @@ class StandController extends AbstractController
                         )
                 );
             }
-                $stand->addGestionnaire($user);
-                $user->setRoles(['ROLE_RECRUTEUR']);
 
-            $user->setModeration(User::ACCEPTEE);
+            //if($form->get('roles')->getData() == null){
+                $user->setRoles(['ROLE_RECRUTEUR']);
+            //}
+
+                $stand->addGestionnaire($user);
+
+
+            $user->setIsVerified(User::ACCEPTEE);
             $entityManager->persist($user);
             $entityManager->persist($stand);
             $entityManager->flush();
 
+            $email = $entityManager->getRepository(Email::class)->findOneBy(['code' => 'EMAIL_CREATION_RECRUTEUR']);
+
+            $loader = new ArrayLoader([
+                    'email' => $email->getContenu(),
+            ]);
+
+            $twig = new Environment($loader);
+            $message = $twig->render('email',['user' => $this->getUser(), 'recruteur' => $user, 'password' => $password, 'stand' => $stand ]);
+
+            $mailer->send([
+                    'recipient_email' => $user->getEmail(),
+                    'subject'         => $email->getSujet(),
+                    'html_template'   => 'email/email_vide.html.twig',
+                    'context'         => [
+                            'message' => $message
+                    ]
+            ]);
+
             $this->addFlash('success', 'Ajout réussi');
 
-            return $this->redirectToRoute('entreprise_recruteurs',['id' => $stand->getId()]);
+            return $this->redirectToRoute('stand_recruteurs',['id' => $stand->getId()]);
 
         }
 
         return $this->render('user/new.html.twig', [
-                'users' => $user,
+                'stand' => $stand,
                 'form' => $form->createView(),
         ]);
 
     }
 
+    #[Route('/{id}/recruteur/deleteRecruteur/{userID}', name: 'stand_recruteurs_delete', methods: ['GET', 'POST'])]
+    public function deleteRecruteur($userID, Request $request, Stand $stand, UserRepository $userRepository): Response
+    {
+        $user = $userRepository->find($userID);
+        $entityManager = $this->getDoctrine()->getManager();
+        if ($stand->getGestionnaire()->contains($user)){
+            $stand->removeGestionnaire($user);
+        }
+
+        $entityManager->persist($stand);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La suppression du recruteur '. $user->getFullname() .' est réussie');
+
+        return $this->redirectToRoute('stand_recruteurs',['slug' => $stand->getSlug()]);
+    }
+
+    #[Route('/{id}/recruteur/generateMDP/{userID}', name: 'stand_recruteurs_generateMDP', methods: ['GET', 'POST'])]
+    public function generateMDPRecruteurs($userID, Request $request, Stand $stand, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasherInterface, Mailer $mailer): Response
+    {
+        $password = $userRepository->genererMDP();
+        $user = $userRepository->find($userID);
+
+        $user->setPassword(
+                $userPasswordHasherInterface->hashPassword(
+                        $user,
+                        $password
+                )
+        );
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        $email = $entityManager->getRepository(Email::class)->findOneBy(['code' => 'EMAIL_GENERATION_PASSWORD_RECRUTEUR']);
+
+        $loader = new ArrayLoader([
+                'email' => $email->getContenu(),
+        ]);
+
+        $twig = new Environment($loader);
+        $message = $twig->render('email',['user' => $this->getUser(), 'recruteur' => $user, 'password' => $password ]);
+
+        $mailer->send([
+                'recipient_email' => $user->getEmail(),
+                'subject'         => $email->getSujet(),
+                'html_template'   => 'email/email_vide.html.twig',
+                'context'         => [
+                        'message' => $message
+                ]
+        ]);
+
+        $this->addFlash('success', 'Envoi réussi');
+
+        return $this->redirectToRoute('stand_recruteurs',['id' => $stand->getId()]);
+    }
 }

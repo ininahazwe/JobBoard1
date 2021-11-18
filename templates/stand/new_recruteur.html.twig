@@ -2,13 +2,13 @@
     <div id="login-modal">
         <div class="login-form default-form">
             <div class="form-inner">
-                {{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('stand_recruteurs_create', {'id' : stand.id }) } }) }}
+                {{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('stand_recruteurs_create',{'id' : stand.id }) } }) }}
                 {{ form_row(form.civilite) }}
                 {{ form_row(form.nom) }}
                 {{ form_row(form.prenom) }}
                 {{ form_row(form.email) }}
                 <button class="btn theme-btn btn-style-one small" >{{ button_label|default('Enregistrer') }}</button>
-                {{ form_end(form, {'render_rest': false}) }}
+                {{ form_end(form) }}
             </div>
         </div>
     </div>

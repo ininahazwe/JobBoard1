@@ -61,23 +61,19 @@ class ProfileRepository extends ServiceEntityRepository
                     ->andWhere("CONCAT(u.nom, ' ', u.prenom) LIKE :q OR u.email LIKE :q OR p.description LIKE :q")
                     ->setParameter('q', "%" . $search->q . "%");
         }
-        if(!empty($search->typeDiplome)){
-/*            $idsDiplomas = array();
-            foreach($search->typeDiplome as $diplome){
-                $idsDiplomas[] = $diplome->getId();
-            }*/
-
-            $query = $query
-                    ->innerJoin('p.typeDiplome', 'd')
-                    ->andWhere('d.id IN (:typeDiplome)')
-                    ->setParameter('typeDiplome', $search->typeDiplome);
-        }
         if(!empty($search->zonegeographique)){
             $query = $query
                     ->innerJoin('p.zonegeographique', 'd')
                     ->andWhere('d.id IN (:zonegeographique)')
                     ->setParameter('zonegeographique', $search->zonegeographique);
         }
+        if(!empty($search->typeDiplome)){
+            $query = $query
+                    ->innerJoin('p.typeDiplome', 'd')
+                    ->andWhere('d.id IN (:typeDiplome)')
+                    ->setParameter('typeDiplome', $search->typeDiplome);
+        }
+
         return $query;
     }
 }

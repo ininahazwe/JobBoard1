@@ -1,0 +1,60 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}{{ stand.nom }} - Recruteurs{% endblock %}
+
+{% block body %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>
+                                    Stand | {{ stand.nom }}
+                                    <a href="{{ path('stand_index') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a>
+                                </h4>
+                                <a class="theme-btn btn-style-three small call-modal" href="{{ path('stand_recruteurs_create', {'id' : stand.id}) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter un recruteur</a>
+                            </div>
+
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    <table class="default-table" id="datatable">
+                                        <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                            <th>Email</th>
+                                            <th>actions</th>
+                                        </tr>
+                                        </thead>
+                                            <tbody>
+                                            {% for user in stand.gestionnaire %}
+                                                <tr>
+                                                    <td>{{ user.nom|capitalize }}</td>
+                                                    <td>{{ user.prenom|capitalize }}</td>
+                                                    <td>{{ user.email }}</td>
+                                                    <td>
+                                                        <div class="buttons">
+                                                            <a href="{{ path('stand_recruteurs_generateMDP', {'id': stand.id, 'userID': user.id}) }}" class="theme-btn btn-style-one small">Générer un mot de passe</a>
+                                                            <a href="{{ path('stand_recruteurs_delete', {'id': stand.id, 'userID': user.id }) }}" class="theme-btn btn-style-four small">Supprimer</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="11">no records found</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

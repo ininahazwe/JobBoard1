@@ -24,8 +24,8 @@
                                             <th>Stand</th>
                                             <th>Forum</th>
                                             <th>Statut</th>
-                                            <th>actions</th>
                                             <th>Paramètres</th>
+                                            <th>actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,18 +51,18 @@
                                                 </ul>
                                             </td>
                                             <td>
+                                                <div class="buttons">
+                                                    <a href="" class="theme-btn btn-style-four small">Dupliquer</a>
+                                                    <a href="" class="theme-btn btn-style-eight small">Archiver</a>
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <div class="option-box">
                                                     <ul class="option-list">
                                                         <li><a href="{{ path('annonce_show', {'slug': annonce.slug}) }}" data-text="Voir"><span class="la la-eye"></span></a></li>
                                                         <li><a href="{{ path('annonce_edit', {'id': annonce.id}) }}" data-text="Modifier"><span class="la la-pen"></span></a></li>
                                                         <li>{{ include('annonce/_delete_form.html.twig') }}</li>
                                                     </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="buttons">
-                                                    <a href="" class="theme-btn btn-style-four small">Dupliquer</a>
-                                                    <a href="" class="theme-btn btn-style-eight small">Archiver</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -43,17 +43,17 @@
                                                 <td>
                                                     {% for forum in stand.forums %}
                                                         <ul class="list-style-two">
-                                                            <li><a href="{{ path('forum_show', {'slug': forum.slug}) }}">{{ forum.nom }}</a></li>
+                                                            <li><a href="{{ path('forum_page', {'slug': forum.slug}) }}">{{ forum.nom }}</a></li>
                                                         </ul>
                                                     {% endfor %}
                                                 </td>
                                                 <td>
                                                     <div class="buttons">
-                                                        <a href="{{ path('stand_edit', {'id': stand.id}) }}" class="theme-btn btn-style-one small">Paramètres</a>
+                                                        <a href="{{ path('stand_recruteurs', {'id': stand.id}) }}" class="theme-btn btn-style-one small">Recruteurs</a>
                                                         {% if stand.statut == 0 %}
-                                                            <a href="{{ path('stand_publier', {'id': stand.id}) }}" class="theme-btn btn-style-three small">Publier</a>
+                                                            <a href="{{ path('stand_publier', {'id': stand.id}) }}" class="theme-btn btn-style-four small">Publier</a>
                                                         {% else %}
-                                                            <a href="{{ path('stand_depublier', {'id': stand.id}) }}" class="theme-btn btn-style-four small">Dépublier</a>
+                                                            <a href="{{ path('stand_depublier', {'id': stand.id}) }}" class="theme-btn btn-style-eight small">Dépublier</a>
                                                         {% endif %}
                                                     </div>
                                                 </td>

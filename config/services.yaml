@@ -31,15 +31,15 @@ services:
 
     Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider: ~
 
-    App\Services\Mailer:
+    App\Service\Mailer:
         arguments:
             $senderEmail: '%app.sender_email%'
             $senderName: '%app.sender_name%'
 
-    App\Services\FileUploader:
+    App\Service\FileUploader:
         arguments:
             $targetDirectory: '%logo_directory%'
 
-    App\Services\HCaptcha:
+    App\Service\HCaptcha:
         arguments:
             $hCaptchaSecretKey: '%app.hcaptcha_secret_key%'
