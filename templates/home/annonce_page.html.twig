@@ -17,8 +17,8 @@
                                         <h4><a href="#">{{ annonce.nom|capitalize }}</a></h4>
                                         <ul class="job-info">
                                             <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                            <li><span class="icon flaticon-clock-3"></span> {{ annonce.createdAt|date('d-m-Y') }}</li>
+                                            {% if annonce.adresse %}<li><span class="icon flaticon-map-locator"></span>{{ annonce.adresse }}</li>{% endif %}
+                                            <li><span class="icon flaticon-clock-3"></span>En ligne depuis le {{ annonce.createdAt|date('d.m.Y') }}</li>
                                             {% if annonce.salaire %}<li><span class="icon flaticon-money"></span> {{ annonce.salaire }}</li>{% endif %}
                                         </ul>
                                         <ul class="job-other-info">
@@ -43,13 +43,6 @@
                                     <i class="icon icon-expiry"></i>
                                     <h5>Date de clôture:</h5>
                                     <span>{{ annonce.dateCloture|date('d-m-Y') }}</span>
-                                </li>
-                                {% endif %}
-                                {% if annonce.adresse %}
-                                <li>
-                                    <i class="icon icon-location"></i>
-                                    <h5>Adresse:</h5>
-                                    <span>{{ annonce.adresse }}</span>
                                 </li>
                                 {% endif %}
                                 {% if annonce.horaires%}
@@ -99,7 +92,19 @@
                     <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
                         <aside class="sidebar">
                             <div class="btn-box">
-                                <a href="#" class="theme-btn btn-style-one">Postuler</a>
+                                {% if is_granted('ROLE_CANDIDAT') %}
+                                    {% if app.user and hasCandidature %}
+                                        <div class="message-box warning">
+                                            <p>Vous avez déjà postulé à cette offre</p>
+                                            <button class="close-btn"><span class="close_icon"></span></button>
+                                        </div>
+                                    {% else %}
+                                        <a href="{{ path('candidature_postuler_interne', {'id': annonce.id }) }}" class="theme-btn btn-style-one">Postuler</a>
+                                    {% endif %}
+                                {% else %}
+                                    <b>Veuillez vous connecter ou créer un compte pour postuler</b><br>
+                                    <a href="{{ path('app_login') }}" class="theme-btn btn-style-one">Login</a>
+                                {% endif %}
                                 {% if is_granted('ROLE_CANDIDAT') %}
                                     {% set isFavorite = false %}
                                     {% for favoris in annonce.favoris %}
@@ -149,6 +154,7 @@
                                     <div class="btn-box"><a href="{{ annonce.stand.url }}" target="_blank" class="theme-btn btn-style-three">{{ annonce.stand.url }}</a></div>
                                 </div>
                             </div>
+                            {% if annonce.tags|length > 1 %}
                             <div class="sidebar-widget">
                                 <!-- Job Skills -->
                                 <h4 class="widget-title">Tags</h4>
@@ -160,6 +166,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            {% endif %}
                         </aside>
                     </div>
                 </div>

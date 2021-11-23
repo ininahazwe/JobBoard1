@@ -139,6 +139,14 @@ class StandType extends AbstractType {
                                 'class' => 'chosen-select'
                         ]
                 ])
+                ->add('regroupementCandidatures', ChoiceType::class, [
+                        'choices' => [
+                                'Non' => '0',
+                                'Oui' => '1'
+                        ],
+                        'label' => 'Regrouper les candidatures / candidat',
+                        'required' => true
+                ])
         ;
     }
 

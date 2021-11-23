@@ -169,6 +169,16 @@ class Profile
      */
     private Collection $realisations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Candidature::class, inversedBy="cv")
+     */
+    private ?Candidature $candidature_cv;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $titre;
+
     public function __construct() {
         $this->isVisible = false;
         $this->createdAt = new \DateTimeImmutable('now');
@@ -668,6 +678,30 @@ class Profile
                 $realisation->setProfile(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCandidatureCv(): ?Candidature
+    {
+        return $this->candidature_cv;
+    }
+
+    public function setCandidatureCv(?Candidature $candidature_cv): self
+    {
+        $this->candidature_cv = $candidature_cv;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(?string $titre): self
+    {
+        $this->titre = $titre;
 
         return $this;
     }

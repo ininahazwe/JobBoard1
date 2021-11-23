@@ -85,12 +85,17 @@ class File
     /**
      * @ORM\ManyToOne(targetEntity=Realisation::class, inversedBy="documents")
      */
-    private $realisation;
+    private ?Realisation $realisation;
 
     /**
      * @ORM\ManyToOne(targetEntity=Stand::class, inversedBy="documents")
      */
     private ?Stand  $stand_documents;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Candidature::class, inversedBy="lettre_motivation")
+     */
+    private ?Candidature $candidature_lettre_motivation;
 
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable('now');
@@ -319,6 +324,18 @@ class File
     public function setStandDocuments(?Stand $stand_documents): self
     {
         $this->stand_documents = $stand_documents;
+
+        return $this;
+    }
+
+    public function getcandidatureLettreMotivation(): ?Candidature
+    {
+        return $this->candidature_lettre_motivation;
+    }
+
+    public function setcandidatureLettreMotivation(?Candidature $candidature_lettre_motivation): self
+    {
+        $this->candidature_lettre_motivation = $candidature_lettre_motivation;
 
         return $this;
     }

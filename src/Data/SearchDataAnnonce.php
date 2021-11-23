@@ -35,5 +35,4 @@ class SearchDataAnnonce
      * @var Dictionnaire[]
      */
     public array $zone = [];
-
 }

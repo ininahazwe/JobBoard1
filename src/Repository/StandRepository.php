@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Annonce;
 use App\Entity\Stand;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -44,6 +45,23 @@ class StandRepository extends ServiceEntityRepository
 
         return $query
                 ->getQuery()->getResult();
+    }
+
+    public function getStandsAnnoncesPubliees(): array
+    {
+        $ids = array();
+        $now = new \DateTime('now');
+        $query = $this->getEntityManager()->getRepository(Annonce::class)->createQueryBuilder('a')
+                ->andWhere('a.statut = 1')
+                ->andWhere('a.date_cloture > :date')
+                ->setParameter('date', $now)
+
+        ;
+        $result = $query->getQuery()->getResult();
+        foreach($result as $annonce){
+            $ids[] = $annonce->getStand()->getId();
+        }
+        return $ids;
     }
 
     // /**

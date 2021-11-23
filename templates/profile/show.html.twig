@@ -26,7 +26,7 @@
                                             {% endif %}
                                             <h4 class="name"><a href="#">{{ profile.user.fullname|capitalize }}</a></h4>
                                             <ul class="candidate-info">
-                                                <li class="designation">UI Designer at Invision</li>
+                                                <li class="designation">{{ profile.titre|capitalize }}</li>
                                                 <li><span class="icon flaticon-map-locator"></span> {{ profile.ville }}</li>
                                                 {% if profile.isRqth %}<li>RQTH: {{ profile.isRqth ? 'Oui' : 'Non' }}</li>{% endif %}
                                                 <li><span class="icon flaticon-clock"></span> Membre depuis le {{ profile.createdAt|date('d-m-Y') }}</li>

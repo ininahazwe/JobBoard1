@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Data\SearchDataAnnonce;
 use App\Form\Search\SearchAnnonceForm;
+use App\Repository\CandidatureRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Annonce;
@@ -74,12 +75,18 @@ class HomeController extends AbstractController
     }
 
     #[Route('/job/{slug}', name: 'annonce_page', methods: ['GET'])]
-    public function annonce(Annonce $annonce, AnnonceRepository $annonceRepository): Response
+    public function annonce(Annonce $annonce, AnnonceRepository $annonceRepository, CandidatureRepository $candidatureRepository): Response
     {
+        $hasCandidature = false;
+        if ($this->getUser()){
+            $hasCandidature = $candidatureRepository->hasCandidature($this->getUser(), $annonce);
+        }
+
         $annonces = $annonceRepository->findAll();
         return $this->render('home/annonce_page.html.twig', [
                 'annonces' => $annonces,
                 'annonce' => $annonce,
+                'hasCandidature' => $hasCandidature
         ]);
     }
 

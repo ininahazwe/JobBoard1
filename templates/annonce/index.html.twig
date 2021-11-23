@@ -31,7 +31,7 @@
                                     <tbody>
                                     {% for annonce in annonces %}
                                         <tr>
-                                            <td>{{ annonce.nom }}</td>
+                                            <td>{{ annonce.nom|capitalize }}</td>
                                             <td>{{ annonce.stand.nom }}</td>
                                             <td>{{ annonce.forum.nom }}</td>
                                             <td>
@@ -54,12 +54,13 @@
                                                 <div class="buttons">
                                                     <a href="" class="theme-btn btn-style-four small">Dupliquer</a>
                                                     <a href="" class="theme-btn btn-style-eight small">Archiver</a>
+                                                    {% if annonce.candidatures %}<a href="{{ path('annonce_candidats', {'slug': annonce.slug}) }}" class="theme-btn btn-style-one small">Candidatures</a>{% endif %}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="option-box">
                                                     <ul class="option-list">
-                                                        <li><a href="{{ path('annonce_show', {'slug': annonce.slug}) }}" data-text="Voir"><span class="la la-eye"></span></a></li>
+                                                        <li><a href="{{ path('annonce_page', {'slug': annonce.slug}) }}" data-text="Voir"><span class="la la-eye"></span></a></li>
                                                         <li><a href="{{ path('annonce_edit', {'id': annonce.id}) }}" data-text="Modifier"><span class="la la-pen"></span></a></li>
                                                         <li>{{ include('annonce/_delete_form.html.twig') }}</li>
                                                     </ul>

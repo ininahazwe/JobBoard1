@@ -60,7 +60,7 @@
                                                 <td>
                                                     <div class="option-box">
                                                         <ul class="option-list">
-                                                            <li><a href="{{ path('stand_show', {'slug': stand.slug}) }}" data-text="View Aplication"><span class="la la-eye"></span></a></li>
+                                                            <li><a href="{{ path('stand_page', {'slug': stand.slug}) }}" data-text="View Aplication"><span class="la la-eye"></span></a></li>
                                                             <li><a href="{{ path('stand_edit', {'id': stand.id}) }}" data-text="Approve Aplication"><span class="la la-pen"></span></a></li>
                                                             <li>{{ include('stand/_delete_form.html.twig') }}</li>
                                                         </ul>

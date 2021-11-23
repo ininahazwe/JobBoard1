@@ -132,6 +132,16 @@ class Stand
      */
     private Collection $speedmeetings;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="stand")
+     */
+    private Collection $candidatures;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private ?bool $regroupement_candidatures;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable('now');
@@ -143,6 +153,7 @@ class Stand
         $this->favoris_stand = new ArrayCollection();
         $this->gestionnaire = new ArrayCollection();
         $this->speedmeetings = new ArrayCollection();
+        $this->candidatures = new ArrayCollection();
     }
 
     /**
@@ -535,4 +546,55 @@ class Stand
 
         return $this;
     }
+
+    /**
+     * @return Collection
+     */
+    public function getCandidatures(): Collection
+    {
+        return $this->candidatures;
+    }
+
+    public function addCandidature(Candidature $candidature): self
+    {
+        if (!$this->candidatures->contains($candidature)) {
+            $this->candidatures[] = $candidature;
+            $candidature->setStand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidature(Candidature $candidature): self
+    {
+        if ($this->candidatures->removeElement($candidature)) {
+            // set the owning side to null (unless already changed)
+            if ($candidature->getStand() === $this) {
+                $candidature->setStand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRegroupementCandidatures(): ?bool
+    {
+        return $this->regroupement_candidatures;
+    }
+
+    public function setRegroupementCandidatures(?bool $regroupement_candidatures): self
+    {
+        $this->regroupement_candidatures = $regroupement_candidatures;
+
+        return $this;
+    }
+
+    public function isRegroupementCandidature(): bool
+    {
+        if($this->regroupement_candidatures == 1 ){
+            return true;
+        }
+        return false;
+    }
+
 }

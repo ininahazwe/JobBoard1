@@ -1,6 +1,6 @@
 {% extends 'base-dashboard.html.twig' %}
 
-{% block title %}CVthèque{% endblock %}
+{% block title %}Mes candidatures{% endblock %}
 
 {% block body %}
     <!--Page Title-->
@@ -10,7 +10,7 @@
 
             <div class="row js-filter">
                 <div class="filters-column col-lg-4 col-md-12 col-sm-12">
-                    {% include 'search/filtrer_profile.html.twig' with {form: form} only %}
+                    {% include 'search/filtrer_candidature.html.twig' with {form: form} only %}
                 </div>
                 <div class="content-column col-lg-8 col-md-12 col-sm-12">
                     <div class="ls-outer">
@@ -19,7 +19,7 @@
                         <!-- ls Switcher -->
                         <div class="ls-switcher">
                             <div class="showing-result">
-                                <div class="text">Showing <strong>41-60</strong> of <strong>{{ profiles|length }}</strong> profiles</div>
+                                <div class="text">Showing <strong>41-60</strong> of <strong></strong> profiles</div>
                             </div>
                             <div class="sort-by">
                                 <select class="chosen-select">
@@ -42,10 +42,10 @@
                             </div>
                         </div>
                         <div class="js-filter-content">
-                            {% include 'profile/_profiles.html.twig' %}
+                            {% include 'candidature/_candidatures.html.twig' %}
                         </div>
                         <div class="js-filter-pagination">
-                            {% include 'profile/_pagination.html.twig' %}
+                            {% include 'candidature/_pagination.html.twig' %}
                         </div>
                     </div>
                 </div>
@@ -53,4 +53,3 @@
         </div>
     </section>
 {% endblock %}
-

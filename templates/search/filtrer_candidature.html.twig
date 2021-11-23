@@ -1,0 +1,41 @@
+{{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+<div class="spinner-border js-loading" role="status" aria-hidden="true" style="display: none">
+    <span class="sr-only">Loading...</span>
+</div>
+<div class="inner-column">
+    <div class="filters-outer">
+        <button type="button" class="theme-btn close-filters">X</button>
+
+        <!-- Filter Block -->
+        <div class="filter-block">
+            <h4>Rechercher par nom</h4>
+            <div class="form-group">
+                {{ form_row(form.q) }}
+                <span class="icon flaticon-search-3"></span>
+            </div>
+        </div>
+
+        <div class="filter-block">
+            <h4>Par annonce</h4>
+            <div class="form-group">
+                {{ form_row(form.annonce) }}
+                <span class="icon flaticon-map-locator"></span>
+            </div>
+        </div>
+        <div class="filter-block">
+            <h4>Par stand</h4>
+            <div class="form-group">
+                {{ form_row(form.stands) }}
+                <span class="icon flaticon-map-locator"></span>
+            </div>
+        </div>
+
+
+
+        <!-- Form Group -->
+        <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+            <button type="submit" class="theme-btn btn-style-one small">Trouver</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form, {'render_rest': false}) }}

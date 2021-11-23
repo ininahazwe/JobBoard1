@@ -98,6 +98,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $speedmeeting_gestionnaire;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="recruteur")
+     */
+    private Collection $candidature_recruteur;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="recruteur")
+     */
+    private Collection $annonce_recruteur;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -107,6 +117,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->stands_favoris = new ArrayCollection();
         $this->stand_gestionnaires = new ArrayCollection();
         $this->speedmeeting_gestionnaire = new ArrayCollection();
+        $this->candidature_recruteur = new ArrayCollection();
+        $this->annonce_recruteur = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -320,6 +332,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
     }
 
+    public function getStandsAll(): ArrayCollection
+    {
+
+        $stands= new ArrayCollection();
+        foreach($this->getStandGestionnaires() as $stand){
+            if (!$stands->contains($stand)){
+                $stands->add($stand);
+            }
+        }
+        foreach($this->getStands() as $stand){
+            if (!$stands->contains($stand)){
+                $stands->add($stand);
+            }
+        }
+        return $stands;
+    }
+
     public function getProfile(): ?Profile
     {
         return $this->profile;
@@ -507,6 +536,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($speedmeetingGestionnaire->getGestionnaire() === $this) {
                 $speedmeetingGestionnaire->setGestionnaire(null);
+            }
+        }
+
+        return $this;
+    }
+
+     /**
+     * @return Collection
+     */
+    public function getCandidatureRecruteur(): Collection
+    {
+        return $this->candidature_recruteur;
+    }
+
+    public function addCandidatureRecruteur(Candidature $candidatureRecruteur): self
+    {
+        if (!$this->candidature_recruteur->contains($candidatureRecruteur)) {
+            $this->candidature_recruteur[] = $candidatureRecruteur;
+            $candidatureRecruteur->setRecruteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidatureRecruteur(Candidature $candidatureRecruteur): self
+    {
+        if ($this->candidature_recruteur->removeElement($candidatureRecruteur)) {
+            // set the owning side to null (unless already changed)
+            if ($candidatureRecruteur->getRecruteur() === $this) {
+                $candidatureRecruteur->setRecruteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAnnonceRecruteur(): Collection
+    {
+        return $this->annonce_recruteur;
+    }
+
+    public function addAnnonceRecruteur(Annonce $annonceRecruteur): self
+    {
+        if (!$this->annonce_recruteur->contains($annonceRecruteur)) {
+            $this->annonce_recruteur[] = $annonceRecruteur;
+            $annonceRecruteur->setRecruteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnonceRecruteur(Annonce $annonceRecruteur): self
+    {
+        if ($this->annonce_recruteur->removeElement($annonceRecruteur)) {
+            // set the owning side to null (unless already changed)
+            if ($annonceRecruteur->getRecruteur() === $this) {
+                $annonceRecruteur->setRecruteur(null);
             }
         }
 

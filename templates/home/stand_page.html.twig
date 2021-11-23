@@ -64,18 +64,18 @@
                                 <div class="inner-box">
                                     <div class="content">
                                         <span class="company-logo">
-                                            <img src="{{ asset('images/resource/company-logo/1-3.png') }}" alt="">
+                                            {{ loop.index }}
                                         </span>
                                         <h4><a href="{{ path('annonce_page', {'slug': annonce.slug}) }}">{{ annonce.nom|capitalize }}</a></h4>
                                         <ul class="job-info">
                                             {% if annonce.secteur %}<li><span class="icon flaticon-briefcase"></span> {{ annonce.secteur|join }}</li>{% endif %}
                                             {% if annonce.contrat %}<li><span class="icon flaticon-map-locator"></span> {{ annonce.contrat }}</li>{% endif %}
-                                            <li><span class="icon flaticon-clock-3"></span> 11 hours ago</li>
+                                            <li><span class="icon flaticon-clock-3"></span>Date de clotûre {{ annonce.dateCloture|date }}</li>
                                             {% if annonce.salaire %}<li><span class="icon flaticon-money"></span> {{ annonce.salaire }}</li>{% endif %}
                                         </ul>
                                         <ul class="job-other-info">
-                                            {% if annonce.secteur %}<li class="time">{{ annonce.horaires }}</li>{% endif %}
-                                            <li class="required">Urgent</li>
+                                            {% if annonce.horaires %}<li class="time">{{ annonce.horaires }}</li>{% endif %}
+                                            {% if annonce.accessibilite %} <li class="required">PMR</li>{% endif %}
                                         </ul>
                                         {% if is_granted('ROLE_CANDIDAT') %}
                                             {% set isFavorite = false %}

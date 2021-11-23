@@ -6,6 +6,7 @@ use App\Entity\Annonce;
 use App\Entity\File;
 use App\Form\AnnonceType;
 use App\Repository\AnnonceRepository;
+use App\Repository\CandidatureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -191,5 +192,13 @@ class AnnonceController extends AbstractController
         $em->flush();
 
         return new Response("true");
+    }
+
+    #[Route('/view/{slug}/candidats', name: 'annonce_candidats', methods: ['GET'])]
+    public function candidats(Annonce $annonce): Response
+    {
+        return $this->render('annonce/candidats.html.twig', [
+            'annonce' => $annonce,
+        ]);
     }
 }

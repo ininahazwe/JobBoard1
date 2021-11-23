@@ -20,7 +20,7 @@
                                     {% endfor %}
                                 {% endif %}
                             </figure>
-                            <h4 class="name">{{ stand.nom }}</h4>
+                            <h4 class="name">{{ stand.nom|length > 30 ? stand.nom|slice(0, 30) ~ '...' : stand.nom }}</h4>
                             <span class="designation">UI Designer</span>
                             <div class="location"><i class="flaticon-map-locator"></i> London, UK</div>
                         </div>

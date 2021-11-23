@@ -134,6 +134,16 @@ class Annonce
      */
     private Collection $tags;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Candidature::class, mappedBy="annonce")
+     */
+    private Collection $candidatures;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="annonce_recruteur")
+     */
+    private ?User $recruteur;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -142,6 +152,7 @@ class Annonce
         $this->documents = new ArrayCollection();
         $this->favoris = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->candidatures = new ArrayCollection();
     }
 
     public function getNom(): ?string
@@ -437,7 +448,7 @@ class Annonce
     }
 
     /**
-     * @return Collection|User[]
+     * @return Collection
      */
     public function getFavoris(): Collection
     {
@@ -480,6 +491,45 @@ class Annonce
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Candidature[]
+     */
+    public function getCandidatures(): Collection
+    {
+        return $this->candidatures;
+    }
+
+    public function addCandidature(Candidature $candidature): self
+    {
+        if (!$this->candidatures->contains($candidature)) {
+            $this->candidatures[] = $candidature;
+            $candidature->addAnnonce($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidature(Candidature $candidature): self
+    {
+        if ($this->candidatures->removeElement($candidature)) {
+            $candidature->removeAnnonce($this);
+        }
+
+        return $this;
+    }
+
+    public function getRecruteur(): ?User
+    {
+        return $this->recruteur;
+    }
+
+    public function setRecruteur(?User $recruteur): self
+    {
+        $this->recruteur = $recruteur;
 
         return $this;
     }

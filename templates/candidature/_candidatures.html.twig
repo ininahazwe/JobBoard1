@@ -1,0 +1,3 @@
+{% for candidature in candidatures %}
+    {% include 'candidature/_card.html.twig' with {candidature: candidature} only %}
+{% endfor %}

@@ -81,7 +81,7 @@
             <div class="outer-box">
                 <!-- Add Listing -->
                 {% if app.user and app.user.isCandidat() and app.user.profile %}
-                    <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="theme-btn btn-style-four"> Upload your CV</a>
+                    <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="theme-btn btn-style-four"> Ajouter un CV</a>
                 {% endif %}
                 <!-- Login/Register -->
                 <div class="btn-box">
@@ -89,7 +89,7 @@
                         <a href="{{ path('dashboard') }}" class="theme-btn btn-style-seven">Dashboard</a>
                         <a href="{{ path('app_logout') }}" class="theme-btn btn-style-eight">Logout</a>
                     {% else %}
-                        <a href="{{ path('app_login') }}" class="theme-btn btn-style-four">Login / Register</a>
+                        <a href="{{ path('app_login') }}" class="theme-btn btn-style-four">Login / Inscription</a>
                     {% endif %}
                 </div>
             </div>
