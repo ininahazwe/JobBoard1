@@ -16,6 +16,9 @@ class Annonce
     use ResourceId;
     use Timestapable;
 
+    const PUBLIEE = 0;
+    const DEPUBLIEE = 1;
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -71,11 +74,6 @@ class Annonce
      * @ORM\Column(type="boolean", nullable=true)
      */
     private ?bool $accessibilite;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private ?bool $statut;
 
     /**
      * @ORM\ManyToOne(targetEntity=Dictionnaire::class, inversedBy="annonces_diplome")
@@ -143,6 +141,11 @@ class Annonce
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="annonce_recruteur")
      */
     private ?User $recruteur;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private ?int $statut;
 
     public function __construct()
     {
@@ -276,18 +279,6 @@ class Annonce
     public function setAccessibilite(?bool $accessibilite): self
     {
         $this->accessibilite = $accessibilite;
-
-        return $this;
-    }
-
-    public function getStatut(): ?bool
-    {
-        return $this->statut;
-    }
-
-    public function setStatut(?bool $statut): self
-    {
-        $this->statut = $statut;
 
         return $this;
     }
@@ -496,7 +487,7 @@ class Annonce
     }
 
     /**
-     * @return Collection|Candidature[]
+     * @return Collection
      */
     public function getCandidatures(): Collection
     {
@@ -532,5 +523,30 @@ class Annonce
         $this->recruteur = $recruteur;
 
         return $this;
+    }
+
+    public function getStatut(): ?int
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(?int $statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    public static function getStatutName()
+    {
+        if ($statut = '0'){
+            return 'Publiée';
+        }else if($statut = '1'){
+            return 'Dépubliée';
+        }else if($statut = '3'){
+            return 'Approuvée';
+        }else if($statut = '4'){
+            return 'Désapprouvée';
+        }
     }
 }

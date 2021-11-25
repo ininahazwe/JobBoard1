@@ -1,5 +1,4 @@
-{% set isLogged = is_granted('ROLE_RECRUTEUR') %}
-{% extends isLogged ?'base-dashboard.html.twig' : 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Actu - {{ blog.titre }}{% endblock %}
 
@@ -7,7 +6,7 @@
     <section class="blog-single">
         <div class="auto-container">
             <div class="upper-box">
-                <h3>{{ blog.titre }}</h3>
+                <h3>{{ blog.titre }}{% if is_granted('ROLE_RECRUTEUR') %} <a href="{{ path('blog_edit', {'id': blog.id}) }}" data-text="Modifier"><span class="la la-pen"></span></a>{% endif %}</h3>
                 <ul class="post-info">
                     {% if is_granted('ROLE_RECRUTEUR') %}
                     <li>

@@ -80,6 +80,11 @@ class Forum
      */
     private Collection $annonces;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Animation::class, mappedBy="forum")
+     */
+    private $animations;
+
     public function __construct()
     {
         $this->pavillon = new ArrayCollection();
@@ -87,6 +92,7 @@ class Forum
         $this->stand = new ArrayCollection();
         $this->logo = new ArrayCollection();
         $this->annonces = new ArrayCollection();
+        $this->animations = new ArrayCollection();
     }
 
     public function getNom(): ?string
@@ -285,6 +291,36 @@ class Forum
             // set the owning side to null (unless already changed)
             if ($annonce->getForum() === $this) {
                 $annonce->setForum(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Animation[]
+     */
+    public function getAnimations(): Collection
+    {
+        return $this->animations;
+    }
+
+    public function addAnimation(Animation $animation): self
+    {
+        if (!$this->animations->contains($animation)) {
+            $this->animations[] = $animation;
+            $animation->setForum($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnimation(Animation $animation): self
+    {
+        if ($this->animations->removeElement($animation)) {
+            // set the owning side to null (unless already changed)
+            if ($animation->getForum() === $this) {
+                $animation->setForum(null);
             }
         }
 

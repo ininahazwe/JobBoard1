@@ -263,7 +263,7 @@ class Dictionnaire {
                 'Statut ouverture forum' => Dictionnaire::TYPE_FORUM_OPENING_STATUS,
                 'Type de pavillon' => Dictionnaire::TYPE_PAVILLON,
                 'Type de stand' => Dictionnaire::TYPE_STAND,
-                'Type de FaQ' => Dictionnaire::TYPE_FAQ_BLOG,
+                'Type de FaQ Blog' => Dictionnaire::TYPE_FAQ_BLOG,
                 'Type de blog' => Dictionnaire::TYPE_BLOG,
                 'Type de question' => Dictionnaire::TYPE_QUESTION,
                 'Type d\'annuaire' => Dictionnaire::TYPE_ANNUAIRE,

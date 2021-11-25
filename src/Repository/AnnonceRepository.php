@@ -26,6 +26,17 @@ class AnnonceRepository extends ServiceEntityRepository
     }
 
     /**
+     * @return mixed
+     */
+    public function getAllActive(): mixed
+    {
+        $query = $this->createQueryBuilder('a')
+                ->where('a.statut = 0')
+        ;
+        return $query->getQuery()->getResult();
+    }
+
+    /**
      * @param $user
      * @return mixed
      */
@@ -33,7 +44,7 @@ class AnnonceRepository extends ServiceEntityRepository
         $now = new \DateTime('now');
 
         $query = $this->createQueryBuilder('a')
-                ->andWhere('a.statut = 1')
+                ->andWhere('a.statut = 0')
                 ->andWhere('a.date_cloture >= :date')
                 ->innerJoin('a.favoris', 'u', 'WITH', 'u.id = :user')
                 ->setParameter('user', $user)
@@ -58,8 +69,10 @@ class AnnonceRepository extends ServiceEntityRepository
 
     public function getSearchQuery(SearchDataAnnonce $search): QueryBuilder {
         $query = $this
-                ->createQueryBuilder('a');
+                ->createQueryBuilder('a')
+                ->andWhere('a.statut = 0')
         ;
+
 
         if(!empty($search->q)){
             $query

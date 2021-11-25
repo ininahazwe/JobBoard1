@@ -1,5 +1,5 @@
 <!-- Banner Section-->
-<section class="banner-section-five" style="background-image: url();">
+<section class="banner-section-five">
     <div class="auto-container">
         <div class="row">
             <div class="content-column col-lg-7 col-md-12 col-sm-12">
@@ -38,39 +38,107 @@
                 <div class="image-box">
                     <div class="row">
                         <div class="column col-lg-6 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="1500ms">
-                            <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-4.png') }}" alt=""></figure>
+                            {% for forum in forums %}
+                                {% for logo in forum.logo %}
+                                <figure class="image anm" data-speed-x="2">
+                                    <a href="{{ path('forum_page', {'slug': forum.slug }) }}"><img class="" src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}"></a>
+                                </figure>
+                                {% endfor %}
+                            {% endfor %}
                         </div>
                         <div class="column col-lg-6 col-md-6 col-sm-12 wow fadeInRight" data-wow-delay="2000ms">
-                            <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-5.png')}}" alt=""></figure>
-                            <figure class="image anm" data-speed-x="2"><img src="{{ asset('images/resource/banner-img-6.png') }}" alt=""></figure>
+                            <figure class="image anm" data-speed-x="2">
+                                {% for animation in animations %}
+                                    <div class="job-block-four">
+                                        <div class="inner-box">
+                                            <ul class="job-other-info">
+                                                <li class="privacy">A vos agendas</li>
+                                            </ul>
+                                            <span class="company-logo">
+                                                {% if animation.logoSociete %}
+                                                    {% for logo in animation.logoSociete %}
+                                                        {% if loop.first %}
+                                                            <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 90px">
+                                                        {% endif %}
+                                                    {% else %}
+                                                        <span class="icon flaticon-calendar"></span>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </span>
+                                            <span class="company-name">Catalyst</span>
+                                            <h4><a href="">{{ animation.titre }}</a></h4>
+                                            <div class="location"><i class="las la-calendar"></i> Du {{ animation.dateDebut|date('d-m-Y') }} au {{ animation.dateFin|date('d-m-Y') }}</div>
+                                            {#<ul class="post-tags">
+                                                <li><a href="#">App</a></li>
+                                                <li><a href="#">Design</a></li>
+                                                <li><a href="#">Digital</a></li>
+                                                <li class="colored">+2</li>
+                                            </ul>#}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </figure>
+                            <figure class="image anm" data-speed-x="2">
+                                {% for blog in blogs %}
+                                    {% if loop.first %}
+                                        <div class="feature-block">
+                                            <div class="inner-box">
+                                                <figure class="image">
+                                                    {% if blog.images %}
+                                                        {% for logo in blog.images %}
+                                                            {% if loop.first %}
+                                                                <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}">
+                                                            {% endif %}
+                                                        {% else %}
+                                                            <img src="{{ asset('images/resource/network.png') }}" alt="{{ logo.nom }}" style="width: 90px">
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </figure>
+                                                <div class="overlay-box">
+                                                    <div class="content">
+                                                        <h5>{{ blog.titre }}</h5>
+                                                        <span class="total-jobs">12 Jobs</span>
+                                                        <a href="job-list-v1.html" class="overlay-link"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </figure>
                         </div>
                     </div>
 
                     <!-- Info BLock One -->
                     {% for forum in forums %}
                         <div class="info_block wow fadeIn anm" data-wow-delay="2500ms" data-speed-x="2" data-speed-y="2">
-                            <span class="icon flaticon-email-3"></span>
-                            <p>{{ forum.nom }}</p>
-                            <div class="text" style="font-size: 10px">Du {{ forum.dateOuverture|date('m-d-Y') }} au {{ forum.dateFermeture|date('m-d-Y') }}</div>
+                            <span class="icon flaticon-alarm-clock"></span>
+                            <a href="{{ path('forum_page', {'slug': forum.slug }) }}"><p style="max-width: 180px">{{ forum.nom }}</p></a>
+                            <div class="text" style="font-size: 14px">Du {{ forum.dateOuverture|date('m-d-Y') }} au {{ forum.dateFermeture|date('m-d-Y') }}</div>
                         </div>
 
-                        <!-- Info BLock Two -->
+                        {#<!-- Info BLock Two -->
                         <div class="info_block_two wow fadeIn anm" data-wow-delay="3000ms" data-speed-x="3" data-speed-y="3">
-                            <p>10k+ Offres d'emplois</p>
+                            <p>Stands participants</p>
                             <div class="container">
                                 <div class="row">
                                     {% for stand in forum.stand %}
                                         {% if stand.logo %}
                                                 {% for logo in stand.logo %}
-                                                    <div class="col"><img class="img-thumbnail" src="{{ asset('uploads/' ~ logo.nom) }}" alt="logo" style="width: 50px"></div>
+                                                    <div class="col">
+                                                        <a href="{{ path('stand_page', {'slug': stand.slug }) }}"><img class="" src="{{ asset('uploads/' ~ logo.nom) }}" alt="logo" style="width: 50px"></a>
+                                                    </div>
                                                 {% else %}
-                                                    <div class="col"><img class="img-thumbnail" src="{{ asset('uploads/stand.png') }}" alt="logo"  style="width: 50px"></div>
+                                                    <div class="col">
+                                                        <a href="{{ path('stand_page', {'slug': stand.slug }) }}"><img class="" src="{{ asset('uploads/stand.png') }}" alt="logo"  style="width: 50px"></a>
+                                                    </div>
                                                 {% endfor %}
                                         {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
-                        </div>
+                            {% if not app.user %}<a href="{{ path('app_register') }}" class="theme-btn btn-style-one small mt-4">Je m'inscris</a>{% endif %}
+                        </div>#}
                     {% endfor %}
                 </div>
             </div>

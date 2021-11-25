@@ -29,6 +29,12 @@ table.dataTable {
   position: relative;
 }
 
+.object-fit_fill { object-fit: fill }
+.object-fit_contain { object-fit: contain }
+.object-fit_cover { object-fit: cover }
+.object-fit_none { object-fit: none }
+.object-fit_scale-down { object-fit: scale-down }
+
 .supprimer-image {
   position: absolute;
   background: #fff;
@@ -39,6 +45,8 @@ table.dataTable {
   transform: translate(-50%, -50%);
 }
 
+#animation_dateDebut_time_hour,
+#animation_dateFin_time_hour,
 #forum_dateOuverture_time_hour,
 #profile_dateNaissance_time_hour,
 #forum_dateFermeture_time_hour,

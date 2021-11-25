@@ -35,25 +35,16 @@
                                             <td>{{ annonce.stand.nom }}</td>
                                             <td>{{ annonce.forum.nom }}</td>
                                             <td>
-
-                                                <ul class="switchbox">
-                                                    <li>
-                                                        <label class="switch">
-                                                            <input type="checkbox" id="flexSwitchCheckDefault" {{ (annonce.statut) ? 'checked' : ''}} data-id="{{annonce.id}}"/>
-                                                            <span class="slider round"></span>
-                                                            {% if annonce.statut  ? 'checked'%}
-                                                                <span class="title">publiée</span>
-                                                            {% else %}
-                                                                <span class="title">non publiée</span>
-                                                            {% endif %}
-                                                        </label>
-                                                    </li>
-                                                </ul>
+                                                <div class="buttons">
+                                                    {% if annonce.statut == 0 %}
+                                                        <a href="{{ path('annonce_depublier', {'id': annonce.id}) }}" class="theme-btn btn-style-eight small">Dépublier</a>
+                                                    {% else %}
+                                                        <a href="{{ path('annonce_publier', {'id': annonce.id}) }}" class="theme-btn btn-style-four small">Publier</a>
+                                                    {% endif %}
+                                                </div>
                                             </td>
                                             <td>
                                                 <div class="buttons">
-                                                    <a href="" class="theme-btn btn-style-four small">Dupliquer</a>
-                                                    <a href="" class="theme-btn btn-style-eight small">Archiver</a>
                                                     {% if annonce.candidatures %}<a href="{{ path('annonce_candidats', {'slug': annonce.slug}) }}" class="theme-btn btn-style-one small">Candidatures</a>{% endif %}
                                                 </div>
                                             </td>
@@ -82,16 +73,4 @@
         </div>
     </div>
 </section>
-    <script>
-        window.onload = () => {
-            let activer = document.querySelectorAll("[type=checkbox]")
-            for (let bouton of activer) {
-                bouton.addEventListener("click", function () {
-                    let xmlhttp = new XMLHttpRequest;
-                    xmlhttp.open("get", `/cms/annonce/activer/${this.dataset.id}`)
-                    xmlhttp.send()
-                })
-            }
-        }
-    </script>
 {% endblock %}

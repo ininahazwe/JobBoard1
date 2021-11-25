@@ -2,55 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/src/Data/SearchDataCandidature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/annonce/candidats.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/candidature/_candidatures.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/candidature/_card.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/candidature/_pagination.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/candidature/recruteur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/blog/conseils.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/infobox.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/infobox.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/multi-step-form.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/multi-step-form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/wow.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/wow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/custom.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/jquery.fancybox.min.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/jquery.fancybox.min.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/jquery.modal.min.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/jquery.modal.min.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/line-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/line-awesome.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/template.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/template.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/responsive.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AnnonceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnonceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ForumController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/SearchDataAnnonce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SearchDataAnnonce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StandController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Annonce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Annonce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/File.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/StandType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/StandType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Forum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Forum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Search/SearchAnnonceForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Search/SearchAnnonceForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BlogRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BlogRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/StandRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StandRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/annonce/candidats.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/candidats.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/annonce/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-dashboard.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/annonce_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/annonce_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/stand_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/stand_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/Alaune.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/Alaune.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/annonces.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/annonces.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/AgendaForums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/AgendaForums.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/StandsSection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/StandsSection.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/banner.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/cvtheque.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/check_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset_password/email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reset_password/email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search/filtrer_annuaire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/filtrer_candidature.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stand/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stand/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +304,9 @@
       <workItem from="1637225980048" duration="17311000" />
       <workItem from="1637307194247" duration="23950000" />
       <workItem from="1637568123685" duration="4877000" />
-      <workItem from="1637652066724" duration="10006000" />
+      <workItem from="1637652066724" duration="10635000" />
+      <workItem from="1637738952907" duration="20455000" />
+      <workItem from="1637825798622" duration="20387000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -603,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637233166202</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="readme">
+      <created>1637684084480</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1637684084480</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,17 +617,6 @@
     <MESSAGE value="ttt" />
     <MESSAGE value="readme" />
     <option name="LAST_COMMIT_MESSAGE" value="readme" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/templates/questionnaire/edit.html.twig</url>
-          <line>43</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -97,6 +97,21 @@ class File
      */
     private ?Candidature $candidature_lettre_motivation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Animation::class, inversedBy="fichier")
+     */
+    private ?Animation $animation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Animation::class, inversedBy="logo_societe")
+     */
+    private ?Animation $animation_societe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Animation::class, inversedBy="image_rs")
+     */
+    private ?Animation $animation_imageRS;
+
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable('now');
     }
@@ -336,6 +351,42 @@ class File
     public function setcandidatureLettreMotivation(?Candidature $candidature_lettre_motivation): self
     {
         $this->candidature_lettre_motivation = $candidature_lettre_motivation;
+
+        return $this;
+    }
+
+    public function getAnimation(): ?Animation
+    {
+        return $this->animation;
+    }
+
+    public function setAnimation(?Animation $animation): self
+    {
+        $this->animation = $animation;
+
+        return $this;
+    }
+
+    public function getAnimationSociete(): ?Animation
+    {
+        return $this->animation_societe;
+    }
+
+    public function setAnimationSociete(?Animation $animation_societe): self
+    {
+        $this->animation_societe = $animation_societe;
+
+        return $this;
+    }
+
+    public function getAnimationImageRS(): ?Animation
+    {
+        return $this->animation_imageRS;
+    }
+
+    public function setAnimationImageRS(?Animation $animation_imageRS): self
+    {
+        $this->animation_imageRS = $animation_imageRS;
 
         return $this;
     }

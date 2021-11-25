@@ -22,7 +22,7 @@
                                         <tr>
                                             <th>Titre</th>
                                             <th>Auteurs</th>
-                                            <th>Tags</th>
+                                            <th>Type</th>
                                             <th>Statut</th>
                                             <th>actions</th>
                                         </tr>
@@ -39,11 +39,7 @@
                                                 </ul>
                                             </td>
                                             <td>
-                                                <ul>
-                                                    {% for tag in blog.tag %}
-                                                        <li>{{ tag.nom|capitalize }}</li>
-                                                    {% endfor %}
-                                                </ul>
+                                                {{ blog.type|capitalize }}
                                             </td>
                                             <td>{{ blog.isStatut ? 'Publié' : 'Non publié' }}</td>
                                             <td>

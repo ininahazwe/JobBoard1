@@ -86,7 +86,6 @@ class StandController extends AbstractController
             $img->setType($type);
             $stand->addDocument($img);
         }
-
     }
 
     #[Route('/{slug}', name: 'stand_show', methods: ['GET'])]

@@ -19,7 +19,7 @@
                             {% if forum.logo %}
                                 {% for image in forum.logo %}
                                     {% if loop.first %}
-                                    <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                    <img class="object-fit_cover" src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}" width="60px">
                                     {% endif %}
                                 {% endfor %}
                             {% else %}

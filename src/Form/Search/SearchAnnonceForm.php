@@ -76,12 +76,10 @@ class SearchAnnonceForm extends AbstractType {
                         }
                 ])
                 ->add('zone', EntityType::class, [
-                        'attr' => [
-                                'class' => 'chosen-select'
-                        ],
+
                         'required'  => false,
                         'label' => false,
-                        'expanded' => false,
+                        'expanded' => true,
                         'multiple' => true,
                         'class' => Dictionnaire::class,
                         'query_builder' => function($repository) {

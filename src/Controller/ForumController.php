@@ -115,7 +115,7 @@ class ForumController extends AbstractController
     }
 
     #[Route('/{id}/ouvrir', name: 'forum_ouvrir', methods: ['GET'])]
-    public function publier($id, Request $request, Forum $forum): Response
+    public function ouvrir($id, Request $request, Forum $forum): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $forum = $entityManager->getRepository(Forum::class)->find($id);

@@ -33,6 +33,17 @@ class StandRepository extends ServiceEntityRepository
     }
 
     /**
+     * @return mixed
+     */
+    public function getAllActive(): mixed
+    {
+        $query = $this->createQueryBuilder('s')
+                ->where('s.statut = 1')
+        ;
+        return $query->getQuery()->getResult();
+    }
+
+    /**
      * @param $user
      * @return mixed
      */

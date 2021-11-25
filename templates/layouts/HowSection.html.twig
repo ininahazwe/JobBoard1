@@ -1,5 +1,5 @@
 <!-- Process Section -->
-<section class="process-section pt-0">
+<section class="process-section pt-20">
     <div class="auto-container">
         <div class="sec-title text-center">
             <h2>Comment ça marche ?</h2>
@@ -9,21 +9,23 @@
         <div class="row wow fadeInUp">
             <!-- Process Block -->
             <div class="process-block col-lg-4 col-md-6 col-sm-12">
-                <div class="icon-box"><img src="images/resource/process-1.png" alt=""></div>
-                <h4>Conseils<br>aux candidats</h4>
+                <a href="{{ path('conseils') }}">
+                    <div class="icon-box"><img src="{{ asset('images/resource/process-1.png') }}" alt=""></div>
+                    <h4>Conseils<br>aux candidats</h4>
+                </a>
             </div>
 
             <!-- Process Block -->
             <div class="process-block col-lg-4 col-md-6 col-sm-12">
                 <a href="{{ path('faq_all') }}">
-                    <div class="icon-box"><img src="images/resource/process-2.png" alt=""></div>
+                    <div class="icon-box"><img src="{{ asset('images/resource/process-2.png') }}" alt=""></div>
                     <h4>F.A.Q<br></h4>
                 </a>
             </div>
 
             <!-- Process Block -->
             <div class="process-block col-lg-4 col-md-6 col-sm-12">
-                <div class="icon-box"><img src="images/resource/process-3.png" alt=""></div>
+                <div class="icon-box"><img src="{{ asset('images/resource/process-3.png') }}" alt=""></div>
                 <h4>Inscription<br>à la CVthèque</h4>
             </div>
         </div>

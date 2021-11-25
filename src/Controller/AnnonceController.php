@@ -182,16 +182,42 @@ class AnnonceController extends AbstractController
         ]);
     }
 
-    #[Route('/activer/{id}', name: 'annonce_activer')]
-    public function activer(Annonce $annonce): Response
+    #[Route('/{id}/publier', name: 'annonce_publier', methods: ['GET'])]
+    public function publier($id, Request $request, Annonce $annonce): Response
     {
-        $annonce->setStatut(!$annonce->getStatut());
+        $entityManager = $this->getDoctrine()->getManager();
+        $annonce = $entityManager->getRepository(Annonce::class)->find($id);
+        $annonce->setStatut(Annonce::PUBLIEE);
+        $entityManager->persist($annonce);
+        $entityManager->flush();
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($annonce);
-        $em->flush();
+        $this->addFlash('success', 'Publication réussie');
 
-        return new Response("true");
+        if ($referer = $request->get('referer', false)) {
+            $referer = base64_decode($referer);
+            return $this->redirect(($referer));
+        } else {
+            return $this->redirectToRoute('annonce_index');
+        }
+    }
+
+    #[Route('/{id}/depublier', name: 'annonce_depublier', methods: ['GET'])]
+    public function depublier($id, Request $request, Annonce $annonce): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $annonce = $entityManager->getRepository(Annonce::class)->find($id);
+        $annonce->setStatut(Annonce::DEPUBLIEE);
+        $entityManager->persist($annonce);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Dépublication réussie');
+
+        if ($referer = $request->get('referer', false)) {
+            $referer = base64_decode($referer);
+            return $this->redirect(($referer));
+        } else {
+            return $this->redirectToRoute('annonce_index');
+        }
     }
 
     #[Route('/view/{slug}/candidats', name: 'annonce_candidats', methods: ['GET'])]

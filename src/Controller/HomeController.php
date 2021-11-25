@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Data\SearchDataAnnonce;
 use App\Form\Search\SearchAnnonceForm;
+use App\Repository\AnimationRepository;
 use App\Repository\CandidatureRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(Request $request, AnnonceRepository $annonceRepository, BlogRepository $blogRepository, ForumRepository $forumRepository, StandRepository $standRepository): Response
+    public function index(Request $request, AnnonceRepository $annonceRepository, BlogRepository $blogRepository, ForumRepository $forumRepository, StandRepository $standRepository, AnimationRepository $animationRepository): Response
     {
         $data = new SearchDataAnnonce();
         $data->page = $request->get('page', 1);
@@ -33,13 +34,15 @@ class HomeController extends AbstractController
         $annonces = $annonceRepository->findSearch($data);
 
         $blog = $blogRepository->findAll();
-        $stands = $standRepository->findAll();
+        $animation = $animationRepository->findAll();
+        $stands = $standRepository->getAllActive();
         $alaUne = $standRepository->findAlaUne();
         $forum = $forumRepository->findLastInserted();
         $forums = $forumRepository->findAll();
         return $this->render('home/index.html.twig', [
             'blogs' => $blog,
             'annonces' => $annonces,
+            'animations' => $animation,
             'forums' => $forum,
             'stands' => $stands,
             'standsUne' => $alaUne,
@@ -130,4 +133,11 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/conseils-recherche-emploi', name: 'conseils', methods: ['GET'])]
+    public function conseils(BlogRepository $blogRepository): Response
+    {
+        return $this->render('blog/conseils.html.twig', [
+                'blogs' => $blogRepository->getInterwiewType(),
+        ]);
+    }
 }

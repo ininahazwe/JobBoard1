@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Blog;
+use App\Entity\Dictionnaire;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,33 @@ class BlogRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Blog::class);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInterwiewType(): mixed
+    {
+       /* $ids = [];
+        $typeInterview = $this->getEntityManager()->getRepository(Dictionnaire::class)->createQueryBuilder('d');
+        $typeInterview->andWhere('d.type = :type')
+            ->setParameter('d.type', Dictionnaire::TYPE_BLOG)
+            ->getQuery()
+        ;
+
+        foreach($typeInterview as $_type){
+            $ids[] = $_type->getId();
+        }
+
+        dd($ids);*/
+        return $this->createQueryBuilder('b')
+                ->join('b.type', 'd', 'WITH', 'd = b.type')
+                ->andWhere('d.value LIKE :interview')
+                ->setParameter('interview', "%interview%")
+               /* ->andWhere('b.type in (ids)')
+                ->setParameter('ids', $ids)*/
+
+                ->getQuery()->getResult();
     }
 
     // /**
