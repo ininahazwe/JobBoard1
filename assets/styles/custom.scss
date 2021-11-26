@@ -69,3 +69,14 @@ table.dataTable {
   border: 1px solid #ECEDF2;
   padding: 17px 30px;
 }
+
+.js-loading{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  opacity: .5;
+}

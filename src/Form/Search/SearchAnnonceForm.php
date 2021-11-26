@@ -5,6 +5,7 @@ namespace App\Form\Search;
 use App\Data\SearchDataAnnonce;
 use App\Entity\Dictionnaire;
 use App\Entity\Tag;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -76,10 +77,12 @@ class SearchAnnonceForm extends AbstractType {
                         }
                 ])
                 ->add('zone', EntityType::class, [
-
+                        'attr' => [
+                                'class' => 'chosen-select'
+                        ],
                         'required'  => false,
                         'label' => false,
-                        'expanded' => true,
+                        'expanded' => false,
                         'multiple' => true,
                         'class' => Dictionnaire::class,
                         'query_builder' => function($repository) {

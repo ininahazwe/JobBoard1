@@ -175,7 +175,7 @@
                 <div class="related-jobs">
                     <div class="title-box">
                         <h3>Offres similaires</h3>
-                        <div class="text">2020 jobs live - 293 added today.</div>
+                        <div class="text">{{ annonces|length }} offres en ligne - dont 293 nouvelles.</div>
                     </div>
                     <div class="row">
                         {% for annonce in annonces %}
@@ -194,8 +194,8 @@
                                     {% endfor %}
                                 </span>
                                 <span class="company-name">Catalyst</span>
-                                <h4><a href="#">{{ annonce.nom|capitalize }}</a></h4>
-                                <div class="location"><span class="icon flaticon-map-locator"></span> London, UK</div>
+                                <h4><a href="{{path('annonce_page', {'slug': annonce.slug })}}">{{ annonce.nom|capitalize }}</a></h4>
+                                {% if annonce.adresse %}<div class="location"><span class="icon flaticon-map-locator"></span> {{ annonce.adresse }}</div>{% endif %}
                             </div>
                         </div>
                         {% endfor %}

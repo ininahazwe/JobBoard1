@@ -108,6 +108,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $annonce_recruteur;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="user")
+     */
+    private Collection $messages;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Participant::class, mappedBy="user")
+     */
+    private Collection $participants;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -119,6 +129,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->speedmeeting_gestionnaire = new ArrayCollection();
         $this->candidature_recruteur = new ArrayCollection();
         $this->annonce_recruteur = new ArrayCollection();
+        $this->messages = new ArrayCollection();
+        $this->participants = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -596,6 +608,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($annonceRecruteur->getRecruteur() === $this) {
                 $annonceRecruteur->setRecruteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getUser() === $this) {
+                $message->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Participant $participant): self
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants[] = $participant;
+            $participant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participant $participant): self
+    {
+        if ($this->participants->removeElement($participant)) {
+            // set the owning side to null (unless already changed)
+            if ($participant->getUser() === $this) {
+                $participant->setUser(null);
             }
         }
 

@@ -98,7 +98,7 @@
                                                     <div class="content">
                                                         <h5>{{ blog.titre }}</h5>
                                                         <span class="total-jobs">12 Jobs</span>
-                                                        <a href="job-list-v1.html" class="overlay-link"></a>
+                                                        <a href="{{ path('blog_show', {'slug': blog.slug }) }}" class="overlay-link"></a>
                                                     </div>
                                                 </div>
                                             </div>
