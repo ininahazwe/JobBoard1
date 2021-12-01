@@ -6,7 +6,6 @@ use App\Entity\Annonce;
 use App\Entity\File;
 use App\Form\AnnonceType;
 use App\Repository\AnnonceRepository;
-use App\Repository\CandidatureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;

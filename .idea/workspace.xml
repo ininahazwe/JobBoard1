@@ -2,12 +2,74 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/actions/conversation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Blank.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Input.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Right.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/constants/actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/reducers/conversation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/COPYRIGHT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/Filter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/Filter2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/actions/conversation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/anm.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/appear.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/chart.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/chosen.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/Left/Conversation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/Left/Left.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Blank.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Input.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Right.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/constants/actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/infobox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.countdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.fancybox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.modal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/knob.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/map-script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/maps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/markerclusterer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/mmenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/mmenu.polyfills.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/multi-step-form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/owl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/popper.js.OLD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/reducers/conversation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/respond.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/select2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/js/wow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mercure/mercure.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AnnonceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnonceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +272,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mercure" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -218,18 +280,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\mercure" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js\components" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js\components\Left" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form\Search" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\src\Data" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\candidature" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\mercure" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js\components" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\bin" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\public\uploads" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\public\images\resource" />
     </key>
   </component>
   <component name="RunManager">
@@ -288,7 +350,9 @@
       <workItem from="1637858244132" duration="20000" />
       <workItem from="1637912066120" duration="19303000" />
       <workItem from="1637946747410" duration="3000" />
-      <workItem from="1638171335201" duration="21664000" />
+      <workItem from="1638171335201" duration="23684000" />
+      <workItem from="1638257799507" duration="22904000" />
+      <workItem from="1638343699083" duration="14435000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -598,7 +662,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638195674898</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="readme">
+      <created>1638201488623</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1638201488623</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
