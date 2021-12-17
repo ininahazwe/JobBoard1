@@ -1,0 +1,89 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Mes Forums favoris!{% endblock %}
+
+{% block body %}
+    <!-- Listing Section -->
+    <section class="ls-section">
+        <div class="auto-container">
+            <div class="filters-backdrop"></div>
+
+            <div class="row">
+                <!-- Content Column -->
+                <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                    <div class="ls-outer">
+                        <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
+                        <!-- ls Switcher -->
+                        <div class="ls-switcher">
+                            <div class="showing-result">
+                                <div class="text">Showing <strong>41-60</strong> of <strong>944</strong> jobs</div>
+                            </div>
+                            <div class="sort-by">
+                                <select class="chosen-select">
+                                    <option>New Jobs</option>
+                                    <option>Freelance</option>
+                                    <option>Full Time</option>
+                                    <option>Internship</option>
+                                    <option>Part Time</option>
+                                    <option>Temporary</option>
+                                </select>
+
+                                <select class="chosen-select">
+                                    <option>Show 10</option>
+                                    <option>Show 20</option>
+                                    <option>Show 30</option>
+                                    <option>Show 40</option>
+                                    <option>Show 50</option>
+                                    <option>Show 60</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Company Block Four -->
+                            {% for forum in forums %}
+
+                                <div class="company-block-four col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="inner-box">
+                                        <a href="{{ path('forum_page', {'slug': forum.slug}) }}">
+                                            {% if is_granted('ROLE_CANDIDAT') %}
+                                                {% set isFavorite = false %}
+                                                {% for favoris in forum.favorisforum %}
+                                                    {% if favoris.id == app.user.id %}
+                                                        {% set isFavorite = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if isFavorite %}
+                                                    <a href="{{ path('forum_retrait_favoris', {id: forum.id}) }}" class="bookmark-btn"><i class="fas fa-heart"></i></a>
+                                                {% else %}
+                                                    <a href="{{ path('forum_ajout_favoris', {id: forum.id}) }}" class="bookmark-btn"><i class="far fa-heart"></i></a>
+                                                {% endif %}
+                                            {% endif %}
+                                            <span class="featured">{{ pluralize(forum.stand|length, 'stand') }}</span>
+                                            <span class="company-logo">
+                                            {% if forum.logo %}
+                                                {% for logo in forum.logo %}
+                                                    <img src="{{ asset('uploads/' ~ logo.nom) }}" alt="{{ logo.nom }}" style="width: 100px">
+                                                            {% else %}
+                                                    <img src="{{ asset('uploads/stand.png') }}" alt="" style="width: 100px">
+                                                {% endfor %}
+                                            {% endif %}
+                                        </span>
+                                            <h4>{{ forum.nom }}</h4>
+                                            <ul class="job-info">
+                                                <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                                <li><span class="icon flaticon-briefcase"></span> Accounting / Finance</li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Pagination -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Listing Page Section -->
+{% endblock %}

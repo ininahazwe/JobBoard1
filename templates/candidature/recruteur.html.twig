@@ -1,51 +1,93 @@
 {% extends 'base-dashboard.html.twig' %}
 
-{% block title %}Mes candidatures{% endblock %}
+{% block title %}Candidatures{% endblock %}
 
 {% block body %}
     <!--Page Title-->
-    <section class="ls-section">
-        <div class="auto-container">
-            <div class="filters-backdrop"></div>
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="upper-title-box">
+                <h3>Gérer mes rendez-vous</h3>
+            </div>
 
-            <div class="row js-filter">
-                <div class="filters-column col-lg-4 col-md-12 col-sm-12">
-                    {% include 'search/filtrer_candidature.html.twig' with {form: form} only %}
-                </div>
-                <div class="content-column col-lg-8 col-md-12 col-sm-12">
-                    <div class="ls-outer">
-                        <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
-
-                        <!-- ls Switcher -->
-                        <div class="ls-switcher">
-                            <div class="showing-result">
-                                <div class="text">Showing <strong>41-60</strong> of <strong></strong> profiles</div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title">
+                                <h4>Candidatures</h4>
                             </div>
-                            <div class="sort-by">
-                                <select class="chosen-select">
-                                    <option>New Jobs</option>
-                                    <option>Freelance</option>
-                                    <option>Full Time</option>
-                                    <option>Internship</option>
-                                    <option>Part Time</option>
-                                    <option>Temporary</option>
-                                </select>
 
-                                <select class="chosen-select">
-                                    <option>Show 10</option>
-                                    <option>Show 20</option>
-                                    <option>Show 30</option>
-                                    <option>Show 40</option>
-                                    <option>Show 50</option>
-                                    <option>Show 60</option>
-                                </select>
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    <table class="default-table manage-job-table" id="datatable">
+                                        <thead>
+                                        <tr>
+                                            <th>Infos candidats</th>
+                                            <th>Scoring candidat par offre</th>
+                                            <th>Suivi candidatures</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for candidature in candidatures %}
+                                        <tr>
+                                            <td>
+                                                <div class="">
+                                                    <a href="{{ path('profile_show', {'id': candidature.candidat.profile.id}) }}">{{ candidature.candidat|capitalize }}</a> - {{ candidature.candidat.profile.titre|capitalize }}<br>
+                                                </div>
+                                                <ul class="job-info">
+                                                    <li><span class="icon flaticon-map-locator"></span> {{ candidature.candidat.profile.ville }}</li>
+                                                    <li><span class="icon flaticon-diploma-1"></span> {{ candidature.candidat.profile.typeDiplome }}</li>
+                                                    <div class="separator"></div>
+                                                    <li><span class="icon la la-download"></span>
+                                                        {% if candidature.cv %}
+                                                            {% for cv in candidature.cv %}
+                                                             <a href="{{ asset('uploads/' ~ cv.nom) }}">Télécharger le CV</a>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </li>
+                                                    <li><span class="icon la la-download"></span><a href=""> Télécharger l'attestation de handicap</a></li>
+                                                    <li><span class="icon la la-phone"></span> Entretien souhaité par : {{ candidature.candidat.profile.typeEntretien }}</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="job-info">
+                                                    <li><span class="icon flaticon-home"></span> Stand: <a href="{{ path('stand_page', {'slug': candidature.stand.slug }) }}">{{ candidature.stand }}</a></li>
+                                                    <li><span class="icon la la-list"></span> Offre: {{ candidature.annonce|join }}</li>
+                                                    <div class="separator"></div>
+                                                    <li><span class="icon flaticon-user"></span> Recruteur:{{ candidature.recruteur }} | <a href="{{ path('candidature_editRecruteur', {'id': candidature.id, 'userId' : candidature.candidat }) }}" data-text="Modifier" class="call-modal"><span class="la la-pen"></span></a></li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <p><strong>Statut:</strong> </p>
+                                                <div class="buttons">
+                                                    <a href="{{ path('candidature_accepter', {'id': candidature.id }) }}" class="theme-btn btn-style-four small">Accepter</a>
+                                                    <a href="{{ path('candidature_refuser', {'id': candidature.id }) }}" class="theme-btn btn-style-eight small">Rejeter</a>
+                                                    <a class="theme-btn btn-style-two small">Ecrire au candidat</a>
+                                                </div>
+                                                <div class="pt-3"></div>
+                                                {%  if candidature.commentaire %}
+                                                    <div class="edit-box">
+                                                        <span class="year">{{ candidature.commentaire }}</span>
+                                                        {% if app.user %}
+                                                            <div class="edit-btns">
+                                                                <a href="{{ path('candidature_editCommentaire', {'id': candidature.id, 'userId' : candidature.candidat }) }}" data-text="Modifier" class="call-modal"><span class="la la-pen"></span></a>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    {% else %}
+                                                <div class="edit-btns">
+                                                    <a href="{{ path('candidature_editCommentaire', {'id': candidature.id, 'userId' : candidature.candidat }) }}" data-text="Modifier" class="theme-btn btn-style-one small text-white call-modal">Ecrire un commentaire</a>
+                                                </div>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <div class="js-filter-content">
-                            {% include 'candidature/_candidatures.html.twig' %}
-                        </div>
-                        <div class="js-filter-pagination">
-                            {% include 'candidature/_pagination.html.twig' %}
                         </div>
                     </div>
                 </div>

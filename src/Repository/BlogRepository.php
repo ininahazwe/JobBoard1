@@ -25,18 +25,6 @@ class BlogRepository extends ServiceEntityRepository
      */
     public function getInterwiewType(): mixed
     {
-       /* $ids = [];
-        $typeInterview = $this->getEntityManager()->getRepository(Dictionnaire::class)->createQueryBuilder('d');
-        $typeInterview->andWhere('d.type = :type')
-            ->setParameter('d.type', Dictionnaire::TYPE_BLOG)
-            ->getQuery()
-        ;
-
-        foreach($typeInterview as $_type){
-            $ids[] = $_type->getId();
-        }
-
-        dd($ids);*/
         return $this->createQueryBuilder('b')
                 ->join('b.type', 'd', 'WITH', 'd = b.type')
                 ->andWhere('d.value LIKE :interview')
@@ -47,32 +35,18 @@ class BlogRepository extends ServiceEntityRepository
                 ->getQuery()->getResult();
     }
 
-    // /**
-    //  * @return Blog[] Returns an array of Blog objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return mixed
+     */
+    public function getWebtvType(): mixed
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+                ->join('b.type', 'd', 'WITH', 'd = b.type')
+                ->andWhere('d.value LIKE :webtv')
+                ->setParameter('webtv', "%webtv%")
+                /* ->andWhere('b.type in (ids)')
+                 ->setParameter('ids', $ids)*/
 
-    /*
-    public function findOneBySomeField($value): ?Blog
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+                ->getQuery()->getResult();
     }
-    */
 }

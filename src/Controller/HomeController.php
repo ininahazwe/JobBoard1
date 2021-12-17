@@ -133,11 +133,19 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/conseils-recherche-emploi', name: 'conseils', methods: ['GET'])]
+    #[Route('/conseils-recherche-emploi', name: 'blog_conseils', methods: ['GET'])]
     public function conseils(BlogRepository $blogRepository): Response
     {
         return $this->render('blog/conseils.html.twig', [
                 'blogs' => $blogRepository->getInterwiewType(),
+        ]);
+    }
+
+    #[Route('/webtv', name: 'blog_webtv', methods: ['GET'])]
+    public function webtv(BlogRepository $blogRepository): Response
+    {
+        return $this->render('blog/webtv.html.twig', [
+                'blogs' => $blogRepository->getWebTvType(),
         ]);
     }
 }

@@ -1,10 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Page not found</h1>
+    <section class="page-title">
+        <div class="auto-container">
+            <div class="title-outer">
+                <h1>403</h1>
+            </div>
+        </div>
+    </section>
+    <section class="call-to-action">
+        <div class="auto-container">
+            <div class="outer-box wow fadeInUp">
+                <div class="content-column">
+                    <div class="sec-title">
+                        <h2>Page not found</h2>
+                        <div class="text">The requested page couldn't be located. Checkout for any URL
+                            misspelling or </div>
+                        <a href="{{ path('home') }}" class="theme-btn btn-style-one bg-blue"><span class="btn-title">return to the homepage</span></a>
+                    </div>
+                </div>
 
-    <p>
-        The requested page couldn't be located. Checkout for any URL
-        misspelling or <a href="{{ path('home') }}">return to the homepage</a>.
-    </p>
+                <div class="image-column" style="background-image: url('{{ asset('uploads/calltoaction.png') }}');">
+                    <figure class="image"><img src="{{ asset('uploads/calltoaction.png') }}" alt=""></figure>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

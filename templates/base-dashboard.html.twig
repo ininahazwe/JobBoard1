@@ -6,12 +6,19 @@
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
         <title>{% block title %}Talents Handicap{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+        <script src="{{ asset('js/wow.js') }}"></script>
     </head>
     <body>
     <div class="page-wrapper dashboard">
         <!-- Preloader -->
         {#<div class="preloader"></div>#}
-        {{ include('dashboard/header-dashboard.html.twig') }}
+        <!-- Header Span -->
+        <span class="header-span"></span>
+        {% if app.user.isSuperAdmin() %}
+            {{ include('dashboard/header-super-admin.html.twig') }}
+        {% else %}
+            {{ include('dashboard/header-dashboard.html.twig') }}
+        {% endif %}
         {{ include('partials/flashbag.html.twig') }}
         {% if app.user.isCandidat() %}
             {{ include('dashboard/sidebar-candidat.html.twig') }}

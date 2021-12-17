@@ -45,7 +45,7 @@
                                             </td>
                                             <td>
                                                 <div class="buttons">
-                                                    {% if annonce.candidatures %}<a href="{{ path('annonce_candidats', {'slug': annonce.slug}) }}" class="theme-btn btn-style-one small">Candidatures</a>{% endif %}
+                                                    {% if annonce.candidatures %}<a href="{{ path('annonce_candidats', {'slug': annonce.slug}) }}" class="theme-btn btn-style-one small">Candidatures ({{ annonce.candidatures|length }})</a>{% endif %}
                                                 </div>
                                             </td>
                                             <td>

@@ -2,74 +2,279 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/actions/conversation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Blank.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/Right/Right.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/constants/actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/react.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/reducers/conversation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/COPYRIGHT" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/Filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/Filter2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/actions/conversation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/anm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/appear.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/chosen.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/Left/Conversation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/Left/Left.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Blank.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/components/Right/Right.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/constants/actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/infobox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.countdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.fancybox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/jquery.modal.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/knob.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/map-script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/maps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/markerclusterer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/mmenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/mmenu.polyfills.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/multi-step-form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/owl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/popper.js.OLD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/react.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/reducers/conversation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/respond.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/select2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/js/wow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mercure/mercure.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/EditCandidatureType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/blog/webtv.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/candidature/editRecruteur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/header-super-admin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/forum/favoris.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/multi_step_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AnnonceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnonceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/template/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/Filter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/Filter2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/anm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/appear.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/chosen.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/infobox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/jquery.countdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/jquery.fancybox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/jquery.modal.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/knob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/map-script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/maps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/markerclusterer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/mmenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/mmenu.polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/multi-step-form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/owl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/popper.js.OLD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/react.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/respond.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/select2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mercure/js/wow.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/wow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/blog-list-v1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/blog-list-v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/blog-list-v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/blog-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard-applied-job.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard-cv-manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard-job-alerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard-profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard-resume.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard-shortlisted-resume.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidate-dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-list-v1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-list-v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-list-v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-list-v4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-list-v5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-single-v1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-single-v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/candidates-single-v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/chosen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/fontawesome-all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/images/ui-icons_444444_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/images/ui-icons_555555_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/jquery.fancybox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/jquery.modal.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/line-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/mmenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/owl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/select2.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-applicants.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-change-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-company-profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-manage-job.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-messages.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-packages.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-post-job.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-resume-alerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard-resumes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/elements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-list-v1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-list-v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-list-v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-list-v4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-single-v1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-single-v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/employers-single-v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/faqs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/Flaticon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/Flaticon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/Flaticon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/Flaticon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/Flaticon.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro-Medium.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro-Medium.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro-Medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/SofiaPro.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/_flaticon.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/flaticon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/la-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/fonts/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index-9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/invoice.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v14.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-list-v9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-single-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-single-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-single-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-single-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/job-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/anm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/appear.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/chosen.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/infobox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/jquery.countdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/jquery.fancybox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/jquery.modal.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/knob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/map-script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/maps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/markerclusterer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/mmenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/mmenu.polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/owl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/respond.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/select2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/js/wow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/login-popup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/order-completed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/pricing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/register-popup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/sendemail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/shop-checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/shop-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/shopping-cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/superio/terms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CvFormationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CvFormationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ForumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Forum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Forum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BlogRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BlogRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ForumRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ForumRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/favoris.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/annonce/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base-dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/candidature/_card.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/candidature/_card.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/candidature/recruteur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/candidature/recruteur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cvexperience/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvexperience/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cvformation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cvformation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/header-dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/header-dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/forums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/forums.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/anm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/appear.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/chosen.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/infobox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/jquery.countdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/jquery.fancybox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/jquery.modal.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/knob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/map-script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/maps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/markerclusterer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/mmenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/mmenu.polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/owl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/respond.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/select2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/js/wow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/HowSection.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login-popup.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login-popup.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +461,7 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/mercure-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -272,7 +478,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mercure" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/candidature" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -280,11 +486,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TalentsHandicap\mercure" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js\components" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js\components\Left" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form\Search" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\candidature" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\public\js" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\blog" />
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\forum" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\TalentsHandicap\mercure" />
@@ -352,7 +558,9 @@
       <workItem from="1637946747410" duration="3000" />
       <workItem from="1638171335201" duration="23684000" />
       <workItem from="1638257799507" duration="22904000" />
-      <workItem from="1638343699083" duration="14435000" />
+      <workItem from="1638343699083" duration="23897000" />
+      <workItem from="1638430424865" duration="19228000" />
+      <workItem from="1639726642625" duration="21944000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -669,7 +877,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638201488623</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="readme">
+      <created>1638368162833</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1638368162833</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

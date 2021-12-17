@@ -6,35 +6,46 @@
             <div class="form-inner">
                 <h3>Login to Superio</h3>
                 <!--Login Form-->
-                <form method="post" action="add-parcel.html">
+                <form method="post" action="{{ path('app_login') }}">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.nom }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
                     <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" name="username" placeholder="Username" required>
+                        <label>Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" placeholder="Email" required>
                     </div>
 
                     <div class="form-group">
-                        <label>Password</label>
-                        <input id="password-field" type="password" name="password" value="" placeholder="Password">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                     </div>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
 
                     <div class="form-group">
                         <div class="field-outer">
                             <div class="input-group checkboxes square">
-                                <input type="checkbox" name="remember-me" value="" id="remember">
-                                <label for="remember" class="remember"><span class="custom-checkbox"></span> Remember me</label>
+                                <input type="checkbox" name="_remember_me" id="remember">
+                                <label for="remember" class="remember"><span class="custom-checkbox"></span> Se souvenir de moi</label>
                             </div>
-                            <a href="#" class="pwd">Forgot password?</a>
+                            <a href="{{ path('app_forgot_password_request') }}" class="pwd">Mot de passe oublié?</a>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <button class="theme-btn btn-style-one" type="submit" name="log-in">Log In</button>
+                        <button class="theme-btn btn-style-one" type="submit" name="log-in">Se connecter</button>
                     </div>
                 </form>
 
                 <div class="bottom-box">
-                    <div class="text">Don't have an account? <a href="register-popup.html" class="call-modal signup">Signup</a></div>
-                    <div class="divider"><span>or</span></div>
+                    <div class="text">Vous n'avez pas de compte? <a href="{{ path('app_register') }}">Inscrivez-vous</a></div>
+                    <div class="divider"><span>ou</span></div>
                     <div class="btn-box row">
                         <div class="col-lg-6 col-md-12">
                             <a href="#" class="theme-btn social-btn-two facebook-btn"><i class="fab fa-facebook-f"></i> Log In via Facebook</a>

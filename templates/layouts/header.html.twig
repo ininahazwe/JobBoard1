@@ -7,7 +7,8 @@
         'stand_page',
         'forums_all',
         'forum_page',
-        'conseils'
+        'blog_conseils',
+        'blog_webtv'
     ]
 %}
 <!-- Header Span -->
@@ -30,12 +31,11 @@
                         <li class="current dropdown">
                             <span>Mes démarches</span>
                             <ul>
-
-                                <li><a href="index.html">Consulter les offres d'emploi, d'alternance ou de stages</a></li>
-                                <li><a href="index-2.html">Visiter les stands virtuels des employeurs</a></li>
-                                <li><a href="index-3.html">Participer aux conférences du forum</a></li>
-                                <li><a href="index-4.html">Consulter les interviews des employeurs</a></li>
-                                <li class="current"><a href="index-5.html">Accéder à la WebTV (vidéos des employeurs)</a></li>
+                                <li><a href="{{ path('annonces_all') }}">Consulter les offres d'emploi, d'alternance ou de stages</a></li>
+                                <li><a href="{{ path('stands_all') }}">Visiter les stands virtuels des employeurs</a></li>
+                                <li><a href="{{ path('forums_all') }}">Participer aux conférences du forum</a></li>
+                                <li><a href="{{ path('blog_conseils') }}">Consulter les interviews des employeurs</a></li>
+                                <li class="current"><a href="{{ path('blog_webtv') }}">Accéder à la WebTV (vidéos des employeurs)</a></li>
                             </ul>
                         </li>
 
@@ -90,7 +90,7 @@
                         <a href="{{ path('dashboard') }}" class="theme-btn btn-style-seven">Dashboard</a>
                         <a href="{{ path('app_logout') }}" class="theme-btn btn-style-eight">Logout</a>
                     {% else %}
-                        <a href="{{ path('app_login') }}" class="theme-btn btn-style-four">Login / Inscription</a>
+                        <a href="{{ path('app_login') }}" class="theme-btn btn-style-four call-modal">Login / Inscription</a>
                     {% endif %}
                 </div>
             </div>

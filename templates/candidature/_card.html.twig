@@ -1,29 +1,45 @@
 <div class="candidate-block-three" id="profile-{{ candidature.id }}">
-    <div class="inner-box">
-        <div class="">
-            <h4 class="name"><a href="{{ path('profile_show', {'id': candidature.candidat.profile.id}) }}">{{ candidature.candidat|capitalize }}</a></h4>
-            <ul class="candidate-info">
-                <li class="designation">{{ candidature.candidat.profile.titre|capitalize }}</li>
-                <li><span class="icon flaticon-map-locator"></span> {{ candidature.candidat.profile.ville }}</li>
-                <li><span class="icon flaticon-diploma-1"></span> {{ candidature.candidat.profile.typeDiplome }}</li>
-            </ul>
-            <ul class="post-tags">
-                <li><a href="#">{{ candidature.annonce|join|capitalize }}</a></li>
-            </ul>
-        </div>
-        <div class="option-box">
-            <!-- Dashboard Option -->
-            <div class="dropdown resume-action">
-                <button class="dropdown-toggle theme-btn btn-style-three" role="button" data-toggle="dropdown" aria-expanded="false">Action <i class="fa fa-angle-down"></i></button>
-
-                <ul class="dropdown-menu">
-                    <li><a href="{{ path('candidature_show', {'id': candidature.id}) }}"><span class="la la-eye"></span> Voir la candidature</a></li>
-                    <li><a href="#"><span class="la la-check"></span> Accepter</a></li>
-                    <li><a href="#"><span class="la la-times-circle"></span> Rejeter</a></li>
+    <div class="row inner-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Alert Query</th>
+                    <th>Number Jobs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="">
+                <h4 class="name"><a href="{{ path('profile_show', {'id': candidature.candidat.profile.id}) }}">{{ candidature.candidat|capitalize }}</a></h4>
+                <ul class="candidate-info">
+                    <li class="designation">{{ candidature.candidat.profile.titre|capitalize }}</li>
+                    <li><span class="icon flaticon-map-locator"></span> {{ candidature.candidat.profile.ville }}</li>
+                    <li><span class="icon flaticon-diploma-1"></span> {{ candidature.candidat.profile.typeDiplome }}</li>
+                </ul>
+                <ul class="post-tags">
+                    <li><a href="#">{{ candidature.annonce|join|capitalize }}</a></li>
                 </ul>
             </div>
-
-            {% include 'candidature/_delete_form.html.twig' %}
-        </div>
+                    </td>
+                    <td>
+                        <div class="buttons col-lg-4 col-md-4 col-sm-12">
+                            <a href="{{ path('candidature_accepter', {'id': candidature.id }) }}" class="theme-btn btn-style-four small">Accepter</a>
+                            <a href="{{ path('candidature_refuser', {'id': candidature.id }) }}" class="theme-btn btn-style-eight small">Rejeter</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="option-box col-lg-2 col-md-2 col-sm-12">
+                            <ul class="option-list">
+                                <li><a href="{{ path('candidature_show', {'id': candidature.id}) }}" data-text="Voir"><span class="la la-eye"></span></a></li>
+                                <li>{{ include('candidature/_delete_form.html.twig') }}</li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
+

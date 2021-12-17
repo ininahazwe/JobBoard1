@@ -182,7 +182,7 @@
 
                                     <div class="btn-box">
                                         {% if is_granted('ROLE_RECRUTEUR') %}
-                                            <a href="{{ asset('/uploads/' ~ profile.cv.last().nom()) }}" class="theme-btn btn-style-one">Télécharger le CV</a>
+                                            <a href="{{ asset('/uploads/' ~ profile.cv.last()) }}" class="theme-btn btn-style-one">Télécharger le CV</a>
                                         {% else %}
                                             <a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}" class="theme-btn btn-style-one">Gérer mes CV</a>
                                         {% endif %}

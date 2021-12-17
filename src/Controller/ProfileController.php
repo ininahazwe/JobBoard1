@@ -56,7 +56,7 @@ class ProfileController extends AbstractController {
 
             $this->addFlash('success', 'Ajout réussi');
 
-            return $this->redirectToRoute('profile_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('profile_show', ['id'=> 'profile.id'], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('profile/new.html.twig', [

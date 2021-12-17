@@ -28,7 +28,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                target: app_login
+                target: home
 
 #            guard:
 #                entry_point: App\Security\AppCustomAuthenticator

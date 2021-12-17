@@ -56,7 +56,7 @@ class CvFormationController extends AbstractController
     }
 
     #[Route('/{id}/{profileId}/edit', name: 'cvformation_edit', methods: ['GET','POST'])]
-    public function edit(Request $request, CvFormation $cvFormation , $profileId): Response
+    public function edit(Request $request, CvFormation $cvFormation, $profileId): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $profile = $entityManager->getRepository(Profile::class)->find($profileId);

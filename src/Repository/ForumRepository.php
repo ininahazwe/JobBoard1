@@ -33,32 +33,18 @@ class ForumRepository extends ServiceEntityRepository
 
         return $query->execute();
     }
-    // /**
-    //  * @return Forum[] Returns an array of Forum objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    /**
+     * @param $user
+     * @return mixed
+     */
+    public function findForumsEnFavori($user): mixed {
 
-    /*
-    public function findOneBySomeField($value): ?Forum
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        $query = $this->createQueryBuilder('f')
+                ->innerJoin('f.favoris_forum', 'u', 'WITH', 'u.id = :user')
+                ->setParameter('user', $user)
         ;
+
+        return $query
+                ->getQuery()->getResult();
     }
-    */
 }

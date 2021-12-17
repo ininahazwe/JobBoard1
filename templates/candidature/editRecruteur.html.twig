@@ -1,0 +1,12 @@
+<div class="model">
+    <div id="login-modal">
+        <div class="login-form default-form">
+            <div class="form-inner">
+                {{ form_start(form, { 'attr': {'class': 'default-form', 'action' :  path('candidature_editRecruteur', {'id': candidature.id, 'userId' : candidature.candidat.id }) } }) }}
+                {{ form_row(form.recruteur) }}
+                <button class="btn theme-btn btn-style-one small" >{{ button_label|default('Enregistrer') }}</button>
+                {{ form_end(form, {'render_rest': false}) }}
+            </div>
+        </div>
+    </div>
+</div>

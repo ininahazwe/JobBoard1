@@ -83,7 +83,12 @@ class Forum
     /**
      * @ORM\OneToMany(targetEntity=Animation::class, mappedBy="forum")
      */
-    private $animations;
+    private Collection $animations;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="forums_favoris")
+     */
+    private Collection $favoris_forum;
 
     public function __construct()
     {
@@ -93,6 +98,7 @@ class Forum
         $this->logo = new ArrayCollection();
         $this->annonces = new ArrayCollection();
         $this->animations = new ArrayCollection();
+        $this->favoris_forum = new ArrayCollection();
     }
 
     public function getNom(): ?string
@@ -298,7 +304,7 @@ class Forum
     }
 
     /**
-     * @return Collection|Animation[]
+     * @return Collection
      */
     public function getAnimations(): Collection
     {
@@ -323,6 +329,30 @@ class Forum
                 $animation->setForum(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getFavorisForum(): Collection
+    {
+        return $this->favoris_forum;
+    }
+
+    public function addFavorisForum(User $favorisForum): self
+    {
+        if (!$this->favoris_forum->contains($favorisForum)) {
+            $this->favoris_forum[] = $favorisForum;
+        }
+
+        return $this;
+    }
+
+    public function removeFavorisForum(User $favorisForum): self
+    {
+        $this->favoris_forum->removeElement($favorisForum);
 
         return $this;
     }

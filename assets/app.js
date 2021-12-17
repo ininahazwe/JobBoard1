@@ -14,9 +14,34 @@ import { Tooltip, Toast, Popover } from 'bootstrap';
 // start the Stimulus application
 import './bootstrap';
 
-import './js/react';
+// Template Js
+import './js/anm.min'
+import './js/appear'
+import './js/chart.min'
+import './js/chosen.min'
+import './js/Filter'
+//import './js/infobox.min'
+import './js/jquery'
+import './js/jquery.countdown'
+import './js/jquery.fancybox'
+import './js/jquery.modal.min'
+import './js/jquery-ui.min'
+import './js/knob'
+//import './js/map-script'
+//import './js/maps'
+import './js/markerclusterer'
+import './js/mmenu'
+import './js/mmenu.polyfills'
+import './js/multi-step-form'
+import './js/owl'
+import './js/popper.min'
+//import './js/respond'
+import './js/select2.min'
+import './js/validate'
+import './js/wow'
+import './js/script'
 
-import './js/theme';
+//import './js/react';
 
 import 'datatables.net';
 import 'datatables.net-bs4';

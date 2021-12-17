@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block body %}
+    <!--Page Title-->
+    <section class="page-title">
+        <div class="auto-container">
+            <div class="title-outer">
+                <h1>Interviews</h1>
+                <ul class="page-breadcrumb">
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li>Interviews</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row">
+                <!--Content Side-->
+                <div class="content-side col-lg-12 col-md-12 col-sm-12">
+                    <div class="blog-grid">
+                        <div class="row">
+                            {% for blog in blogs %}
+                            <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image">
+                                            {% if blog.images %}
+                                                {% for image in blog.images %}
+                                                    {% if loop.first %}
+                                                        <img src="{{ asset('uploads/' ~ image.nom) }}" alt="{{ image.nom }}">
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </figure>
+                                    </div>
+                                    <div class="lower-content">
+                                        <ul class="post-meta">
+                                            <li><a href="#">{{ blog.createdAt|date('d-m-Y') }}</a></li>
+                                        </ul>
+                                        <h3><a href="{{ path('blog_show', {'slug': blog.slug }) }}">{{ blog.titre }}</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="ls-pagination">
+                            <ul>
+                                <li class="prev"><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#" class="current-page">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li class="next"><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar Container -->
+{% endblock %}

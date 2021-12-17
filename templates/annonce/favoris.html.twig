@@ -12,8 +12,6 @@
                     <div class="content-column col-lg-12 col-md-12 col-sm-12">
                     <div class="ls-outer">
                         <button type="button" class="theme-btn btn-style-two toggle-filters">Show Filters</button>
-
-                        {% if annonces|length > 1 %}
                         <!-- ls Switcher -->
                         <div class="ls-switcher">
                             <div class="showing-result">
@@ -39,7 +37,6 @@
                                 </select>
                             </div>
                         </div>
-                        {% endif %}
 
                         <div class="row">
                             {% for annonce in annonces %}
@@ -82,24 +79,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            {% else %}
-                                <section class="call-to-action">
-                                    <div class="auto-container">
-                                        <div class="outer-box wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                                            <div class="content-column">
-                                                <div class="sec-title">
-                                                    <h2>Aucune annonce mise en favoris !</h2>
-                                                    <div class="text">Cliquez sur le coeur en haut d'une annonce pour la sauvegarder et la retrouver ici </div>
-                                                    <a href="{{ path('annonces_all') }}" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Voir toutes les offres</span></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="image-column" style="background-image: url('{{ asset('uploads/calltoaction.png') }}');">
-                                                <figure class="image"><img src="{{ asset('uploads/calltoaction.png') }}" alt=""></figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
                             {% endfor %}
                         </div>
                     </div>

@@ -21,7 +21,7 @@ import './chart.min';
 /*import './map-script';*/
 import './markerclusterer';
 /*import './respond';*/
-import './select2.min';
+//import './select2.min';
 import './validate';
 
 import './multi-step-form'

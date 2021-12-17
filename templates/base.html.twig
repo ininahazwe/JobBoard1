@@ -7,11 +7,12 @@
         <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
         <title>{% block title %}Talents Handicap{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+        <script src="{{ asset('js/wow.js') }}"></script>
     </head>
     <body data-anm=".anm">
     <div class="page-wrapper">
-        {#<!-- Preloader -->
-        <div class="preloader"></div>#}
+        <!-- Preloader -->
+        {#<div class="preloader"></div>#}
 
         {{ include('layouts/header.html.twig') }}
         {{ include('partials/flashbag.html.twig') }}

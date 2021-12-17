@@ -11,51 +11,17 @@
 
                 <nav class="nav main-menu">
                     <ul class="navigation" id="navbar">
-                        <li class="current dropdown">
-                            <span>Mes démarches</span>
-                            <ul>
-                                <li><a href="{{ path('annonces_all') }}">Consulter les offres d'emploi, d'alternance ou de stages</a></li>
-                                <li><a href="{{ path('stands_all') }}">Visiter les stands virtuels des employeurs</a></li>
-                                <li><a href="{{ path('forums_all') }}">Participer aux conférences du forum</a></li>
-                                <li><a href="{{ path('blog_conseils') }}">Consulter les interviews des employeurs</a></li>
-                                <li class="current"><a href="{{ path('blog_webtv') }}">Accéder à la WebTV (vidéos des employeurs)</a></li>
-                            </ul>
-                        </li>
-
                         <li class="dropdown">
-                            <span>Aide/accompagnement</span>
-                            <ul>
-                                <li><a href="job-list-v1.html">Consulter les conseils pour réussir mes démarches</a></li>
-                                <li><a href="job-list-v2.html">M’informer sur le fonctionnement du forum Talents Handicap</a></li>
-                                <li><a href="job-list-v3.html">Télécharger le guide du candidat</a></li>
-                                <li><a href="job-list-v4.html">Projet pro’h : l’outil pour bâtir mon projet professionnel</a></li>
-                                <li><a href="job-list-v5.html">Foire aux questions</a></li>
-                                <li><a href="job-list-v5.html">Contacter l’équipe Talents Handicap</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <span>Espace employeurs</span>
-                            <ul>
-                                <li><a href="employers-list-v1.html">Pourquoi exposer ?</a></li>
-                                <li><a href="employers-list-v2.html">Nous demander un devis</a></li>
-                                <li><a href="employers-list-v3.html">Programme des conférences</a></li>
-                            </ul>
+                            <a href="{{ path('forum_index') }}">Gérer les forums</a>
                         </li>
                         <li class="dropdown">
-                            <span>Divers</span>
-                            <ul>
-                                <li><a href="candidates-list-v1.html">Agenda des forums</a></li>
-                                <li><a href="candidates-list-v2.html">Actualités</a></li>
-                                <li><a href="candidates-list-v3.html">WebTV</a></li>
-                            </ul>
+                            <a href="{{ path('stand_index') }}">Gérer les stands</a>
                         </li>
                         <li class="dropdown">
-                            <span>L'équipe Talents Handicap</span>
-                            <ul>
-                                <li><a href="blog-list-v1.html">Qui sommes-nous ?</a></li>
-                                <li><a href="blog-list-v2.html">Nous contacter</a></li>
-                            </ul>
+                            <a href="{{ path('annonce_index') }}">Gérer les offres d'emploi</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="{{ path('candidaturesRecruteur') }}">Gérer les rendez-vous</a>
                         </li>
                     </ul>
                 </nav>

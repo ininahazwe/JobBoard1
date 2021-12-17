@@ -177,7 +177,7 @@ class Profile
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $titre;
+    private ?string $titre;
 
     public function __construct() {
         $this->isVisible = false;

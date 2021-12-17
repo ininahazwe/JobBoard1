@@ -11,9 +11,9 @@
             </li>
             <li><a href="{{ path('candidaturesCandidat') }}"><i class="la la-box"></i>Mes candidatures</a></li>
             <li><a href="candidate-dashboard-resume.html"><i class="la la-file-invoice"></i>Mes rendez-vous</a></li>
-            <li><a href="{{ path('annonce_favoris') }}"><i class="la la-heart"></i>Mes offres d'emploi</a></li>
-            <li><a href="{{ path('stand_favoris') }}"><i class="la la-bookmark-o"></i>Mes stands favoris</a></li>
-            <li><a href="candidate-dashboard-job-alerts.html"><i class="la la-bell"></i>Mes forums</a></li>
+            <li><a href="{{ path('annonce_favoris') }}"><i class="la la-heart-o"></i>Mes offres d'emploi</a></li>
+            <li><a href="{{ path('stand_favoris') }}"><i class="la la-heart-o"></i>Mes stands favoris</a></li>
+            <li><a href="{{ path('forum_favoris') }}"><i class="la la-heart-o"></i>Mes forums</a></li>
             {% if app.user.profile %}<li><a href="{{ path('profile_my_cv', {'id': app.user.profile.id}) }}"><i class="la la-file-invoice"></i>Mes CV</a></li>{% endif %}
             {#<li><a href="dashboard-packages.html"><i class="la la-box"></i>Packages</a></li>
             <li><a href="candidate-dashboard-shortlisted-resume.html"><i class="la la-bookmark-o"></i>Shortlisted Jobs</a></li>

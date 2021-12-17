@@ -118,6 +118,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private Collection $participants;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Forum::class, mappedBy="favoris_forum")
+     */
+    private $forums_favoris;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Candidature::class, mappedBy="recruteur", cascade={"persist", "remove"})
+     */
+    private $recruteur_assigne;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -131,6 +141,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->annonce_recruteur = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->participants = new ArrayCollection();
+        $this->forums_favoris = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -670,6 +681,55 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $participant->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getForumsFavoris(): Collection
+    {
+        return $this->forums_favoris;
+    }
+
+    public function addForumsFavori(Forum $forumsFavori): self
+    {
+        if (!$this->forums_favoris->contains($forumsFavori)) {
+            $this->forums_favoris[] = $forumsFavori;
+            $forumsFavori->addFavorisForum($this);
+        }
+
+        return $this;
+    }
+
+    public function removeForumsFavori(Forum $forumsFavori): self
+    {
+        if ($this->forums_favoris->removeElement($forumsFavori)) {
+            $forumsFavori->removeFavorisForum($this);
+        }
+
+        return $this;
+    }
+
+    public function getRecruteurAssigne(): ?Candidature
+    {
+        return $this->recruteur_assigne;
+    }
+
+    public function setRecruteurAssigne(?Candidature $recruteur_assigne): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($recruteur_assigne === null && $this->recruteur_assigne !== null) {
+            $this->recruteur_assigne->setRecruteur(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($recruteur_assigne !== null && $recruteur_assigne->getRecruteur() !== $this) {
+            $recruteur_assigne->setRecruteur($this);
+        }
+
+        $this->recruteur_assigne = $recruteur_assigne;
 
         return $this;
     }
