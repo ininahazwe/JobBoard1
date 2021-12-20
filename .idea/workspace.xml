@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/src/Entity/Newsletter/Newsletter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Newsletter/Users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterUsersType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Newsletter/NewsletterRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/Newsletter/UsersRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/email/inscription_newsletter.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/email/newsletter.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/newsletter/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/newsletter/prepare.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/newsletter/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/newsletter/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/newsletter/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/template/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/template/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dictionnaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterUsersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterUsersType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/email/newsletter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/newsletter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/newsletter/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/newsletter/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/newsletter/prepare.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/newsletter/prepare.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +217,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/candidature" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/newsletter" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -229,11 +225,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\newsletter" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\candidature" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\public\js" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\blog" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\templates\forum" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Repository\Newsletter" />
@@ -304,7 +300,7 @@
       <workItem from="1638343699083" duration="23897000" />
       <workItem from="1638430424865" duration="19228000" />
       <workItem from="1639726642625" duration="22817000" />
-      <workItem from="1639985736037" duration="15215000" />
+      <workItem from="1639985736037" duration="19238000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -635,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639759331449</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="readme">
+      <created>1640010572138</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1640010572138</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

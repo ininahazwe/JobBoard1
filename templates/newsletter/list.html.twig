@@ -3,34 +3,63 @@
 {% block title %}Liste des Newsletters{% endblock %}
 
 {% block body %}
-    <h1>Liste des newsletters</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Date</th>
-            <th>Catégorie</th>
-            <th>Inscrits</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for newsletter in newsletters %}
-            <tr>
-                <td>{{newsletter.name}}</td>
-                <td>{{newsletter.createdAt|date}}</td>
-                <td>{{newsletter.categorie.value}}</td>
-                <td>{{newsletter.categorie.usersNewsletter|length}}</td>
-                <td>
-                    {% if newsletter.isSent == false %}
-                        <a href="{{ path('newsletter_send', {id: newsletter.id}) }}">Envoyer</a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Newsletters</h4>
+                                <a class="theme-btn btn-style-three small" href="{{ path('newsletter_prepare') }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter</a>
+                            </div>
 
-        </tbody>
-    </table>
+                            <div class="widget-content">
+                                <div class="table-outer">
+                                    <table class="default-table" id="datatable">
+                                        <thead>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th>Date</th>
+                                            <th>Catégorie</th>
+                                            <th>Inscrits</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for newsletter in newsletters %}
+                                            <tr>
+                                                <td>{{ newsletter.name }}</td>
+                                                <td>{{ newsletter.createdAt|date }}</td>
+                                                <td>{{ newsletter.categorie.value }}</td>
+                                                <td>{{ newsletter.categorie.usersNewsletter|length }}</td>
+                                                <td>
+                                                    <div class="option-box">
+                                                        <ul class="option-list">
+                                                            <li><a href="" data-text="Voir"><span class="la la-eye"></span></a></li>
+                                                            <li><a href="{{ path('newsletter_edit', {'id': newsletter.id}) }}" data-text="Modifier"><span class="la la-pen"></span></a></li>
+                                                            <li>{{ include('newsletter/_delete_form.html.twig') }}</li>
+                                                            {% if newsletter.isSent == false %}
+                                                            <li><a href="{{ path('newsletter_send', {id: newsletter.id}) }}" data-text="Envoyer">Envoyer</a></li>
+                                                            {% endif %}
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
 {% endblock %}

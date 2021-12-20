@@ -180,7 +180,7 @@ class HomeController extends AbstractController
 
             $mailer->send($email);
 
-            $this->addFlash('message', 'Inscription en attente de validation');
+            $this->addFlash('success', 'Inscription en attente de validation');
             return $this->redirectToRoute('home');
         }
 

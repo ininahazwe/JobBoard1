@@ -1,0 +1,32 @@
+{% extends 'base-dashboard.html.twig' %}
+
+{% block title %}Edit Newsletter{% endblock %}
+
+{% block body %}
+    <section class="user-dashboard">
+        <div class="dashboard-outer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title d-flex flex-row">
+                                <h4>Newsletter| {{ newsletter.name }}</h4>
+                                <div class="option-box">
+                                    <ul class="option-list">
+                                        <li><a href="{{ path('newsletter_list') }}" data-text="Revenir en arrière"><span class="la la-fast-backward"></span></a></li>
+                                        <li>{{ include('newsletter/_delete_form.html.twig') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="widget-content">
+                                {{ include('newsletter/_form.html.twig', {'button_label': 'Update'}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

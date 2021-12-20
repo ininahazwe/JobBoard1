@@ -22,7 +22,7 @@ class NewsletterUsersType extends AbstractType
                 ->add('email', EmailType::class)
                 ->add('categorie', EntityType::class, [
                         'class' => Dictionnaire::class,
-                        'label' => 'Categorie',
+                        'label' => 'Catégorie',
                         'multiple' => true,
                         'choice_label' => 'value',
                         'query_builder' => function (EntityRepository $er) {
@@ -44,7 +44,11 @@ class NewsletterUsersType extends AbstractType
                         ],
                         'label' => 'J\'accepte la collecte de mes données personnelles'
                 ])
-                ->add('envoyer', SubmitType::class)
+                ->add('envoyer', SubmitType::class, [
+                        'attr' => [
+                                'class' => 'theme-btn btn-style-one small'
+                        ]
+                ])
         ;
     }
 

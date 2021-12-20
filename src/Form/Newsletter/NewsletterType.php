@@ -41,7 +41,11 @@ class NewsletterType extends AbstractType
                         ],
                         'required' => true,
                 ])
-                ->add('Enregistrer', SubmitType::class)
+                ->add('Enregistrer', SubmitType::class, [
+                        'attr' => [
+                                'class' => 'theme-btn btn-style-one small mt-3'
+                        ]
+                ])
         ;
     }
 
