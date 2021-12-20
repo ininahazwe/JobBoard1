@@ -53,27 +53,27 @@
             <!--Tab-->
             <div class="tab" id="tab2">
                 <div class="row">
-                    <div class="widget-title d-flex flex-row">
+                    {#<div class="widget-title d-flex flex-row">
                         <a class="theme-btn btn-style-three small call-modal" href="{{ path('cvformation_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une formation</a>
-                    </div>
+                    </div>#}
                     {{ form_row(form.cvformations) }}
                 </div>
             </div>
             <!--Tab-->
             <div class="tab" id="tab3">
                 <div class="row">
-                    <div class="widget-title d-flex flex-row">
+                    {#<div class="widget-title d-flex flex-row">
                         <a class="theme-btn btn-style-three small call-modal" href="{{ path('cvexperience_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une expérience professionnelle</a>
-                    </div>
+                    </div>#}
                     {{ form_row(form.cvexperiences) }}
                 </div>
             </div>
             <!--Tab-->
             <div class="tab" id="tab4">
                 <div class="row">
-                    <div class="widget-title d-flex flex-row">
+                    {#<div class="widget-title d-flex flex-row">
                         <a class="theme-btn btn-style-three small call-modal" href="{{ path('tag_new', {'profileId' : profile.id }) }}"><i class="fas fa-plus-circle mr-2"></i>Ajouter une compétence</a>
-                    </div>
+                    </div>#}
                     {{ form_row(form.tags) }}
                 </div>
             </div>

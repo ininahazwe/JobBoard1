@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Data\SearchDataAnnonce;
+use App\Entity\Newsletter\Users;
+use App\Form\Newsletter\NewsletterUsersType;
 use App\Form\Search\SearchAnnonceForm;
 use App\Repository\AnimationRepository;
 use App\Repository\CandidatureRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Annonce;
@@ -19,6 +22,7 @@ use App\Repository\StandRepository;
 use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -146,6 +150,42 @@ class HomeController extends AbstractController
     {
         return $this->render('blog/webtv.html.twig', [
                 'blogs' => $blogRepository->getWebTvType(),
+        ]);
+    }
+
+    #[Route('/newsletter-inscription', name: 'newsletter')]
+    public function newsletter(Request $request, MailerInterface $mailer): Response
+    {
+        $user = new Users();
+        $form = $this->createForm(NewsletterUsersType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $token = hash('sha256', uniqid());
+
+            $user->setValidationToken($token);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            $email = (new TemplatedEmail())
+                    ->from('newsletter@talents-handicap.com')
+                    ->to($user->getEmail())
+                    ->subject('Votre inscription à la newsletter')
+                    ->htmlTemplate('email/inscription_newsletter.html.twig')
+                    ->context(compact('user', 'token'))
+            ;
+
+            $mailer->send($email);
+
+            $this->addFlash('message', 'Inscription en attente de validation');
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('newsletter/index.html.twig', [
+                'form' => $form->createView(),
         ]);
     }
 }

@@ -121,12 +121,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\ManyToMany(targetEntity=Forum::class, mappedBy="favoris_forum")
      */
-    private $forums_favoris;
+    private Collection $forums_favoris;
 
     /**
      * @ORM\OneToOne(targetEntity=Candidature::class, mappedBy="recruteur", cascade={"persist", "remove"})
      */
-    private $recruteur_assigne;
+    private ?Candidature $recruteur_assigne;
 
     public function __construct()
     {

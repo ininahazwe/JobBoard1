@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Newsletter\Newsletter;
+use App\Entity\Newsletter\Users;
 use App\Repository\DictionnaireRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -46,6 +48,7 @@ class Dictionnaire {
     const TYPE_QUESTION = 'type_question';
     const TYPE_ANNUAIRE = 'type_annuaire';
     const TYPE_DUREE_ECHANGE_SPEEDMEETING = 'duree_echange_speedmeeting';
+    const TYPE_CATEGORIE_NEWSLETTER = 'categorie_newsletter';
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -200,7 +203,17 @@ class Dictionnaire {
     /**
      * @ORM\OneToMany(targetEntity=Speedmeeting::class, mappedBy="duree_echange")
      */
-    private Collection $speedmeeting_dure_echange;
+    private Collection $speedmeeting_duree_echange;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Users::class, mappedBy="categorie")
+     */
+    private Collection $users_newsletter;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Newsletter::class, mappedBy="categorie", orphanRemoval=true)
+     */
+    private Collection $newsletter_categorie;
 
     public function __construct() {
         $this->setCreatedAt(new \DateTimeImmutable('now'));
@@ -232,7 +245,9 @@ class Dictionnaire {
         $this->speedmeeting_contrat = new ArrayCollection();
         $this->speedmeeting_zone = new ArrayCollection();
         $this->speedmeeting_secteur = new ArrayCollection();
-        $this->speedmeeting_dure_echange = new ArrayCollection();
+        $this->speedmeeting_duree_echange = new ArrayCollection();
+        $this->users_newsletter = new ArrayCollection();
+        $this->newsletter_categorie = new ArrayCollection();
     }
 
     public static function getTypeList(): array {
@@ -268,6 +283,7 @@ class Dictionnaire {
                 'Type de question' => Dictionnaire::TYPE_QUESTION,
                 'Type d\'annuaire' => Dictionnaire::TYPE_ANNUAIRE,
                 'Durée Echange Speedmeeting' => Dictionnaire::TYPE_DUREE_ECHANGE_SPEEDMEETING,
+                'Categorie Newsletter' => Dictionnaire::TYPE_CATEGORIE_NEWSLETTER,
         );
     }
 
@@ -1090,27 +1106,81 @@ class Dictionnaire {
     /**
      * @return Collection
      */
-    public function getSpeedmeetingDureEchange(): Collection
+    public function getSpeedmeetingDureeEchange(): Collection
     {
-        return $this->speedmeeting_dure_echange;
+        return $this->speedmeeting_duree_echange;
     }
 
-    public function addSpeedmeetingDureEchange(Speedmeeting $speedmeetingDureEchange): self
+    public function addSpeedmeetingDureeEchange(Speedmeeting $speedmeeting_duree_echange): self
     {
-        if (!$this->speedmeeting_dure_echange->contains($speedmeetingDureEchange)) {
-            $this->speedmeeting_dure_echange[] = $speedmeetingDureEchange;
-            $speedmeetingDureEchange->setDureeEchange($this);
+        if (!$this->speedmeeting_duree_echange->contains($speedmeeting_duree_echange)) {
+            $this->speedmeeting_duree_echange[] = $speedmeeting_duree_echange;
+            $speedmeeting_duree_echange->setDureeEchange($this);
         }
 
         return $this;
     }
 
-    public function removeSpeedmeetingDureEchange(Speedmeeting $speedmeetingDureEchange): self
+    public function removeSpeedmeetingDureeEchange(Speedmeeting $speedmeeting_duree_echange): self
     {
-        if ($this->speedmeeting_dure_echange->removeElement($speedmeetingDureEchange)) {
+        if ($this->speedmeeting_duree_echange->removeElement($speedmeeting_duree_echange)) {
             // set the owning side to null (unless already changed)
-            if ($speedmeetingDureEchange->getDureeEchange() === $this) {
-                $speedmeetingDureEchange->setDureeEchange(null);
+            if ($speedmeeting_duree_echange->getDureeEchange() === $this) {
+                $speedmeeting_duree_echange->setDureeEchange(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getUsersNewsletter(): Collection
+    {
+        return $this->users_newsletter;
+    }
+
+    public function addUsersNewsletter(Users $usersNewsletter): self
+    {
+        if (!$this->users_newsletter->contains($usersNewsletter)) {
+            $this->users_newsletter[] = $usersNewsletter;
+        }
+
+        return $this;
+    }
+
+    public function removeUsersNewsletter(Users $usersNewsletter): self
+    {
+        $this->users_newsletter->removeElement($usersNewsletter);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getNewsletterCategorie(): Collection
+    {
+        return $this->newsletter_categorie;
+    }
+
+    public function addNewsletterCategorie(Newsletter $newsletterCategorie): self
+    {
+        if (!$this->newsletter_categorie->contains($newsletterCategorie)) {
+            $this->newsletter_categorie[] = $newsletterCategorie;
+            $newsletterCategorie->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNewsletterCategorie(Newsletter $newsletterCategorie): self
+    {
+        if ($this->newsletter_categorie->removeElement($newsletterCategorie)) {
+            // set the owning side to null (unless already changed)
+            if ($newsletterCategorie->getCategorie() === $this) {
+                $newsletterCategorie->setCategorie(null);
             }
         }
 
