@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
-      <change afterPath="$PROJECT_DIR$/templates/newsletter/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/newsletter/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/newsletter/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterUsersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Newsletter/NewsletterUsersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/sidebar-admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/email/newsletter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/email/newsletter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/newsletter/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/newsletter/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/newsletter/prepare.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/newsletter/prepare.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layouts/newsletter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/newsletter.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,8 +171,6 @@
       <path value="$PROJECT_DIR$/vendor/beberlei/assert" />
       <path value="$PROJECT_DIR$/vendor/spomky-labs/otphp" />
       <path value="$PROJECT_DIR$/vendor/thecodingmachine/safe" />
-      <path value="$PROJECT_DIR$/vendor/scheb/2fa-bundle" />
-      <path value="$PROJECT_DIR$/vendor/scheb/2fa-google-authenticator" />
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
@@ -300,7 +292,8 @@
       <workItem from="1638343699083" duration="23897000" />
       <workItem from="1638430424865" duration="19228000" />
       <workItem from="1639726642625" duration="22817000" />
-      <workItem from="1639985736037" duration="19238000" />
+      <workItem from="1639985736037" duration="20182000" />
+      <workItem from="1640072155855" duration="2584000" />
     </task>
     <task id="LOCAL-00001" summary="ttt">
       <created>1633680153541</created>
@@ -638,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640010572138</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="readme">
+      <created>1640014644674</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1640014644674</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
