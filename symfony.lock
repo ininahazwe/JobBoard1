@@ -11,9 +11,6 @@
             "./config/packages/stof_doctrine_extensions.yaml"
         ]
     },
-    "beberlei/assert": {
-        "version": "v3.3.1"
-    },
     "behat/transliterator": {
         "version": "v1.3.0"
     },
@@ -172,9 +169,6 @@
     "nikic/php-parser": {
         "version": "v4.13.0"
     },
-    "paragonie/constant_time_encoding": {
-        "version": "v2.4.0"
-    },
     "paragonie/random_compat": {
         "version": "v9.99.100"
     },
@@ -330,9 +324,6 @@
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
         ]
-    },
-    "spomky-labs/otphp": {
-        "version": "v10.0.1"
     },
     "symfony/apache-pack": {
         "version": "1.0",
@@ -689,6 +680,9 @@
             "./templates/base.html.twig"
         ]
     },
+    "symfony/ux-chartjs": {
+        "version": "v2.0.1"
+    },
     "symfony/ux-dropzone": {
         "version": "v1.3.0"
     },
@@ -729,12 +723,12 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.9",
+        "version": "1.12",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "1.9",
-            "ref": "0f274572ea315eb3b5884518a50ca43f211b4534"
+            "ref": "10e67e9dc87263a25007130ee59975a36ea624fe"
         },
         "files": [
             "./assets/app.js",
@@ -767,9 +761,6 @@
     },
     "symfonycasts/verify-email-bundle": {
         "version": "v1.5.0"
-    },
-    "thecodingmachine/safe": {
-        "version": "v1.3.3"
     },
     "theseer/tokenizer": {
         "version": "1.2.1"

@@ -2,12 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e5f5ceb-6b6a-4242-b091-227f79a51863" name="Changes" comment="readme">
+      <change afterPath="$PROJECT_DIR$/templates/dashboard/stats.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TalentsHandicap.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/actions/conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/actions/conversation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Left.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Blank.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Blank.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Right.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Right.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/constants/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/constants/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/react.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/reducers/conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reducers/conversation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layouts/newsletter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layouts/newsletter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/webpack_encore.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/webpack_encore.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,10 +192,6 @@
       <path value="$PROJECT_DIR$/vendor/antishov/doctrine-extensions-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
-      <path value="$PROJECT_DIR$/vendor/beberlei/assert" />
-      <path value="$PROJECT_DIR$/vendor/spomky-labs/otphp" />
-      <path value="$PROJECT_DIR$/vendor/thecodingmachine/safe" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
       <path value="$PROJECT_DIR$/vendor/knpuniversity/oauth2-client-bundle" />
@@ -193,6 +213,7 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/mercure-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-chartjs" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -209,26 +230,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/newsletter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vfel2" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\public\js" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\newsletter" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\candidature" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Form" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\public\js" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\templates\blog" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TalentsHandicap\assets\styles" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\src\Repository\Newsletter" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\mercure" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js" />
       <recent name="C:\xampp\htdocs\TalentsHandicap\assets\js\components" />
-      <recent name="C:\xampp\htdocs\TalentsHandicap\bin" />
     </key>
   </component>
   <component name="RunManager">
@@ -293,14 +314,9 @@
       <workItem from="1638430424865" duration="19228000" />
       <workItem from="1639726642625" duration="22817000" />
       <workItem from="1639985736037" duration="20182000" />
-      <workItem from="1640072155855" duration="2584000" />
-    </task>
-    <task id="LOCAL-00001" summary="ttt">
-      <created>1633680153541</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1633680153541</updated>
+      <workItem from="1640072155855" duration="7303000" />
+      <workItem from="1640091472954" duration="9116000" />
+      <workItem from="1640158595208" duration="5122000" />
     </task>
     <task id="LOCAL-00002" summary="readme">
       <created>1633680801756</created>
@@ -638,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640014644674</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="readme">
+      <created>1640076000177</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1640076000178</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

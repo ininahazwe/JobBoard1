@@ -11,12 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GoogleController extends AbstractController
 {
+
     /**
-     * Link to this controller to start the "connect" process
      * @param ClientRegistry $clientRegistry
-     * @Route("/connect/google", name="connect_google")
      * @return RedirectResponse
      */
+    #[Route('/connect/google', name: 'connect_google')]
     public function connectAction(ClientRegistry $clientRegistry): RedirectResponse
     {
         return $clientRegistry
@@ -25,19 +25,14 @@ class GoogleController extends AbstractController
     }
 
     /**
-     * After going to Google, you're redirected back here
-     * because this is the "redirect_route" you configured
-     * in config/packages/knpu_oauth2_client.yaml
-     *
      * @param Request $request
-     *
-     * @Route("/connect/google/check", name="connect_google_check")
-     * @return JsonResponse|RedirectResponse
+     * @return RedirectResponse|JsonResponse
      */
+    #[Route('/connect/google/check', name: 'connect_google_check')]
     public function connectCheckAction(Request $request): RedirectResponse|JsonResponse
     {
         if(!$this->getUser()){
-            return new JsonResponse(array('status' => false, 'message' => "User not found!"));
+            return new JsonResponse(array('status' => false, 'message' => "Utilisateur non trouvé"));
         } else {
             return $this->redirectToRoute('app_profile');
         }

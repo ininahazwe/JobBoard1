@@ -102,7 +102,7 @@
                             <i class="icon la la-file-invoice"></i>
                         </div>
                         <div class="right">
-                            <h4>9382</h4>
+                            <h4>{{ candidatures|length }}</h4>
                             <p>Candidatures</p>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                         <div class="widget-title"><h4>Offres susceptibles de vous intéresser</h4></div>
                         <div class="widget-content">
                             <div class="row">
-                                {% for annonce in annonces %}
+                                {% for annonce in annonces|slice(0, 4) %}
                                 <div class="job-block col-lg-6 col-md-12 col-sm-12">
                                     <div class="inner-box">
                                         <div class="content">
@@ -186,7 +186,7 @@
                         <div class="tabs-box">
                             <div class="widget-title">
                                 <h4>Your Profile Views</h4>
-                                {#<div class="chosen-outer">
+                                <div class="chosen-outer">
                                     <!--Tabs Box-->
                                     <select class="chosen-select">
                                         <option>Last 6 Months</option>
@@ -195,11 +195,11 @@
                                         <option>Last 24 Months</option>
                                         <option>Last 5 year</option>
                                     </select>
-                                </div>#}
+                                </div>
                             </div>
 
                             <div class="widget-content">
-                                <canvas id="chart" width="100" height="45"></canvas>
+                                <canvas id="stands" width="100" height="45"></canvas>
                             </div>
                         </div>
                     </div>
@@ -226,4 +226,41 @@
         </div>
     </section>
     <!-- End Dashboard -->
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script>
+        let stands = document.querySelector("#stands")
+        let standGraph = new Chart(stands, {
+            type: "pie",
+            data: {
+                labels: {{ standNom|raw }},
+                datasets: [{
+                    label: "Répartition des stands",
+                    data: {{ standCount|raw }},
+                }]
+            }
+        })
+        let candidatures = document.querySelector("#candidatures")
+        let annGraph = new Chart(candidatures, {
+            type: "line",
+            data: {
+                labels: {{ dates|raw }},
+                datasets: [{
+                    label: "Nombre de candidatures",
+                    data: {{ candidaturesCount|raw }}
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        })
+    </script>
 {% endblock %}
